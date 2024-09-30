@@ -1,0 +1,15 @@
+spring:
+  security:
+    oauth2:
+      client:
+        provider:
+          keycloak:
+            issuer-uri:
+        registration:
+          keycloak:
+            provider: keycloak
+            client-id: "whatamovie-front"
+            client-secret: "8iymkANtytEjLWCr6nZ2DGo57ULCc5lp"
+            scope:
+              - openid
+              - email
