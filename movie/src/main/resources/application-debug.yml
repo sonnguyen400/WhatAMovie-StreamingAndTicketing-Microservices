@@ -1,0 +1,12 @@
+debug: true
+spring:
+  mvc:
+    log-request-details: true
+  codec:
+    log-request-details: true
+logging:
+  level:
+    org:
+      springframework:
+        security: TRACE
+
