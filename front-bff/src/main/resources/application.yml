@@ -13,3 +13,16 @@ spring:
             scope:
               - openid
               - email
+  threads:
+    virtual:
+      enabled: true
+  cloud:
+    gateway:
+      routes:
+        - id: api_service
+          uri: http://api.yas.local
+          predicates:
+            - Path=/api/**
+          filters:
+            - /api/(?<segment>.*), /$\{segment}
+

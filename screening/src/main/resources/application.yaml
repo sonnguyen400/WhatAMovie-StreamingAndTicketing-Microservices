@@ -1,6 +1,5 @@
 spring:
   application:
-    name: movie-service
+    name: screening-service
   config:
     import: optional:configserver:http://localhost:8082
-

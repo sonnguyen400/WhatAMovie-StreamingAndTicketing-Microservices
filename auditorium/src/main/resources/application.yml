@@ -1,2 +1,5 @@
-server:
-  port: 8085
+spring:
+  application:
+    name: auditorium-service
+  config:
+    import: optional:classpath:http://localhost:8081

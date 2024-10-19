@@ -9,7 +9,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>front-bff</artifactId>
+    <artifactId>config-service</artifactId>
 
     <properties>
         <maven.compiler.source>23</maven.compiler.source>
@@ -31,12 +31,8 @@
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-gateway</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.projectreactor</groupId>
-            <artifactId>reactor-test</artifactId>
-            <scope>test</scope>
+            <artifactId>spring-cloud-config-server</artifactId>
         </dependency>
     </dependencies>
+
 </project>
