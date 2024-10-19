@@ -34,4 +34,4 @@ build/
 
 
 
-/config-service/src/main/resources/configurations
+!**/config-service/src/main/resources/configurations/**.yaml
