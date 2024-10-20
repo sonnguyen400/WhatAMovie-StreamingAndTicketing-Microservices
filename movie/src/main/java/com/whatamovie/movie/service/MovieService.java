@@ -25,7 +25,7 @@ import java.util.function.Function;
 public class MovieService {
     MovieRepository movieRepository;
     public Movie findById(Long id){
-        return movieRepository.findById(id).orElseThrow(NotFoundException::new);
+        return movieRepository.findById(id).orElse(null);
     }
     public Page<Movie> findAll(Pageable pageable){
         return  movieRepository.findAll(pageable);

@@ -21,6 +21,7 @@ public class ScreeningService {
     }
     public Screening insert(ScreeningRequestVm screening) {
         if(movieService.findById(screening.movieId())!=null){
+            System.out.print(movieService.findById(screening.movieId()));
             return  screeningRepository.save(screening.toScreening());
         }
         System.out.print("Movie not found");

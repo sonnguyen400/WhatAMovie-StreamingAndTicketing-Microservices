@@ -16,7 +16,7 @@ import java.time.ZonedDateTime;
 @NoArgsConstructor
 public class Movie extends AbstractAuditEntity{
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
     private String director;

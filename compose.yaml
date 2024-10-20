@@ -15,3 +15,8 @@ services:
       - 9092:9092
     depends_on:
       - zookeeper
+  zipkin:
+    container_name: zipkin
+    image: openzipkin/zipkin
+    ports:
+      - "9411:9411"

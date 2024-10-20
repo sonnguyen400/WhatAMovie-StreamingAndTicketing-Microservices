@@ -10,6 +10,6 @@ import java.util.List;
 
 @Repository
 public interface ScreeningRepository extends JpaRepository<Screening,Long> {
-    @Query(value = "select q from screening q where q.movie_id= :movie_id",nativeQuery = true)
+    @Query(value = "select * from screening  where screening.movie_id= :movie_id",nativeQuery = true)
     List<Screening> findByMovieId(@Param("movie_id") Long movieId);
 }

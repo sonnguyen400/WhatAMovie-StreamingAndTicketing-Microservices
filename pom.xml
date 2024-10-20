@@ -31,6 +31,7 @@
         <module>discovery</module>
         <module>notification-service</module>
         <module>backoffice-bff</module>
+        <module>payment</module>
     </modules>
     <scm>
         <connection/>
@@ -100,7 +101,6 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.13.0</version>
                 <configuration>
                     <annotationProcessorPaths>
                         <path>

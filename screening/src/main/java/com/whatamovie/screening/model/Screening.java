@@ -14,6 +14,7 @@ import java.time.ZonedDateTime;
 @Table(name = "screening")
 public class Screening extends AbstractAuditEntity{
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private ZonedDateTime startTime;
     private boolean isCancel;
