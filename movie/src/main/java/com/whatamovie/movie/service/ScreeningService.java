@@ -8,11 +8,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 @FeignClient(
-        name = "screening-service",
-        url = "${application.config.screening-url}"
+        name = "screening-service"
 )
 public interface ScreeningService {
-    @GetMapping
+    @GetMapping("/api/v1/screening")
     List<Screening> findAllByMovieId(@RequestParam Long movieId);
 
 }

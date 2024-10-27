@@ -1,6 +1,6 @@
 package com.whatamovie.payment.zalopay.model;
 
-import com.nhs.individual.utils.Jsonable;
+import com.whatamovie.payment.utils.Jsonable;
 import lombok.AllArgsConstructor;
 
 @AllArgsConstructor

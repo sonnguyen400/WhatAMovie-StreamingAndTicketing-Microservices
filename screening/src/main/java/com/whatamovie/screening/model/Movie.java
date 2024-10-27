@@ -8,15 +8,12 @@ import lombok.*;
 
 import java.time.ZonedDateTime;
 
-@Entity
 @Getter
 @Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
 public class Movie extends AbstractAuditEntity{
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String title;
     private String director;

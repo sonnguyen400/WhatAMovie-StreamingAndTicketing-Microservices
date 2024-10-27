@@ -8,7 +8,6 @@ import lombok.*;
 
 import java.time.ZonedDateTime;
 
-@Entity
 @Getter
 @Setter
 @Builder

@@ -10,6 +10,11 @@ spring:
   jpa:
     hibernate:
       ddl-auto: create
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: "http://localhost:8080/realms/whatamovie-front/protocol/openid-connect/certs"
 application:
   config:
     payment:
