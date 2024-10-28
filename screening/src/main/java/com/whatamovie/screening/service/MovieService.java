@@ -11,5 +11,5 @@ import org.springframework.web.bind.annotation.RequestMapping;
 )
 public interface MovieService {
     @GetMapping("/api/v1/movie/{id}")
-    Movie findById(@PathVariable  int id);
+    Movie findById(@PathVariable  Long id);
 }

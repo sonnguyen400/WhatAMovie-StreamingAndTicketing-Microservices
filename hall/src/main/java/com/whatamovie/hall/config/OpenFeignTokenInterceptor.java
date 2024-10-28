@@ -1,4 +1,4 @@
-package com.whatamovie.movie.config;
+package com.whatamovie.hall.config;
 
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
@@ -12,7 +12,6 @@ public class OpenFeignTokenInterceptor implements RequestInterceptor {
     public void apply(RequestTemplate requestTemplate) {
         JwtAuthenticationToken auth=((JwtAuthenticationToken) SecurityContextHolder.getContext().getAuthentication());
         if(auth!=null&&auth.getToken()!=null) {
-            System.out.print(auth.getPrincipal());
             requestTemplate.header("Authorization","Bearer "+auth.getToken().getTokenValue());
         }
     }

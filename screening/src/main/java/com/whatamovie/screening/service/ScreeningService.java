@@ -1,5 +1,6 @@
 package com.whatamovie.screening.service;
 
+import com.whatamovie.common_lib.exception.ResourceNotFoundException;
 import com.whatamovie.screening.model.Screening;
 import com.whatamovie.screening.repository.ScreeningRepository;
 import com.whatamovie.screening.viewmodel.ScreeningRequestVm;
@@ -15,17 +16,16 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ScreeningService {
     ScreeningRepository screeningRepository;
+    AuditoriumService auditoriumService;
     MovieService movieService;
     public List<Screening> findAllByMovieId(Long movieId) {
         return  screeningRepository.findByMovieId(movieId);
     }
     public Screening insert(ScreeningRequestVm screening) {
-        if(movieService.findById(screening.movieId())!=null){
-            System.out.print(movieService.findById(screening.movieId()));
+        if(movieService.findById(screening.movie_id())!=null|| auditoriumService.findAllByIds(List.of(screening.auditorium_id())).isEmpty()){
             return  screeningRepository.save(screening.toScreening());
         }
-        System.out.print("Movie not found");
-        return null;
+        throw new ResourceNotFoundException("Movie not found");
 
     }
 }

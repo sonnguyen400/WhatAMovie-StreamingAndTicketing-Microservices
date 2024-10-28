@@ -25,13 +25,14 @@
         <module>movie</module>
         <module>screening</module>
         <module>auditorium</module>
-        <module>seat-reservered</module>
         <module>front-bff</module>
         <module>config-service</module>
         <module>discovery</module>
         <module>notification-service</module>
         <module>backoffice-bff</module>
         <module>payment</module>
+        <module>booking_ticket</module>
+        <module>hall</module>
     </modules>
     <scm>
         <connection/>

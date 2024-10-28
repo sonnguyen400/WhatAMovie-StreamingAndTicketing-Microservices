@@ -1,0 +1,21 @@
+server:
+  port: 8086
+spring:
+#  datasource:
+#    url: jdbc:postgresql://localhost:5432/cinema
+#    username: postgres
+#    password: 123456
+#    hikari:
+#      schema: lighten_cinema
+  data:
+    mongodb:
+      uri: mongodb+srv://hoangson:123456*#@default.fgo7m.mongodb.net/?retryWrites=true&w=majority&appName=default
+      database: default
+  jpa:
+    hibernate:
+      ddl-auto: create
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: "http://localhost:8080/realms/whatamovie-front/protocol/openid-connect/certs"

@@ -37,6 +37,10 @@ public class MovieController {
     public Movie save(@RequestBody MovieRequest movie) {
         return movieService.insert(movie);
     }
+    @PutMapping("/${id}")
+    public Movie update(@PathVariable Long id,@RequestBody MovieRequest movie) {
+        return movieService.updateById(id,movie);
+    }
     @GetMapping(value = "/{id}/screening")
     public List<Screening> findByMovieId(@PathVariable Long id) {
         return  screeningService.findAllByMovieId(id);

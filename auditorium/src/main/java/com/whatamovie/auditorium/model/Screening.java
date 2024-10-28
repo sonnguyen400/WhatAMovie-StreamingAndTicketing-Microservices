@@ -1,24 +1,21 @@
-package com.whatamovie.screening.model;
+package com.whatamovie.auditorium.model;
 
 import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.ZonedDateTime;
 
-@Entity
 @Getter
 @Setter
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "screening")
-public class Screening extends AbstractAuditEntity{
+public class Screening{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private ZonedDateTime startTime;
     private boolean isCancel;
     private String description;
-    private Long movie_id;
-    private Long auditorium_id;
+    private int movie_id;
 }

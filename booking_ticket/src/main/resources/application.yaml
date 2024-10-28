@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: bookingticket-service
+  config:
+    import: optional:classpath:http://localhost:8081

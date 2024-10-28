@@ -7,12 +7,13 @@ import java.time.Instant;
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 
-public record ScreeningRequestVm(int start, String description, int movieId) {
+public record ScreeningRequestVm(int start, String description, Long movie_id,Long auditorium_id ) {
     public Screening toScreening(){
         return Screening.builder()
                 .startTime(ZonedDateTime.ofInstant(Instant.ofEpochMilli(start),ZoneOffset.UTC))
                 .description(description)
-                .movie_id(movieId)
+                .movie_id(movie_id)
+                .auditorium_id(auditorium_id)
                 .build();
     }
 }
