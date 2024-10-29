@@ -10,44 +10,44 @@ spring:
         - id: hall-service
           uri: lb:http://HALL-SERVICE
           predicates:
-            - Path=/api/v1/hall/**
-          filter:
+            - Path=/api/v1/hall/**, /hall/**
+          filters:
             - TokenRelay=
         - id: auditorium-service
           uri: lb:http://AUDITORIUM-SERVICE
           predicates:
-            - Path=/api/v1/auditorium/**
-          filter:
+            - Path=/api/v1/auditorium/**, /auditorium/**
+          filters:
             - TokenRelay=
         - id: movie-service
           uri: lb:http://MOVIE-SERVICE
           predicates:
-            - Path=/api/v1/movie/**
-          filter:
+            - Path=/api/v1/movie/** ,/movie/**
+          filters:
             - TokenRelay=
         - id: screening-service
           uri: lb:http://SCREENING-SERVICE
           predicates:
-            - Path=/api/v1/screening/**
-          filter:
+            - Path=/api/v1/screening/** ,/screening/**
+          filters:
             - TokenRelay=
         - id: bookingticket-service
           uri: lb:http://BOOKINGTICKET-SERVICE
           predicates:
-            - Path=/api/v1/ticket/**
-          filter:
+            - Path=/api/v1/ticket/** ,/bookingticket/**
+          filters:
             - TokenRelay=
         - id: payment-service
           uri: lb:http://PAYMENT-SERVICE
           predicates:
-            - Path=/api/v1/payment/**
-          filter:
+            - Path=/api/v1/payment/** ,/payment/**
+          filters:
             - TokenRelay=
         - id: front
           uri: http://localhost:4200
           predicates:
             - Path=/front/**
-          filter:
+          filters:
             - TokenRelay=
   security:
     oauth2:
@@ -61,6 +61,3 @@ spring:
             client-id: client
             client-secret: soi3BsqvAuJohA6YoJIzjcjbjRhQHAtd
             scope: openid
-      resourceserver:
-        jwt:
-          jwk-set-uri: "http://localhost:8080/realms/whatamovie-front/protocol/openid-connect/certs"

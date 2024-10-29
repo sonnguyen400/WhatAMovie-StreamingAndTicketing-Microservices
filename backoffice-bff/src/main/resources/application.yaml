@@ -3,3 +3,7 @@ spring:
     name: backoffice-bff
   config:
     import: optional:configserver:http://localhost:8082
+springdoc:
+  group-configs:
+    movie-service:
+      paths-to-match: /api/v1/movie**

@@ -15,3 +15,6 @@ spring:
       resourceserver:
         jwt:
           jwk-set-uri: "http://localhost:8080/realms/whatamovie-front/protocol/openid-connect/certs"
+springdoc:
+  api-docs:
+    path: /auditorium/v3/api-docs

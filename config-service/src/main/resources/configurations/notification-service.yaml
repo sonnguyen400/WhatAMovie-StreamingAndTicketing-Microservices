@@ -8,3 +8,6 @@ spring:
 application:
   config:
     sceening-url: http://localhost:8888/api/v1/screening
+springdoc:
+  api-docs:
+    path: /notification/v3/api-docs

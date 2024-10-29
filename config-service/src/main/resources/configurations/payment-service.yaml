@@ -24,4 +24,7 @@ application:
         key2: Iyz2habzyr7AG8SgvoBCbKwKi3UzlLi3
         paymentEndpoint: https://sb-openapi.zalopay.vn/v2/create
         query_endpoint: https://sb-openapi.zalopay.vn/v2/query
+springdoc:
+  api-docs:
+    path: /payment/v3/api-docs
 
