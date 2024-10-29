@@ -1,4 +1,4 @@
-package com.whatamovie.common_lib.exception;
+package com.whatamovie.common_component.exception;
 
 public class ResourceNotFoundException extends RuntimeException{
     public ResourceNotFoundException(String message) {

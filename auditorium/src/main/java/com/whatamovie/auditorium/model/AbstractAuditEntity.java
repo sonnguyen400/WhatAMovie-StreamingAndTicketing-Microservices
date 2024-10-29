@@ -1,5 +1,6 @@
 package com.whatamovie.auditorium.model;
 
+import com.whatamovie.auditorium.listener.AuditEntityListener;
 import jakarta.persistence.EntityListeners;
 import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
@@ -15,7 +16,7 @@ import java.time.ZonedDateTime;
 @Getter
 @Setter
 @MappedSuperclass
-@EntityListeners(AuditingEntityListener.class)
+@EntityListeners(AuditEntityListener.class)
 public abstract class AbstractAuditEntity {
     @CreatedBy
     private String createBy;

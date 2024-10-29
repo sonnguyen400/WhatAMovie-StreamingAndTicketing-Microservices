@@ -1,6 +1,6 @@
 package com.whatamovie.screening.service;
 
-import com.whatamovie.common_lib.exception.ResourceNotFoundException;
+import com.whatamovie.common_component.exception.ResourceNotFoundException;
 import com.whatamovie.screening.model.Screening;
 import com.whatamovie.screening.repository.ScreeningRepository;
 import com.whatamovie.screening.viewmodel.ScreeningRequestVm;

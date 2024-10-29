@@ -64,9 +64,8 @@
         </dependency>
         <dependency>
             <groupId>com.whatamovie</groupId>
-            <artifactId>common_lib</artifactId>
+            <artifactId>common_component</artifactId>
             <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
         </dependency>
     </dependencies>
 </project>

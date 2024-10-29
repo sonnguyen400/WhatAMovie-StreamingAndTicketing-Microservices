@@ -21,6 +21,4 @@ public class Auditorium extends AbstractAuditEntity{
     @OneToMany(mappedBy = "auditorium")
     private List<Seat> seats;
     private Long hall_id;
-    @Transient
-    private Hall hall;
 }

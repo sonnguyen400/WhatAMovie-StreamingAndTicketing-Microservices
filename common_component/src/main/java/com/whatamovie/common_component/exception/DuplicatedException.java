@@ -1,4 +1,4 @@
-package com.whatamovie.common_lib.exception;
+package com.whatamovie.common_component.exception;
 
 public class DuplicatedException extends RuntimeException {
     public DuplicatedException(String message) {

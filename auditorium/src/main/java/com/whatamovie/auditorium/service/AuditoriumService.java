@@ -3,13 +3,13 @@ package com.whatamovie.auditorium.service;
 import com.whatamovie.auditorium.model.Auditorium;
 import com.whatamovie.auditorium.repository.AuditoriumRepository;
 import com.whatamovie.auditorium.vm.AuditoriumPostVm;
+import com.whatamovie.common_component.exception.ResourceNotFoundException;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -37,6 +37,9 @@ public class AuditoriumService {
     }
 
     public Auditorium updateById(long id, Auditorium auditorium) {
-        return auditoriumRepository.updateById(id, auditorium);
+        return auditoriumRepository.findById(id).map((auditorium_)->{
+            auditorium.setId(auditorium_.getId());
+            return auditoriumRepository.save(auditorium);
+        }).orElseThrow(() -> new ResourceNotFoundException(String.format("Auditorium with id{%s} not found", id)));
     }
 }

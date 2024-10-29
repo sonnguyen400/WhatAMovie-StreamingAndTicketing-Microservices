@@ -8,6 +8,5 @@ import java.util.List;
 
 @Repository
 public interface AuditoriumRepository extends JpaRepository<Auditorium, Long> {
-    Auditorium updateById(Long id, Auditorium auditorium);
     List<Auditorium> findByIdIn(List<Long> ids);
 }

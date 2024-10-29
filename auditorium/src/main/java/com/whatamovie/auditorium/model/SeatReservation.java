@@ -9,6 +9,7 @@ import java.math.BigDecimal;
 @Entity
 @Getter
 @Setter
+@Table(name = "seat_reservation")
 public class SeatReservation extends  AbstractAuditEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,6 +21,4 @@ public class SeatReservation extends  AbstractAuditEntity{
     private BigDecimal price;
 
     private Long screening_id;
-    @Transient
-    private Screening screening;
 }

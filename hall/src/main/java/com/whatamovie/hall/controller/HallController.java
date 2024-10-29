@@ -1,6 +1,6 @@
 package com.whatamovie.hall.controller;
 
-import com.whatamovie.common_lib.response.ResponsePage;
+import com.whatamovie.common_component.response.ResponsePage;
 import com.whatamovie.hall.model.Hall;
 import com.whatamovie.hall.service.HallService;
 import com.whatamovie.hall.viewmodel.HallPostVm;
@@ -10,7 +10,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;

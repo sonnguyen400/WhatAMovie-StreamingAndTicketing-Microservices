@@ -11,7 +11,6 @@ import java.util.List;
 
 @Repository
 public interface HallRepository extends JpaRepository<Hall, Long> {
-    Hall updateById(Long id,Hall hall);
     List<Hall> findAllByIdIn(List<Long> ids);
     @NonNull
     Page<Hall> findAll(@NonNull Pageable pageable);

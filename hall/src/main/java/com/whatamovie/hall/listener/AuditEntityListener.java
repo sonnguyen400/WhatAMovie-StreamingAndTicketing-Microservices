@@ -1,5 +1,6 @@
 package com.whatamovie.hall.listener;
 
+import com.whatamovie.hall.model.AbstractAuditEntity;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.PreUpdate;
 import org.springframework.beans.factory.ObjectFactory;

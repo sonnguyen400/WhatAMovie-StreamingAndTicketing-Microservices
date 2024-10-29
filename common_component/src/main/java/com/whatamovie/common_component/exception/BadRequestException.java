@@ -1,4 +1,4 @@
-package com.whatamovie.common_lib.exception;
+package com.whatamovie.common_component.exception;
 
 public class BadRequestException extends RuntimeException {
     public BadRequestException(String message) {

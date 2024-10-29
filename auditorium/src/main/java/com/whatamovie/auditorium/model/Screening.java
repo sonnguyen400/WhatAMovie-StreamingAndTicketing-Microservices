@@ -11,8 +11,6 @@ import java.time.ZonedDateTime;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Screening{
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private ZonedDateTime startTime;
     private boolean isCancel;

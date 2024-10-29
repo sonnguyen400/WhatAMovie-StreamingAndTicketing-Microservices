@@ -1,4 +1,4 @@
-package com.whatamovie.common_lib.response;
+package com.whatamovie.common_component.response;
 
 import lombok.Builder;
 import lombok.Getter;

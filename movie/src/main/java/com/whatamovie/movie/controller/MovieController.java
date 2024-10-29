@@ -37,7 +37,7 @@ public class MovieController {
     public Movie save(@RequestBody MovieRequest movie) {
         return movieService.insert(movie);
     }
-    @PutMapping("/${id}")
+    @PutMapping("/{id}")
     public Movie update(@PathVariable Long id,@RequestBody MovieRequest movie) {
         return movieService.updateById(id,movie);
     }

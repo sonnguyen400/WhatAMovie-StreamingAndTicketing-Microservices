@@ -1,7 +1,7 @@
 package com.whatamovie.hall.service;
 
-import com.whatamovie.common_lib.exception.ResourceNotFoundException;
-import com.whatamovie.common_lib.response.ResponsePage;
+import com.whatamovie.common_component.exception.ResourceNotFoundException;
+import com.whatamovie.common_component.response.ResponsePage;
 import com.whatamovie.hall.model.Hall;
 import com.whatamovie.hall.repository.HallRepository;
 import com.whatamovie.hall.viewmodel.HallPostVm;
@@ -43,6 +43,6 @@ public class HallService {
         hallRepository.deleteById(id);
     }
     public Hall updateById(long id,Hall hall){
-        return  hallRepository.updateById(id,hall);
+        return  hallRepository.save(hall);
     }
 }
