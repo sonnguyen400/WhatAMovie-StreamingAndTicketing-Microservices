@@ -1,28 +1,6 @@
 spring:
-  security:
-    oauth2:
-      client:
-        provider:
-          keycloak:
-            issuer-uri:
-        registration:
-          keycloak:
-            provider: keycloak
-            client-id: "whatamovie-front"
-            client-secret: "8iymkANtytEjLWCr6nZ2DGo57ULCc5lp"
-            scope:
-              - openid
-              - email
-  threads:
-    virtual:
-      enabled: true
-  cloud:
-    gateway:
-      routes:
-        - id: api_service
-          uri: http://api.yas.local
-          predicates:
-            - Path=/api/**
-          filters:
-            - /api/(?<segment>.*), /$\{segment}
+  application:
+    name: bookingoffice-service
+  config:
+    import: optional:configserver:http://localhost:8082
 
