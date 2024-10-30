@@ -9,6 +9,6 @@ import org.springframework.web.bind.annotation.PathVariable;
         name = "hall-service"
 )
 public interface HallService {
-    @GetMapping("/{id}")
+    @GetMapping("/api/v1/hall/{id}")
     Hall findHallById(@PathVariable long id);
 }

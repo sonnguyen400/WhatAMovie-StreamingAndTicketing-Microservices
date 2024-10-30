@@ -33,4 +33,8 @@ public class ScreeningController {
     public Screening save(@RequestBody ScreeningRequestVm screening){
         return screeningService.insert(screening);
     }
+    @DeleteMapping("/{id}")
+    public void deleteById(@PathVariable Long id){
+        screeningService.deleteById(id);
+    }
 }

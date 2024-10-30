@@ -10,12 +10,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 @FeignClient(
-        name = "auditorium-service",
-        fallback = AuditoriumFallbackHandler.class
+        name = "auditorium-service"
 )
 public interface AuditoriumService {
-    @GetMapping
+    @GetMapping("/api/v1/auditorium")
     List<Auditorium> findAllByIds(@RequestParam List<Long> ids);
-    @GetMapping("/{id}")
+    @GetMapping("/api/v1/auditorium/{id}")
     Auditorium findById(@PathVariable Long id);
 }

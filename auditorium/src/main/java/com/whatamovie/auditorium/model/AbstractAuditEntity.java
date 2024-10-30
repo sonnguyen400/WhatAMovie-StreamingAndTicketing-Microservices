@@ -11,6 +11,8 @@ import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 
 @Getter
@@ -23,7 +25,7 @@ public abstract class AbstractAuditEntity {
     @LastModifiedBy
     private String lastModifiedBy;
     @CreatedDate
-    private ZonedDateTime createdDate;
+    private LocalDateTime createdDate;
     @LastModifiedDate
-    private ZonedDateTime lastModifiedDate;
+    private LocalDateTime lastModifiedDate;
 }

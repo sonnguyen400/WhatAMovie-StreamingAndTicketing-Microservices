@@ -13,7 +13,7 @@ spring:
       database: default
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
   security:
     oauth2:
       resourceserver:
