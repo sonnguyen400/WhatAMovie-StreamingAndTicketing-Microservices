@@ -1,5 +1,8 @@
 package com.whatamovie.auditorium.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -18,7 +21,8 @@ public class Auditorium extends AbstractAuditEntity{
     private String name;
     private String description;
     private String scheme;
-    @OneToMany(mappedBy = "auditorium")
+    @OneToMany(mappedBy = "auditorium",cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("auditorium")
     private List<Seat> seats;
     private Long hall_id;
 }

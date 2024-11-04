@@ -19,7 +19,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class ScreeningController {
     ScreeningService screeningService;
-    MovieService movieService;
 
     @GetMapping
     public List<Screening> findAllByMovieId(
@@ -28,6 +27,15 @@ public class ScreeningController {
             @RequestParam(required = false) Integer interval
     ){
         return screeningService.findAllByMovieId(movieId);
+    }
+    @GetMapping("/{id}")
+    public Screening findById(@PathVariable Long id){
+        return screeningService.findById(id);
+    }
+
+    @GetMapping("/ids")
+    public List<Screening> findAllIdIns(@RequestParam List<Long> ids){
+        return screeningService.findAllIdIn(ids);
     }
     @PostMapping
     public Screening save(@RequestBody ScreeningRequestVm screening){

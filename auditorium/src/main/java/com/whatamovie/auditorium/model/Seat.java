@@ -1,5 +1,7 @@
 package com.whatamovie.auditorium.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.whatamovie.auditorium.constant.SeatStatus;
 import com.whatamovie.auditorium.constant.SeatType;
 import jakarta.persistence.*;
 import lombok.*;
@@ -19,12 +21,13 @@ public class Seat extends AbstractAuditEntity{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String seatNo;
-    private String rowNo;
-    private SeatType seatType;
-    @ManyToOne
+    private Integer rowNo;
+    private SeatType type;
+    private SeatStatus status;
+    @ManyToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "auditorium_id")
     private Auditorium auditorium;
 
-    @OneToMany(mappedBy = "seat")
-    private List<SeatReservation> seatReservation;
+    @Column(name = "auditorium_id",insertable = false, updatable = false)
+    private Long auditoriumId;
 }

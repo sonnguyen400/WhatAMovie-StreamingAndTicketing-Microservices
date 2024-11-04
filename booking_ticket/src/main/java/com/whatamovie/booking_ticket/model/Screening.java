@@ -1,4 +1,4 @@
-package com.whatamovie.auditorium.model;
+package com.whatamovie.booking_ticket.model;
 
 import jakarta.persistence.*;
 import lombok.*;
@@ -10,11 +10,16 @@ import java.time.ZonedDateTime;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class Screening{
     private Long id;
     private ZonedDateTime startTime;
     private boolean isCancel;
     private String description;
+    private Long movie_id;
     private Long auditorium_id;
-    private int movie_id;
+    private Integer leisure_time_after;
+
 }
+
+
