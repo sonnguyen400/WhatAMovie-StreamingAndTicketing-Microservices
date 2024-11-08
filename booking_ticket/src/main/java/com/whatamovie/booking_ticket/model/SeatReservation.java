@@ -1,20 +1,14 @@
 package com.whatamovie.booking_ticket.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.whatamovie.booking_ticket.constant.SeatType;
-import jakarta.persistence.*;
-import lombok.*;
-import org.springframework.data.mongodb.core.mapping.Document;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
 
 import java.math.BigDecimal;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "seat_reservation")
-public class SeatReservation extends  AbstractAuditEntity{
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class SeatReservation{
     private Long id;
     private BigDecimal price;
     private Long auditorium_id;

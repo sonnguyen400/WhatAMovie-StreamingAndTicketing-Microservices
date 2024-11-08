@@ -13,4 +13,6 @@ public interface SeatReservationRepository extends JpaRepository<SeatReservation
     List<SeatReservation> findAllByScreeningAndAuditorium(long screeningId, long auditoriumId);
     @Query(value = "select * from seat_reservation where seat_id=?3 and screening_id=?1 (select auditorium_id from seat where seat.id=seat_reservation.seat_id)=?2",nativeQuery = true)
     List<SeatReservation> findAllByScreeningAndAuditoriumAndSeat(long screeningId, long auditoriumId,long seat_id);
+    @Query(value = "select s from seat_reservation s where s.screening_id=?1")
+    List<SeatReservation> findAllByScreeningId(Long screeningId);
 }

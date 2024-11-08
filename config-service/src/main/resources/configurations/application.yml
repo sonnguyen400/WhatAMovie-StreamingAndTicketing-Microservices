@@ -8,4 +8,7 @@ spring:
   cloud:
     config:
       override.system-properties: false
+  devtools:
+    restart:
+      enabled: false
 debug: true

@@ -17,13 +17,14 @@ import java.util.List;
 @FieldDefaults(makeFinal = true,level = AccessLevel.PRIVATE)
 public class SeatReservationController {
     SeatReservationService seatReservationService;
+
     @GetMapping("/{id}")
     public SeatReservation getSeatReservation(@PathVariable("id") Long id) {
         return seatReservationService.findById(id);
     }
     @GetMapping
-    public List<SeatReservation> findAllByAuditoriumAnScreening(@RequestParam Long auditorium_id,@RequestParam Long screening_id) {
-        return seatReservationService.findAllByScreeningAndAuditorium(screening_id, auditorium_id);
+    public List<SeatReservation> findAllByScreening(@RequestParam Long screening_id) {
+        return seatReservationService.findByScreeningId(screening_id);
     }
     @PostMapping
     public List<SeatReservation> createSeatReservationsForScreening(

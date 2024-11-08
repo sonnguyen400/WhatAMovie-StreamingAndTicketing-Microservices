@@ -30,6 +30,9 @@ public class SeatReservationService {
     public List<SeatReservation> findAllByScreeningAndAuditorium(Long screeningId,Long auditoriumId) {
         return seatReservationRepository.findAllByScreeningAndAuditorium(screeningId,auditoriumId);
     }
+    public List<SeatReservation> findByScreeningId(Long screening_id) {
+        return seatReservationRepository.findAllByScreeningId(screening_id);
+    }
 
     public List<SeatReservation> createSeatReservationsForScreening(ListSeatReservationPostVm listSeatReservationPostVm) {
         List<Long> seatsId=listSeatReservationPostVm.seats().stream().map(SeatReservationPostVm::seat_id).toList();
