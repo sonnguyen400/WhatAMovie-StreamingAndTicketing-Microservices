@@ -1,6 +1,7 @@
 package com.whatamovie.booking_ticket.controller;
 
-import com.whatamovie.booking_ticket.constant.TickingSocketMessageState;
+import com.whatamovie.booking_ticket.constant.SeatOrderStatus;
+import com.whatamovie.booking_ticket.model.SeatOrder;
 import com.whatamovie.booking_ticket.model.TickingSocketMessage;
 import com.whatamovie.booking_ticket.service.SeatOrderedService;
 import com.whatamovie.booking_ticket.vm.SeatReservationMessage;
@@ -26,20 +27,21 @@ public class TicketBookingController {
 
     @MessageMapping("/booking.register/{screening_id}")
     @SendTo("/booking/public/{screening_id}")
-    public TickingSocketMessage registerSeat(SeatReservationMessage seatReservationMessage, @DestinationVariable Long screening_id, SimpMessageHeaderAccessor headerAccessor) {
-        return TickingSocketMessage.builder()
-                .seat_reservation_id(seatReservationMessage.getSeat_reservation_id())
-                .state(TickingSocketMessageState.REGISTER)
-                .user(headerAccessor.getUser())
-                .screening_id(screening_id)
-                .build();
+    public SeatOrder registerSeat(@Payload SeatReservationMessage seatReservationMessage, @DestinationVariable Long screening_id, SimpMessageHeaderAccessor headerAccessor) {
+       log.debug("message {}", seatReservationMessage);
+        return seatOrderedService.register(SeatOrder.builder()
+                    .user(headerAccessor.getUser())
+                    .screening_id(screening_id)
+                    .status(SeatOrderStatus.BUSY)
+                    .seat_reservation_id(seatReservationMessage.seat_reservation_id())
+                    .build());
     }
     @MessageMapping("/booking.cancel/{screening_id}")
     @SendTo("/booking/public/{screening_id}")
-    public TickingSocketMessage cancelSeatOrder(@DestinationVariable Long screening_id, @Payload SeatReservationMessage seatReservationCancelMessage, SimpMessageHeaderAccessor headerAccessor) {
+    public TickingSocketMessage cancelSeatOrder(@Payload SeatReservationMessage seatReservationCancelMessage,@DestinationVariable Long screening_id,  SimpMessageHeaderAccessor headerAccessor) {
         return TickingSocketMessage.builder()
-                .seat_reservation_id(seatReservationCancelMessage.getSeat_reservation_id())
-                .state(TickingSocketMessageState.CANCEL)
+                .seat_reservation_id(seatReservationCancelMessage.seat_reservation_id())
+                .status(SeatOrderStatus.FREE)
                 .screening_id(screening_id)
                 .user(headerAccessor.getUser())
                 .build();

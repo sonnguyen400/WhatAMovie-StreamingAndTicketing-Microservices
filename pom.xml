@@ -33,6 +33,7 @@
         <module>booking_ticket</module>
         <module>hall</module>
         <module>auditorium</module>
+        <module>common_component</module>
     </modules>
     <scm>
         <connection/>

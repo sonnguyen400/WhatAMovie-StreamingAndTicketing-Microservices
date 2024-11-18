@@ -1,0 +1,20 @@
+server:
+  port: 8085
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/cinema
+    username: postgres
+    password: 123456
+    hikari:
+      schema: lighten_cinema
+  jpa:
+    hibernate:
+      ddl-auto: update
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: "http://localhost:8080/realms/whatamovie-front/protocol/openid-connect/certs"
+springdoc:
+  api-docs:
+    path: /auditorium/v3/api-docs

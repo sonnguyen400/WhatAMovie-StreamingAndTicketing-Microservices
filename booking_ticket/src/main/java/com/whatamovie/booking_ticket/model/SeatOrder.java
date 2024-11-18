@@ -7,17 +7,17 @@ import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document
+@Document(collection = "seat_order")
 @Getter
 @Setter
 @Builder
 public class SeatOrder extends  AbstractAuditEntity{
     @Id
-    Long id;
-    String username;
+    String id;
+    Object user;
     Long seat_reservation_id;
     Long screening_id;
     Seat seat;
     Screening screening;
-    SeatOrderStatus seatOrderStatus;
+    SeatOrderStatus status;
 }

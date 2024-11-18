@@ -5,14 +5,16 @@ import lombok.Setter;
 import org.springframework.security.oauth2.jwt.Jwt;
 
 import java.security.Principal;
-import java.util.List;
-import java.util.Map;
 @Getter
 @Setter
 public class TokenAuthenticationSocketPrincipal implements Principal {
     private String username;
+
     public TokenAuthenticationSocketPrincipal(Jwt jwt) {
         this.username=jwt.getSubject();
+    }
+
+    public TokenAuthenticationSocketPrincipal() {
     }
 
     @Override

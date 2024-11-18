@@ -1,0 +1,30 @@
+server:
+  port: 8089
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/cinema
+    username: postgres
+    password: 123456
+    hikari:
+      schema: lighten_cinema
+  jpa:
+    hibernate:
+      ddl-auto: update
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: "http://localhost:8080/realms/whatamovie-front/protocol/openid-connect/certs"
+application:
+  config:
+    payment:
+      zalo:
+        appid: 2553
+        key1: PcY4iZIKFCIdgZvA6ueMcMHHUbRLYjPL
+        key2: Iyz2habzyr7AG8SgvoBCbKwKi3UzlLi3
+        paymentEndpoint: https://sb-openapi.zalopay.vn/v2/create
+        query_endpoint: https://sb-openapi.zalopay.vn/v2/query
+springdoc:
+  api-docs:
+    path: /payment/v3/api-docs
+

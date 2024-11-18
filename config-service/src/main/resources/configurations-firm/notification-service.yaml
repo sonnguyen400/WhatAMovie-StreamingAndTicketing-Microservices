@@ -1,0 +1,13 @@
+server:
+  port: 8088
+spring:
+  data:
+    mongodb:
+      uri: mongodb+srv://hoangson:123456*#@default.fgo7m.mongodb.net/?retryWrites=true&w=majority&appName=default
+      database: default
+application:
+  config:
+    sceening-url: http://localhost:8888/api/v1/screening
+springdoc:
+  api-docs:
+    path: /notification/v3/api-docs

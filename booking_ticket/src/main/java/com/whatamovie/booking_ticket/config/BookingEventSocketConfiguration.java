@@ -1,27 +1,23 @@
 package com.whatamovie.booking_ticket.config;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.nimbusds.jose.shaded.gson.Gson;
 import com.whatamovie.booking_ticket.model.TokenAuthenticationSocketPrincipal;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.cloud.function.context.config.JsonMessageConverter;
-import org.springframework.cloud.function.json.GsonMapper;
-import org.springframework.cloud.function.json.JacksonMapper;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.lang.NonNull;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageChannel;
-import org.springframework.messaging.converter.MessageConverter;
 import org.springframework.messaging.simp.SimpMessageHeaderAccessor;
 import org.springframework.messaging.simp.SimpMessageType;
 import org.springframework.messaging.simp.config.ChannelRegistration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;
 import org.springframework.messaging.support.ChannelInterceptor;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.oauth2.jwt.Jwt;
 import org.springframework.security.oauth2.jwt.JwtDecoder;
+import org.springframework.security.oauth2.server.resource.authentication.JwtAuthenticationToken;
 import org.springframework.util.MimeType;
 import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker;
 import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
@@ -35,7 +31,6 @@ import java.util.List;
 @RequiredArgsConstructor
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class BookingEventSocketConfiguration implements WebSocketMessageBrokerConfigurer {
-    SocketAuthenticationInterceptor socketAuthenticationInterceptor;
     JwtDecoder jwtDecoder;
 
     @Override
@@ -55,7 +50,6 @@ public class BookingEventSocketConfiguration implements WebSocketMessageBrokerCo
     @Override
     public void configureClientInboundChannel(ChannelRegistration registration) {
         registration.interceptors(new ChannelInterceptor() {
-
             @Override
             public Message<?> preSend(Message<?> message, MessageChannel channel) {
                 SimpMessageHeaderAccessor simpMessageHeaderAccessor = SimpMessageHeaderAccessor.getAccessor(message,SimpMessageHeaderAccessor.class);
@@ -66,6 +60,8 @@ public class BookingEventSocketConfiguration implements WebSocketMessageBrokerCo
                         if (token.startsWith("Bearer ")) {
                             token = token.substring(7);
                             Jwt authenticationToken = jwtDecoder.decode(token);
+                            JwtAuthenticationToken jwtAuthenticationToken=new JwtAuthenticationToken(authenticationToken);
+                            SecurityContextHolder.getContext().setAuthentication(jwtAuthenticationToken);
                             simpMessageHeaderAccessor.setContentType(MimeType.valueOf("application/json"));
                             simpMessageHeaderAccessor.setUser(new TokenAuthenticationSocketPrincipal(authenticationToken));
                             return message;

@@ -8,7 +8,6 @@ public record SeatReservationPostVm(BigDecimal price,Long screening_id,Long seat
     SeatReservation toEntity(){
         return SeatReservation.builder()
                 .price(price)
-
                 .build();
     }
 }

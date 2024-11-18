@@ -1,6 +1,6 @@
 package com.whatamovie.booking_ticket.model;
 
-import com.whatamovie.booking_ticket.constant.TickingSocketMessageState;
+import com.whatamovie.booking_ticket.constant.SeatOrderStatus;
 import lombok.*;
 
 @Builder
@@ -9,9 +9,8 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class TickingSocketMessage {
-    TickingSocketMessageState state;
+    SeatOrderStatus status;
     Long seat_reservation_id;
     Long screening_id;
     Object user;
-
 }
