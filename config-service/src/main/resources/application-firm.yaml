@@ -1,9 +1,0 @@
-spring:
-  config:
-    activate:
-      on-profile: firm
-  cloud:
-    config:
-      server:
-        native:
-          search-locations: classpath:/configurations-firm

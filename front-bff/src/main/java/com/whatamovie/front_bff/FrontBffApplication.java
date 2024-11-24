@@ -1,11 +1,11 @@
-package com.whatamovie.booking_office;
+package com.whatamovie.front_bff;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BookingOfficeApplication {
+public class FrontBffApplication {
     public static void main(String[] args) {
-        SpringApplication.run(BookingOfficeApplication.class, args);
+        SpringApplication.run(FrontBffApplication.class, args);
     }
 }

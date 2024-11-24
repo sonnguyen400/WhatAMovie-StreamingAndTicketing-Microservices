@@ -1,5 +1,7 @@
 package com.whatamovie.booking_ticket.listener;
 
+import com.whatamovie.booking_ticket.model.TokenAuthenticationSocketPrincipal;
+import com.whatamovie.booking_ticket.service.SeatOrderedService;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
@@ -16,15 +18,13 @@ import org.springframework.web.socket.messaging.SessionDisconnectEvent;
 @FieldDefaults(level = AccessLevel.PRIVATE, makeFinal = true)
 public class BookingSocketEventListener {
     SimpMessagingTemplate messagingTemplate;
-
+    SeatOrderedService seatOrderedService;
     @EventListener
     public void handleSocketDisconnect(SessionDisconnectEvent event) {
         StompHeaderAccessor headerAccessor = StompHeaderAccessor.wrap(event.getMessage());
-        String username = (String) headerAccessor.getSessionAttributes().get("username");
-        if(username != null) {
-            log.info(" disconnected username is " + username);
-            messagingTemplate.convertAndSend("/booking/public", username);
+        TokenAuthenticationSocketPrincipal user = (TokenAuthenticationSocketPrincipal) headerAccessor.getUser();
+        if(user != null) {
+            messagingTemplate.convertAndSend("/booking/public", seatOrderedService.cancelSeatOrderBySession(headerAccessor.getSessionId()));
         }
     }
-
 }

@@ -12,5 +12,7 @@ public class TickingSocketMessage {
     SeatOrderStatus status;
     Long seat_reservation_id;
     Long screening_id;
-    Object user;
+    Long status_code;
+    String status_message;
+    String username;
 }

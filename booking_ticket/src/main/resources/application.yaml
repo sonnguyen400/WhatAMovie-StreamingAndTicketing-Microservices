@@ -6,3 +6,4 @@ spring:
 logging:
   level:
     org.springframework.security: trace
+debug: true

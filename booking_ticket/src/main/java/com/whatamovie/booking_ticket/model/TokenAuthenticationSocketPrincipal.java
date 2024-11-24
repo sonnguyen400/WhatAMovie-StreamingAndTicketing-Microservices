@@ -8,10 +8,10 @@ import java.security.Principal;
 @Getter
 @Setter
 public class TokenAuthenticationSocketPrincipal implements Principal {
-    private String username;
+    private String name;
 
     public TokenAuthenticationSocketPrincipal(Jwt jwt) {
-        this.username=jwt.getSubject();
+        this.name=jwt.getSubject();
     }
 
     public TokenAuthenticationSocketPrincipal() {
@@ -34,6 +34,6 @@ public class TokenAuthenticationSocketPrincipal implements Principal {
 
     @Override
     public String getName() {
-        return username;
+        return name;
     }
 }
