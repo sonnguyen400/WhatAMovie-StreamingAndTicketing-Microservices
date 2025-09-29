@@ -1,0 +1,17 @@
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8081/eureka
+spring:
+  cloud:
+    config:
+      override.system-properties: false
+  devtools:
+    restart:
+      enabled: false
+debug: true
+logging:
+  level:
+    org.springframework.security: TRACE

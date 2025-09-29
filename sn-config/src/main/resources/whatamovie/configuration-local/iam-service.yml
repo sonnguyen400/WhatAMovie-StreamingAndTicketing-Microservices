@@ -1,0 +1,18 @@
+server:
+  port: 8085
+application:
+  security:
+    public-key: /keys/public.pem
+    private-key: /keys/private.key
+    access-token-expire-time: 30000
+    refresh-token-expire-time: 80000
+    jwt-issuer: son.nguyenhoang
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://ep-super-snow-a1x5lauu-pooler.ap-southeast-1.aws.neon.tech/neondb?sslmode=require&channelBinding=require&currentSchema=iam
+    username: neondb_owner
+    password: npg_GcU2yl7Cmpsb
+  jpa:
+    hibernate:
+      ddl-auto: update

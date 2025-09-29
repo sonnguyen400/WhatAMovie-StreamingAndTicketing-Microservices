@@ -1,0 +1,11 @@
+server:
+  port: 8086
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://ep-super-snow-a1x5lauu-pooler.ap-southeast-1.aws.neon.tech/neondb?sslmode=require&channelBinding=require&currentSchema=notification
+    username: neondb_owner
+    password: npg_GcU2yl7Cmpsb
+  jpa:
+    hibernate:
+      ddl-auto: update
