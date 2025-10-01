@@ -35,12 +35,6 @@ public class JWTProvider {
         return new JWTBuilder(jweEncrypter);
     }
 
-    public interface DefaultClaim {
-        String USERID = "usrid";
-        String EMAIL = "email";
-        String USERNAME = "usrname";
-    }
-
     public static class JWTBuilder {
         private String issuer;
         private String audience;
@@ -123,7 +117,7 @@ public class JWTProvider {
         }
 
         public String build() throws JOSEException {
-            JWSHeader jwsHeader = new JWSHeader.Builder(this.algorithm)
+            JWSHeader jwsHeader = new JWSHeader.Builder(DataUtils.getOrDefault(this.algorithm,JWSAlgorithm.RS256))
                     .type(JOSEObjectType.JWT)
                     .build();
             JWTClaimsSet.Builder payload = new JWTClaimsSet.Builder()

@@ -1,8 +1,11 @@
 package com.sonnguyen.common.model.application.security;
 
+import lombok.experimental.SuperBuilder;
+
 import java.util.List;
 import java.util.UUID;
 
+@SuperBuilder
 public class UserAuthority {
     private UUID userId;
     private String userName;

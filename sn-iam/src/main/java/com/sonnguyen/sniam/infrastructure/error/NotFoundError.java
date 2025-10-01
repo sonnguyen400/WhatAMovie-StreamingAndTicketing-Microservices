@@ -6,6 +6,7 @@ import com.sonnguyen.common.model.infrastructure.exception.Error;
 public enum NotFoundError implements Error {
     USER_NOT_FOUND("4000004", "User not found"),
     USER_NAME_NOT_FOUND("4000005", "Username, email or phone number not found"),
+    CLIENT_NOT_FOUND("4000006", "Client not Found")
     ;
     private final String message;
     private final String code;

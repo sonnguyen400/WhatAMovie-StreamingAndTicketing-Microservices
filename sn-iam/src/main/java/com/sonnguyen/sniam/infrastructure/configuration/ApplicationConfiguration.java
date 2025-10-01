@@ -22,8 +22,9 @@ public class ApplicationConfiguration {
         @DurationUnit(ChronoUnit.SECONDS)
         private Duration accessTokenExpireTime;
         @DurationUnit(ChronoUnit.SECONDS)
-        private String refreshTokenExpireTime;
+        private Duration refreshTokenExpireTime;
         private String jwtIssuer;
-
+        @DurationUnit(ChronoUnit.SECONDS)
+        private Duration clientAccessTokenExpireTime;
     }
 }

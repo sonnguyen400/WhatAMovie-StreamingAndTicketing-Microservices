@@ -1,1 +1,3 @@
 com.sonnguyen.common.client.impl.IAMClientFallbackFactory
+com.sonnguyen.common.client.FeignClientConfig
+com.sonnguyen.common.client.ClientTokenProvider

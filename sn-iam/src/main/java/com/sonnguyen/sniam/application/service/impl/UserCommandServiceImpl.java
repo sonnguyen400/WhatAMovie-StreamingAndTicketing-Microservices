@@ -3,6 +3,7 @@ package com.sonnguyen.sniam.application.service.impl;
 import com.nimbusds.jose.JOSEException;
 import com.nimbusds.jose.JWSAlgorithm;
 import com.sonnguyen.common.model.application.security.UserAuthority;
+import com.sonnguyen.common.model.infrastructure.constant.DefaultClaim;
 import com.sonnguyen.common.model.infrastructure.exception.ResponseException;
 import com.sonnguyen.common.util.StrUtils;
 import com.sonnguyen.common.web.security.UserAuthentication;
@@ -66,9 +67,9 @@ public class UserCommandServiceImpl implements UserCommandService {
         try {
             accessToken = this.jwtProvider.builder()
                     .algorithm(JWSAlgorithm.RS256)
-                    .addClaims(JWTProvider.DefaultClaim.USERID, userAuthority.getUserId())
-                    .addClaims(JWTProvider.DefaultClaim.EMAIL, userAuthority.getEmail())
-                    .addClaims(JWTProvider.DefaultClaim.USERNAME, userAuthority.getUserName())
+                    .addClaims(DefaultClaim.USERID, userAuthority.getUserId())
+                    .addClaims(DefaultClaim.EMAIL, userAuthority.getEmail())
+                    .addClaims(DefaultClaim.USERNAME, userAuthority.getUserName())
                     .expirationAfter(this.applicationConfiguration.getSecurity().getAccessTokenExpireTime())
                     .issuer(this.applicationConfiguration.getSecurity().getJwtIssuer())
                     .subject(userAuthority.getUserId().toString())

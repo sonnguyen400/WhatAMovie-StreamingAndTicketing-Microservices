@@ -9,7 +9,9 @@ public enum BadRequestError implements Error {
     UNVERIFIED_USER("4000004", "Unverified user"),
     CONSECUTIVE_LOGIN_FAIL("4000005", "Consecutive login failures"),
     USER_DUPLICATED("4000005","Email, Username or phone number has already existed" ),
-    INVALID_AUTHENTICATION("4000005","Invalid authentication" );
+    INVALID_AUTHENTICATION("4000005","Invalid authentication" ),
+    INVALID_CLIENT_ID("4000006", "Invalid client Id"),
+    CLIENT_NOT_AUTHENTICATED("40000007","Client Not Authenticated" );
 
     private final String message;
     private final String code;
