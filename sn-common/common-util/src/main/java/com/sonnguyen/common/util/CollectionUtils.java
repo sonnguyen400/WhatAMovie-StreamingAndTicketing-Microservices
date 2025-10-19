@@ -1,7 +1,10 @@
 package com.sonnguyen.common.util;
 
 
+import org.springframework.data.util.StreamUtils;
+
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 public class CollectionUtils {
     public static Boolean isNotEmpty(Collection<?> Collection) {
@@ -23,5 +26,16 @@ public class CollectionUtils {
             if (item != null) return false;
         }
         return true;
+    }
+
+    public static <E> Collection<E> toCollection(Iterable<E> elements) {
+        Collection var10000;
+        if (elements instanceof Collection<E> collection) {
+            var10000 = collection;
+        } else {
+            var10000 = (Collection) StreamUtils.createStreamFromIterator(elements.iterator()).collect(Collectors.toList());
+        }
+
+        return var10000;
     }
 }

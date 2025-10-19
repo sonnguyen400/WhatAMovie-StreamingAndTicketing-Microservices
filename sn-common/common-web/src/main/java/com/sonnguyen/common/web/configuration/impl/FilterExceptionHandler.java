@@ -10,6 +10,6 @@ import org.springframework.stereotype.Component;
 public class FilterExceptionHandler {
 
     @AfterThrowing(value = "execution(* com.sonnguyen.common.web.configuration.impl.JwtTokenProviderImpl*.verify(..))", throwing = "exception")
-    public void catchException(JoinPoint joinPoint, Exception exception){
+    public void catchException(JoinPoint joinPoint, Exception exception) {
     }
 }

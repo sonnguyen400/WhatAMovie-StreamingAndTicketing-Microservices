@@ -1,0 +1,150 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet author="sonnguyen (generated)" id="1759167765202-1">
+        <createTable tableName="client">
+            <column name="id" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="clientPK"/>
+            </column>
+            <column name="created_at" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="created_by" type="VARCHAR(255)"/>
+            <column name="last_modified_at" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="last_modified_by" type="VARCHAR(255)"/>
+            <column name="client_id" type="VARCHAR(255)"/>
+            <column name="client_secret" type="VARCHAR(255)"/>
+            <column name="deleted" type="BOOLEAN"/>
+            <column name="enabled" type="BOOLEAN"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="provider" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sonnguyen (generated)" id="1759167765202-2">
+        <createTable tableName="permission">
+            <column name="id" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="permissionPK"/>
+            </column>
+            <column name="created_at" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="created_by" type="VARCHAR(255)"/>
+            <column name="last_modified_at" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="last_modified_by" type="VARCHAR(255)"/>
+            <column name="code" type="VARCHAR(50)"/>
+            <column name="deleted" type="BOOLEAN"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="scope" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sonnguyen (generated)" id="1759167765202-3">
+        <createTable tableName="role">
+            <column name="id" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="rolePK"/>
+            </column>
+            <column name="created_at" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="created_by" type="VARCHAR(255)"/>
+            <column name="last_modified_at" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="last_modified_by" type="VARCHAR(255)"/>
+            <column name="code" type="VARCHAR(50)"/>
+            <column name="deleted" type="BOOLEAN"/>
+            <column name="description" type="VARCHAR(1000)"/>
+            <column name="name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sonnguyen (generated)" id="1759167765202-4">
+        <createTable tableName="role_permission">
+            <column name="id" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="role_permissionPK"/>
+            </column>
+            <column name="created_at" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="created_by" type="VARCHAR(255)"/>
+            <column name="last_modified_at" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="last_modified_by" type="VARCHAR(255)"/>
+            <column name="deleted" type="BOOLEAN"/>
+            <column name="permission_id" type="UUID"/>
+            <column name="role_id" type="UUID"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sonnguyen (generated)" id="1759167765202-5">
+        <createTable tableName="user_detail">
+            <column name="id" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="user_detailPK"/>
+            </column>
+            <column name="created_at" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="created_by" type="VARCHAR(255)"/>
+            <column name="last_modified_at" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="last_modified_by" type="VARCHAR(255)"/>
+            <column name="date_of_birth" type="date"/>
+            <column name="deleted" type="BOOLEAN"/>
+            <column name="email" type="VARCHAR(320)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="enabled" type="BOOLEAN"/>
+            <column name="first_name" type="VARCHAR(50)"/>
+            <column name="gender" type="SMALLINT"/>
+            <column name="last_name" type="VARCHAR(50)"/>
+            <column name="locked" type="BOOLEAN"/>
+            <column name="password" type="VARCHAR(500)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="phone_number" type="VARCHAR(15)"/>
+            <column name="username" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="verified" type="BOOLEAN"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sonnguyen (generated)" id="1759167765202-6">
+        <createTable tableName="user_role">
+            <column name="id" type="UUID">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="user_rolePK"/>
+            </column>
+            <column name="created_at" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="created_by" type="VARCHAR(255)"/>
+            <column name="last_modified_at" type="TIMESTAMP(6) WITHOUT TIME ZONE"/>
+            <column name="last_modified_by" type="VARCHAR(255)"/>
+            <column name="deleted" type="BOOLEAN"/>
+            <column name="role_id" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="UUID">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sonnguyen (generated)" id="1759167765202-7">
+        <addUniqueConstraint columnNames="email" constraintName="UC_USER_DETAILEMAIL_COL" tableName="user_detail"/>
+    </changeSet>
+    <changeSet author="sonnguyen (generated)" id="1759167765202-8">
+        <addUniqueConstraint columnNames="id" constraintName="UC_USER_DETAILID_COL" tableName="user_detail"/>
+    </changeSet>
+    <changeSet author="sonnguyen (generated)" id="1759167765202-9">
+        <addUniqueConstraint columnNames="username" constraintName="UC_USER_DETAILUSERNAME_COL"
+                             tableName="user_detail"/>
+    </changeSet>
+    <changeSet author="sonnguyen (generated)" id="1759312988760-1">
+        <dropUniqueConstraint constraintName="uc_user_detailemail_col" tableName="user_detail"/>
+    </changeSet>
+    <changeSet author="sonnguyen (generated)" id="1759312988760-2">
+        <dropUniqueConstraint constraintName="uc_user_detailid_col" tableName="user_detail"/>
+    </changeSet>
+    <changeSet author="sonnguyen (generated)" id="1759312988760-3">
+        <dropUniqueConstraint constraintName="uc_user_detailusername_col" tableName="user_detail"/>
+    </changeSet>
+    <changeSet author="sonnguyen (generated)" id="1759312988760-4">
+        <dropTable tableName="client"/>
+    </changeSet>
+    <changeSet author="sonnguyen (generated)" id="1759312988760-5">
+        <dropTable tableName="permission"/>
+    </changeSet>
+    <changeSet author="sonnguyen (generated)" id="1759312988760-6">
+        <dropTable tableName="role"/>
+    </changeSet>
+    <changeSet author="sonnguyen (generated)" id="1759312988760-7">
+        <dropTable tableName="role_permission"/>
+    </changeSet>
+    <changeSet author="sonnguyen (generated)" id="1759312988760-8">
+        <dropTable tableName="user_detail"/>
+    </changeSet>
+    <changeSet author="sonnguyen (generated)" id="1759312988760-9">
+        <dropTable tableName="user_role"/>
+    </changeSet>
+</databaseChangeLog>

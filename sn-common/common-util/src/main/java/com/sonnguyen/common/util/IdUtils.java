@@ -8,6 +8,10 @@ public class IdUtils {
         return UUID.randomUUID();
     }
 
+    public static String nextStrId() {
+        return UUID.randomUUID().toString();
+    }
+
     public Optional<UUID> parseId(String id) {
         try {
             UUID uuid = UUID.fromString(id);

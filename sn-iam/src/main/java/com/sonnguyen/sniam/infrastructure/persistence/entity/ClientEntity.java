@@ -1,6 +1,6 @@
 package com.sonnguyen.sniam.infrastructure.persistence.entity;
 
-import com.sonnguyen.common.data.jpa.entity.AuditingEntity;
+import com.sonnguyen.common.data.persistence.entity.AuditingEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

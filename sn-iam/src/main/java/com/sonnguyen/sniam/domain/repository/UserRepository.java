@@ -1,6 +1,6 @@
 package com.sonnguyen.sniam.domain.repository;
 
-import com.sonnguyen.common.data.jpa.domain.repository.DomainRepository;
+import com.sonnguyen.common.data.core.DomainRepository;
 import com.sonnguyen.sniam.domain.User;
 
 import java.util.Optional;

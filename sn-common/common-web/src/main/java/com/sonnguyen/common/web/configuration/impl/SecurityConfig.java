@@ -26,15 +26,15 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityConfig(HttpSecurity httpSecurity) throws Exception {
         httpSecurity.authorizeHttpRequests(requests -> {
-            requests
-                    .requestMatchers("/api/v1/authentication/login-password/**").permitAll()
-                    .requestMatchers("/api/v1/authentication/register/**").permitAll()
-                    .requestMatchers("/api/v1/authentication/reset-password/**").permitAll()
-                    .requestMatchers("/api/v1/.well-known/jwks.json/**").permitAll()
-                    .requestMatchers("/v3/api-docs**").permitAll()
-                    .anyRequest().authenticated()
-            ;
-        }).addFilterBefore((Filter) this.authenticationTokenFilter, (Class<? extends Filter>) UsernamePasswordAuthenticationFilter.class)
+                    requests
+                            .requestMatchers("/api/v1/authentication/login-password/**").permitAll()
+                            .requestMatchers("/api/v1/authentication/register/**").permitAll()
+                            .requestMatchers("/api/v1/authentication/reset-password/**").permitAll()
+                            .requestMatchers("/api/v1/.well-known/jwks.json/**").permitAll()
+                            .requestMatchers("/v3/api-docs**").permitAll()
+                            .anyRequest().authenticated()
+                    ;
+                }).addFilterBefore((Filter) this.authenticationTokenFilter, (Class<? extends Filter>) UsernamePasswordAuthenticationFilter.class)
                 .csrf(AbstractHttpConfigurer::disable)
                 .cors(AbstractHttpConfigurer::disable);
         return httpSecurity.build();

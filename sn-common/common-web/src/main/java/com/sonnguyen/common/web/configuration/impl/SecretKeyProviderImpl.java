@@ -20,9 +20,10 @@ import java.util.Map;
 @ConditionalOnMissingBean(SecretKeyProvider.class)
 public class SecretKeyProviderImpl implements SecretKeyProvider {
     IAMClient iamClient;
+
     @Override
     public RSAKey getPublicKey() {
-        Map<String,Object> jwks = this.iamClient.getJwks();
+        Map<String, Object> jwks = this.iamClient.getJwks();
         try {
             return RSAKey.parse(jwks);
         } catch (ParseException e) {

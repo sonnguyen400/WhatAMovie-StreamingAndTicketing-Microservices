@@ -1,0 +1,40 @@
+server:
+  port: 8085
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8081/eureka
+application:
+  security:
+    public-key: /keys/public.pem
+    private-key: /keys/private.key
+    access-token-expire-time: 30000
+    refresh-token-expire-time: 80000
+    jwt-issuer: son.nguyenhoang
+    client-access-token-expire-time: 6000000
+  client:
+    client-id: iam-client
+    client-secret: 1234567
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://ep-super-snow-a1x5lauu-pooler.ap-southeast-1.aws.neon.tech/iam?sslmode=require&channelBinding=require
+    username: neondb_owner
+    password: npg_GcU2yl7Cmpsb
+  jpa:
+    hibernate:
+      ddl-auto: update
+  data:
+    redis:
+      host: localhost
+      port: 6379
+  cache:
+    type: redis
+  cloud:
+    config:
+      enabled: false
+  config:
+    import: ""

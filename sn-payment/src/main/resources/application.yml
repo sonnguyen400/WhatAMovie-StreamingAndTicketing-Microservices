@@ -1,0 +1,40 @@
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8081/eureka
+spring:
+  application:
+    name: iam-service
+  profiles:
+    active: local
+  cloud:
+    config:
+      override-system-properties: false
+  quartz:
+    job-store-type: jdbc
+    jdbc:
+      initialize-schema: always
+    properties:
+      org.quartz.jobStore.driverDelegateClass: org.quartz.impl.jdbcjobstore.PostgreSQLDelegate
+      org.quartz.jobStore.isClustered: true
+      org.quartz.jobStore.clusterCheckinInterval: 20000
+
+  devtools:
+    restart:
+      enabled: false
+
+debug: true
+logging:
+  level:
+    org.springframework.security: TRACE
+integration:
+  payment:
+    zalopay:
+      app-id: your-zalopay-app-id
+      key1: your-zalopay-key1
+      key2: your-zalopay-key2
+      api-gateway: https://sandbox.zalopay.com.vn/v001/tpe/
+      redirect-url: https://your-redirect-url.com
+      callback-url: https://your-callback-url.com

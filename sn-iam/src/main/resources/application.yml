@@ -1,8 +1,11 @@
 spring:
   application:
-    name: iam-service
-  config:
-    import: optional:configserver:http://localhost:8082
-  jpa:
-    hibernate:
-      ddl-auto: update
+  devtools:
+    restart:
+      enabled: false
+  profiles:
+    active: local
+debug: true
+logging:
+  level:
+    org.springframework.security: TRACE

@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Builder
 @Getter
-public class AccessTokenResponse{
+public class AccessTokenResponse {
     private String accessToken;
     private String refreshToken;
     private Long expirationIn;

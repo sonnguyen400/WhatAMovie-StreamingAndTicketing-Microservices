@@ -23,7 +23,7 @@ public class ClientAuthorityProviderImpl implements ClientAuthorityProvider {
     @Override
     public ClientAuthority getByClientId(String clientId) {
         Response<ClientAuthority> response = this.iamClient.getClientAuthority(clientId);
-        if(response.isSuccess() && Objects.nonNull(response.getData())){
+        if (response.isSuccess() && Objects.nonNull(response.getData())) {
             return response.getData();
         }
         throw new ResponseException(response.getMessage());

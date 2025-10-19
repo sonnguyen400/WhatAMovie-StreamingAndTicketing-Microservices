@@ -33,7 +33,7 @@ public class AuthenticationTokenFilter extends OncePerRequestFilter {
     @Override
     protected void doFilterInternal(@Nonnull HttpServletRequest request, @Nonnull HttpServletResponse response, @Nonnull FilterChain filterChain) throws ServletException, IOException {
         Optional<String> tokenOpt = this.extractToken(request);
-        if(tokenOpt.isPresent()){
+        if (tokenOpt.isPresent()) {
             String accessToken = tokenOpt.get();
             JWTClaimsSet claimsSet = this.jwtTokenProvider.verify(accessToken);
             UserAuthority userAuthority = this.userAuthorityProvider.getById(UUID.fromString(claimsSet.getSubject()));

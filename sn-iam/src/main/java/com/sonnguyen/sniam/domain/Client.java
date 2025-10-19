@@ -53,7 +53,7 @@ public class Client extends AuditingDomain {
             throw new ResponseException(BadRequestError.CLIENT_NOT_AUTHENTICATED);
         }
         boolean matched = passwordEncoder.matches(clientLoginCmd.getRawPassword(), this.clientSecret);
-        if(!matched){
+        if (!matched) {
             throw new ResponseException(BadRequestError.CLIENT_NOT_AUTHENTICATED);
         }
     }

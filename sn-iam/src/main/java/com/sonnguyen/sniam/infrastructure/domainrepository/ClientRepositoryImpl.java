@@ -1,6 +1,6 @@
 package com.sonnguyen.sniam.infrastructure.domainrepository;
 
-import com.sonnguyen.common.data.jpa.domain.repository.AbstractDomainRepository;
+import com.sonnguyen.common.data.persistence.domain.repository.AbstractDomainRepository;
 import com.sonnguyen.sniam.domain.Client;
 import com.sonnguyen.sniam.domain.repository.ClientRepository;
 import com.sonnguyen.sniam.infrastructure.mapper.ClientEntityMapper;
@@ -26,7 +26,7 @@ public class ClientRepositoryImpl extends AbstractDomainRepository<Client, Clien
     }
 
     @Override
-    public Optional<Client> findByClientId(String clientId){
+    public Optional<Client> findByClientId(String clientId) {
         return this.clientEntityRepository.findByClientId(clientId)
                 .map(this.clientEntityMapper::toDomain);
     }

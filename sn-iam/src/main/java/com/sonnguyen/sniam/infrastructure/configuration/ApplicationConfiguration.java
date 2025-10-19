@@ -16,7 +16,7 @@ public class ApplicationConfiguration {
     private Security security;
 
     @Data
-    public static class Security{
+    public static class Security {
         private String publicKey;
         private String privateKey;
         @DurationUnit(ChronoUnit.SECONDS)

@@ -1,6 +1,6 @@
 package com.sonnguyen.sniam.infrastructure.domainrepository;
 
-import com.sonnguyen.common.data.jpa.domain.repository.AbstractDomainRepository;
+import com.sonnguyen.common.data.persistence.domain.repository.AbstractDomainRepository;
 import com.sonnguyen.sniam.domain.User;
 import com.sonnguyen.sniam.domain.UserRole;
 import com.sonnguyen.sniam.domain.repository.UserRepository;
@@ -41,13 +41,6 @@ public class UserRepositoryImpl extends AbstractDomainRepository<User, UserEntit
     @Override
     public Optional<User> findByUsername(String username) {
         return this.userEntityRepository.findByUsername(username).map(this.userEntityMapper::toDomain);
-    }
-
-    @Override
-    public User getById(UUID uuid) {
-        return this.findById(uuid)
-                .map(this::enrich)
-                .orElseThrow();
     }
 
     @Override

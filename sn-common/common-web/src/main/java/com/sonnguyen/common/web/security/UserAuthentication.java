@@ -17,7 +17,7 @@ public class UserAuthentication implements Authentication {
     private String originToten;
     private boolean authenticated;
 
-    public UserAuthentication(UserAuthority userAuthority, String originToten){
+    public UserAuthentication(UserAuthority userAuthority, String originToten) {
         this.principal = userAuthority;
         this.originId = userAuthority.getUserId();
         this.originToten = originToten;
@@ -55,7 +55,7 @@ public class UserAuthentication implements Authentication {
 
     @Override
     public void setAuthenticated(boolean isAuthenticated) throws IllegalArgumentException {
-        if(Objects.isNull(this.principal)){
+        if (Objects.isNull(this.principal)) {
             throw new IllegalArgumentException("Cannot set this token to trusted - use constructor which takes a UserAuthority instead");
         }
         this.authenticated = isAuthenticated;

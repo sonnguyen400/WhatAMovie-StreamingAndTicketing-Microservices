@@ -2,7 +2,7 @@ package com.sonnguyen.common.model.application.request;
 
 import java.util.List;
 
-public class FindByNamesRequest extends Request{
+public class FindByNamesRequest extends Request {
     private List<String> names;
 
     public FindByNamesRequest(List<String> names) {

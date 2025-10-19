@@ -28,6 +28,7 @@ import java.util.stream.Collectors;
 @SuperBuilder(toBuilder = true)
 @AllArgsConstructor
 public class User extends AuditingDomain {
+    public List<UserTrace> traces;
     private UUID id;
     private String username;
     private String password;
@@ -41,7 +42,6 @@ public class User extends AuditingDomain {
     private Boolean verified;
     private Boolean enabled;
     private Boolean deleted;
-    public List<UserTrace> traces;
     private List<UserRole> roles;
 
     public User(UserCreateOrUpdateCmd cmd, List<Role> roles, UserPasswordEncoder passwordEncoder) {
@@ -109,7 +109,7 @@ public class User extends AuditingDomain {
                     .toList();
 
             boolean allLoginFailFalse = lastTraces.stream()
-                    .allMatch(it->!it.getLoginSuccess());
+                    .allMatch(it -> !it.getLoginSuccess());
 
             if (allLoginFailFalse) {
                 throw new ResponseException(BadRequestError.CONSECUTIVE_LOGIN_FAIL);
@@ -119,13 +119,14 @@ public class User extends AuditingDomain {
     }
 
     public UserAuthority getAuthority() {
-        UserAuthority authority = new UserAuthority();
-        authority.setUserId(this.id);
-        authority.setUserName(this.username);
-        authority.setEmail(this.email);
-        authority.setLocked(this.locked);
-        authority.setVerified(this.verified);
-        authority.setEnabled(this.enabled);
+        UserAuthority authority = UserAuthority.builder()
+                .userId(this.id)
+                .userName(this.username)
+                .email(this.email)
+                .locked(this.locked)
+                .verified(this.verified)
+                .enabled(this.enabled)
+                .build();
         if (CollectionUtils.isNotEmpty(this.roles)) {
             List<String> authorities = this.roles.stream()
                     .flatMap(userRole -> userRole.getPermissions().stream()

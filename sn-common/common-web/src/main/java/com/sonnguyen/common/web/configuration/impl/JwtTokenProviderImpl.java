@@ -38,7 +38,7 @@ public class JwtTokenProviderImpl implements JwtTokenProvider {
             }
             Date now = Date.from(Instant.now());
             JWTClaimsSet claimsSet = signedJWT.getJWTClaimsSet();
-            claimsSet.getClaims().forEach((k,v)->System.out.println(k+": "+v));
+            claimsSet.getClaims().forEach((k, v) -> System.out.println(k + ": " + v));
             if (Objects.nonNull(claimsSet.getExpirationTime()) && claimsSet.getExpirationTime().before(now)) {
                 throw new ExpiredTokenException("Token has expired");
             }

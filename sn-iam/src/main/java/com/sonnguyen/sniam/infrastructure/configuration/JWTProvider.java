@@ -117,7 +117,7 @@ public class JWTProvider {
         }
 
         public String build() throws JOSEException {
-            JWSHeader jwsHeader = new JWSHeader.Builder(DataUtils.getOrDefault(this.algorithm,JWSAlgorithm.RS256))
+            JWSHeader jwsHeader = new JWSHeader.Builder(DataUtils.getOrDefault(this.algorithm, JWSAlgorithm.RS256))
                     .type(JOSEObjectType.JWT)
                     .build();
             JWTClaimsSet.Builder payload = new JWTClaimsSet.Builder()

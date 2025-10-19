@@ -9,7 +9,7 @@ public class UserPasswordEncoderImpl implements UserPasswordEncoder {
     private Argon2PasswordEncoder passwordEncoder;
 
     public UserPasswordEncoderImpl() {
-        this.passwordEncoder = new Argon2PasswordEncoder(16,32,1, 16384,2);
+        this.passwordEncoder = new Argon2PasswordEncoder(16, 32, 1, 16384, 2);
     }
 
     @Override

@@ -2,7 +2,7 @@ package com.sonnguyen.common.model.application.request;
 
 import java.util.List;
 
-public class FindByCodesRequest extends Request{
+public class FindByCodesRequest extends Request {
     private List<String> codes;
 
     public FindByCodesRequest(List<String> codes) {

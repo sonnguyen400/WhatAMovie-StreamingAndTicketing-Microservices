@@ -1,0 +1,27 @@
+server:
+  port: 8088
+application:
+  client:
+    client-id: notification-client
+    client-secret: 1234567
+
+spring:
+  cloud:
+    config:
+      enabled: false
+  config:
+    import:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://ep-super-snow-a1x5lauu-pooler.ap-southeast-1.aws.neon.tech/payment?sslmode=require&channelBinding=require
+    username: neondb_owner
+    password: npg_GcU2yl7Cmpsb
+  jpa:
+    hibernate:
+      ddl-auto: update
+  data:
+    redis:
+      host: redis-18398.c245.us-east-1-3.ec2.redns.redis-cloud.com
+      port: 18398
+  cache:
+    type: redis

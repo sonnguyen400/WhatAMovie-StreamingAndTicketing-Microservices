@@ -9,6 +9,8 @@ application:
     jwt-issuer: son.nguyenhoang
     client-access-token-expire-time: 6000000
   client:
+    client-id: iam-client
+    client-secret: 1234567
 
 spring:
   datasource:
@@ -21,7 +23,7 @@ spring:
       ddl-auto: update
   data:
     redis:
-      host: redis-11769.c74.us-east-1-4.ec2.redns.redis-cloud.com
-      port: 11769
+      host: redis-18398.c245.us-east-1-3.ec2.redns.redis-cloud.com
+      port: 18398
   cache:
     type: redis

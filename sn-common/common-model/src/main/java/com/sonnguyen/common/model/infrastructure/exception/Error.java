@@ -6,6 +6,7 @@ public interface Error {
     public static String UNKNOWN_ERROR = "Unknown error";
     public static String SUCCESS = "Success";
     public static String DEFAULT_ERROR_CODE = "4000000";
+
     default String getMessage() {
         return UNKNOWN_ERROR;
     }

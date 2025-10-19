@@ -12,6 +12,7 @@ import org.springframework.stereotype.Component;
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class FeignClientConfig implements RequestInterceptor {
     ClientTokenProvider clientTokenProvider;
+
     @Override
     public void apply(RequestTemplate requestTemplate) {
 

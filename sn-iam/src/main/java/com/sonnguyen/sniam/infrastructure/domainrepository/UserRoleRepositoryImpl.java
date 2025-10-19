@@ -1,6 +1,6 @@
 package com.sonnguyen.sniam.infrastructure.domainrepository;
 
-import com.sonnguyen.common.data.jpa.domain.repository.AbstractDomainRepository;
+import com.sonnguyen.common.data.persistence.domain.repository.AbstractDomainRepository;
 import com.sonnguyen.sniam.domain.Permission;
 import com.sonnguyen.sniam.domain.Role;
 import com.sonnguyen.sniam.domain.RolePermission;
@@ -49,7 +49,7 @@ public class UserRoleRepositoryImpl extends AbstractDomainRepository<UserRole, U
                 .toDomain(this.roleEntityRepository.findByIds(roleIds))
                 .stream()
                 .collect(Collectors.toMap(Role::getId, Function.identity()));
-        List<RolePermission> rolePermissions = this.rolePermissionEntityMapper.toDomain(this.rolePermissionEntityRepository.findByRoleIds(roleIds));
+        Collection<RolePermission> rolePermissions = this.rolePermissionEntityMapper.toDomain(this.rolePermissionEntityRepository.findByRoleIds(roleIds));
         //Enrich permission
         List<UUID> permissionIds = rolePermissions.stream().map(RolePermission::getPermissionId).toList();
         Map<UUID, Permission> permissions = this.permissionEntityMapper

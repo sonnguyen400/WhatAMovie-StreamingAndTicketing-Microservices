@@ -1,7 +1,7 @@
 package com.sonnguyen.sniam.infrastructure.mapper;
 
 
-import com.sonnguyen.common.data.jpa.mapper.EntityMapper;
+import com.sonnguyen.common.data.persistence.mapper.EntityMapper;
 import com.sonnguyen.sniam.domain.Permission;
 import com.sonnguyen.sniam.infrastructure.persistence.entity.PermissionEntity;
 import org.mapstruct.Mapper;

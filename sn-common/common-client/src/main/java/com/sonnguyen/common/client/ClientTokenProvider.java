@@ -7,7 +7,6 @@ import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import org.springframework.cache.annotation.Cacheable;
-import org.springframework.cache.annotation.Caching;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -15,14 +14,14 @@ import org.springframework.stereotype.Component;
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class ClientTokenProvider {
     IAMClient iamClient;
-    ClientConfiguration clientConfiguration;
+    SystemClientProps clientProps;
 
     @Cacheable(value = CachingValueConstant.ClientTrustedToken, key = "#root.target.clientConfiguration.client.clientId", condition = "#result.accessToken != null ")
     public TrustedClientAuthResponse getToken() {
         TrustedClientAuthRequest request = TrustedClientAuthRequest
                 .builder()
-                .clientId(clientConfiguration.getClient().getClientId())
-                .clientSecret(clientConfiguration.getClient().getClientSecret())
+                .clientId(this.clientProps.getClientId())
+                .clientSecret(this.clientProps.getClientSecret())
                 .build();
         return this.iamClient.clientSecretLogin(request);
     }

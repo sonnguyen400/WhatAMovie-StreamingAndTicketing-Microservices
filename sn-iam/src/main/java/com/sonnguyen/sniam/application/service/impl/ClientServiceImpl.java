@@ -34,6 +34,7 @@ public class ClientServiceImpl implements ClientService {
     UserPasswordEncoder passwordEncoder;
     JWTProvider jwtProvider;
     ApplicationConfiguration applicationConfiguration;
+
     @Override
     public RSAKey getKey() {
         return this.secretKeyProvider.getPublicKey();
@@ -42,7 +43,7 @@ public class ClientServiceImpl implements ClientService {
     @Override
     public TrustedClientAuthResponse secretBasedClientLogin(TrustedClientAuthRequest request) throws JOSEException {
         Client client = this.clientRepository.findByClientId(request.getClientId())
-                .orElseThrow(()->new ResponseException(NotFoundError.CLIENT_NOT_FOUND));
+                .orElseThrow(() -> new ResponseException(NotFoundError.CLIENT_NOT_FOUND));
         ClientLoginCmd clientLoginCmd = this.mapper.from(request);
         client.login(clientLoginCmd, passwordEncoder);
         String token = this.jwtProvider.builder()
@@ -56,9 +57,9 @@ public class ClientServiceImpl implements ClientService {
     }
 
     @Override
-    public ClientAuthority getClientAuthorityByClientId(String clientId){
+    public ClientAuthority getClientAuthorityByClientId(String clientId) {
         Client client = this.clientRepository.findByClientId(clientId)
-                .orElseThrow(()->new ResponseException(NotFoundError.CLIENT_NOT_FOUND));
+                .orElseThrow(() -> new ResponseException(NotFoundError.CLIENT_NOT_FOUND));
         return ClientAuthority.builder()
                 .clientId(clientId)
                 .userName(client.getName())

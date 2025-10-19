@@ -15,3 +15,7 @@ spring:
       port: 11769
   cache:
     type: redis
+application:
+  client:
+    client-id: iam-client
+    client-secret: 1234567

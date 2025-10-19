@@ -6,4 +6,3 @@ com.sonnguyen.common.web.configuration.impl.UserAuthorityProviderImpl
 com.sonnguyen.common.web.security.filter.AuthenticationTokenFilter
 com.sonnguyen.common.web.configuration.impl.GlobalExceptionHandler
 com.sonnguyen.common.web.configuration.impl.FilterExceptionHandler
-com.sonnguyen.common.web.configuration.impl.CachingResourceManage
