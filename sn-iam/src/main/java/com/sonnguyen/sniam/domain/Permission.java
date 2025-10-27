@@ -1,6 +1,7 @@
 package com.sonnguyen.sniam.domain;
 
 import com.sonnguyen.common.model.domain.AuditingDomain;
+import com.sonnguyen.common.model.infrastructure.constant.ResourceScope;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.experimental.SuperBuilder;
@@ -15,4 +16,5 @@ public class Permission extends AuditingDomain {
     private String name;
     private String code;
     private Boolean deleted;
+    private ResourceScope scope;
 }

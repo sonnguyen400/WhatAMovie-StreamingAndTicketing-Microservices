@@ -1,13 +1,16 @@
 package com.sonnguyen.sncatalogue.domain;
 
+import lombok.Value;
+
 import java.util.List;
 
+@Value
 public class PersonMetaData {
-    private List<Person> children;
-    private Double height;
-    private Double weight;
-    private Person partner;
-    private List<String> awards;
-    private String education;
-    private List<Person> parents;
+    List<Person> children;
+    Double height;
+    Double weight;
+    Person partner;
+    List<String> awards;
+    String education;
+    List<Person> parents;
 }

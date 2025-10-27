@@ -14,5 +14,5 @@ public class Person extends AuditingDomain {
     private String fullName;
     private LocalDate dateOfBirth;
     private String description;
-    private PersonMetaData metaData;
+    private PersonMetaData metadata;
 }

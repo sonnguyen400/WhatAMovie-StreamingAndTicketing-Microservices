@@ -10,7 +10,7 @@ import java.time.Instant;
 @Data
 @SuperBuilder(toBuilder = true)
 @NoArgsConstructor
-public class AuditingDomain implements Serializable {
+public abstract class AuditingDomain implements Serializable {
     private String createdBy;
     private String lastModifiedBy;
     private Instant createdAt;
