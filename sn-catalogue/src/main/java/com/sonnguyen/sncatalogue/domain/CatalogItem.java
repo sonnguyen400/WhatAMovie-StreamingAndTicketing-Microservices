@@ -17,13 +17,16 @@ public class CatalogItem extends AuditingDomain {
     private UUID id;
     private String title;
     private String description;
+    private String slug;
     private ContentType contentType;
     private ContentStatus status;
     private CatalogMetadata metadata;
     private DistributionChannel distributionChannel;
+    private UUID parentId;
     private Integer version;
 
     //Enrich
+    private List<CatalogItem> catalogItems;
     private List<MessageLocale> messageLocales;
     private List<CatalogItemPerson> directors;
     private List<CatalogItemPerson> actors;

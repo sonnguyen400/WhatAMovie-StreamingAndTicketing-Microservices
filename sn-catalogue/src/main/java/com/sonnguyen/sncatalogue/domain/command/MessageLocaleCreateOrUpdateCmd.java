@@ -10,7 +10,7 @@ import java.util.UUID;
 
 @Data
 @Builder
-public abstract class MessageLocaleCreateOrUpdateCmd {
+public class MessageLocaleCreateOrUpdateCmd {
     private LocaleCode locale;
     private UUID domainId;
     private DomainType domainType;

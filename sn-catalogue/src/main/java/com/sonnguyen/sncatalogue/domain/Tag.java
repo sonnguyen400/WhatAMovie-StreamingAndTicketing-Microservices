@@ -3,11 +3,9 @@ package com.sonnguyen.sncatalogue.domain;
 import com.sonnguyen.common.model.domain.AuditingDomain;
 import com.sonnguyen.common.model.infrastructure.constant.DomainType;
 import com.sonnguyen.common.model.infrastructure.constant.LocaleCode;
-import com.sonnguyen.common.util.CollectionUtils;
 import com.sonnguyen.common.util.IdUtils;
 import com.sonnguyen.sncatalogue.domain.command.MessageLocaleCreateOrUpdateCmd;
 import com.sonnguyen.sncatalogue.domain.command.TagCommandCreateOrUpdateCmd;
-import com.sonnguyen.sncatalogue.domain.command.TagMessageLocaleCreateOrUpdateCmd;
 import lombok.experimental.SuperBuilder;
 
 import java.util.List;
@@ -24,17 +22,17 @@ public class Tag extends AuditingDomain {
     public Tag(TagCommandCreateOrUpdateCmd cmd){
         this.id = IdUtils.nextId();
         this.title = cmd.getTitle();
-        this.updateMessageLocale(cmd.getLocaleMessages());
+        this.updateMessageLocale(cmd.getMessageLocales());
     }
 
-    private void updateMessageLocale(List<TagMessageLocaleCreateOrUpdateCmd> localeMessages) {
-        if(CollectionUtils.isEmpty(localeMessages)) return;
-        List<MessageLocaleCreateOrUpdateCmd> messageLocaleCmds = localeMessages.stream()
+    private void updateMessageLocale(Map<LocaleCode, String> localeMessages) {
+        if(Objects.isNull(localeMessages) || localeMessages.isEmpty()) return;
+        List<MessageLocaleCreateOrUpdateCmd> messageLocaleCmds = localeMessages.entrySet().stream()
                 .map(it->MessageLocaleCreateOrUpdateCmd.builder()
                         .domainType(DomainType.CATALOGUE_TAG)
                         .domainId(this.id)
-                        .locale(it.getLocale())
-                        .properties(Map.of("title", it.getTitle()))
+                        .locale(it.getKey())
+                        .properties(Map.of("title", it.getValue()))
                         .build())
                 .toList();
         this.messageLocales = messageLocaleCmds.stream().map(MessageLocale::new).toList();

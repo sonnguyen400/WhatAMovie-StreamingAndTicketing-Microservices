@@ -1,7 +1,7 @@
 package com.sonnguyen.sncatalogue.infrastructure.persistence.entity;
 
 import com.sonnguyen.common.data.persistence.entity.AuditingEntity;
-import com.sonnguyen.sncatalogue.domain.PersonMetaData;
+import com.sonnguyen.sncatalogue.domain.Person;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -31,7 +31,12 @@ public class PersonEntity extends AuditingEntity {
     @Column(name = "description")
     private String description;
 
-    @JdbcTypeCode(SqlTypes.JSON)
-    @Column(name = "metadata")
-    private PersonMetaData metadata;
+    @Column(name = "height")
+    private Double height;
+
+    @Column(name = "weight")
+    private Double weight;
+
+    @Column(name = "education")
+    private String education;
 }

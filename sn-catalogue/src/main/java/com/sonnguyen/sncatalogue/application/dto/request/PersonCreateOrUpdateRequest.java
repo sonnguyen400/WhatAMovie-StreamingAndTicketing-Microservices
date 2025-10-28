@@ -1,16 +1,14 @@
-package com.sonnguyen.sncatalogue.domain;
+package com.sonnguyen.sncatalogue.application.dto.request;
 
-import com.sonnguyen.common.model.domain.AuditingDomain;
+import com.sonnguyen.common.model.application.request.Request;
 import lombok.Getter;
-import lombok.experimental.SuperBuilder;
+import lombok.Setter;
 
 import java.time.LocalDate;
-import java.util.UUID;
 
 @Getter
-@SuperBuilder
-public class Person extends AuditingDomain {
-    private UUID id;
+@Setter
+public class PersonCreateOrUpdateRequest extends Request {
     private String fullName;
     private LocalDate dateOfBirth;
     private String description;

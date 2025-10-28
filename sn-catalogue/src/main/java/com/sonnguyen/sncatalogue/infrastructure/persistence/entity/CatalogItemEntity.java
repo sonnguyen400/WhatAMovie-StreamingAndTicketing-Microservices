@@ -34,6 +34,9 @@ public class CatalogItemEntity extends PolicyResourceEntity {
     @Column(name = "description")
     private String description;
 
+    @Column(name = "slug")
+    private String slug;
+
     @Column(name = "content_type", length = Validator.Length.ENUM_MAX_LENGTH, nullable = false)
     @Enumerated(EnumType.STRING)
     private ContentType contentType;
@@ -49,6 +52,9 @@ public class CatalogItemEntity extends PolicyResourceEntity {
     @Column(name = "distribution_channel", length = Validator.Length.ENUM_MAX_LENGTH, nullable = false)
     @Enumerated(EnumType.STRING)
     private DistributionChannel distributionChannel;
+
+    @Column(name = "parent_id")
+    private UUID parentId;
 
     @Version
     private Integer version;
