@@ -4,7 +4,8 @@ import com.sonnguyen.common.data.persistence.mapper.EntityMapper;
 import com.sonnguyen.sniam.domain.User;
 import com.sonnguyen.sniam.infrastructure.persistence.entity.UserEntity;
 import org.mapstruct.Mapper;
+import org.mapstruct.MappingConstants;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface UserEntityMapper extends EntityMapper<User, UserEntity> {
 }

@@ -1,0 +1,37 @@
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8081/eureka
+spring:
+  application:
+    name: storage-service
+  profiles:
+    active: local
+  cloud:
+    config:
+      override-system-properties: false
+  quartz:
+    job-store-type: jdbc
+    jdbc:
+      initialize-schema: always
+    properties:
+      org.quartz.jobStore.driverDelegateClass: org.quartz.impl.jdbcjobstore.PostgreSQLDelegate
+      org.quartz.jobStore.isClustered: true
+      org.quartz.jobStore.clusterCheckinInterval: 20000
+
+  devtools:
+    restart:
+      enabled: false
+
+debug: true
+logging:
+  level:
+    org.springframework.security: TRACE
+adapter:
+  minio:
+    url: https://play.min.io:9443/
+    access-name: minioadmin
+    access-secret: minioadmin
+    bucket-name: 6ffba0a5-e6df-45c1-8b95-93c1fa22c61a

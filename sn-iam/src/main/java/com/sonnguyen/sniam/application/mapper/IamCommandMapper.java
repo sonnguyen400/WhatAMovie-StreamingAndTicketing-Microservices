@@ -5,8 +5,9 @@ import com.sonnguyen.sniam.application.dto.request.RegisterUserRequest;
 import com.sonnguyen.sniam.domain.command.ClientLoginCmd;
 import com.sonnguyen.sniam.domain.command.UserCreateOrUpdateCmd;
 import org.mapstruct.Mapper;
+import org.mapstruct.MappingConstants;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = MappingConstants.ComponentModel.SPRING)
 public interface IamCommandMapper {
     UserCreateOrUpdateCmd from(RegisterUserRequest request);
 
