@@ -2,8 +2,8 @@ package com.sonnguyen.common.model.application.request.notification;
 
 import com.sonnguyen.common.model.application.response.iam.UserDTO;
 import com.sonnguyen.common.model.application.response.storage.FileDTO;
-import com.sonnguyen.common.model.infrastructure.constant.NotificationChanel;
-import com.sonnguyen.common.model.infrastructure.constant.NotificationContentType;
+import com.sonnguyen.common.model.infrastructure.support.enums.NotificationChanel;
+import com.sonnguyen.common.model.infrastructure.support.enums.NotificationContentType;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;

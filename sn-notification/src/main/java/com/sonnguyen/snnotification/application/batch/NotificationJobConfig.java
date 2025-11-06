@@ -1,7 +1,7 @@
 package com.sonnguyen.snnotification.application.batch;
 
-import com.sonnguyen.common.model.infrastructure.constant.NotificationChanel;
-import com.sonnguyen.common.model.infrastructure.constant.NotificationDeliveryStatus;
+import com.sonnguyen.common.model.infrastructure.support.enums.NotificationChanel;
+import com.sonnguyen.common.model.infrastructure.support.enums.NotificationDeliveryStatus;
 import com.sonnguyen.common.util.CollectionUtils;
 import com.sonnguyen.snnotification.application.dto.request.MailBuilder;
 import com.sonnguyen.snnotification.application.dto.response.MailRequestResult;
@@ -27,10 +27,6 @@ import org.springframework.batch.item.ItemProcessor;
 import org.springframework.batch.item.ItemReader;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.batch.item.data.MongoPagingItemReader;
-import org.springframework.batch.repeat.RepeatContext;
-import org.springframework.batch.repeat.RepeatOperations;
-import org.springframework.batch.repeat.exception.ExceptionHandler;
-import org.springframework.batch.repeat.support.RepeatTemplate;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

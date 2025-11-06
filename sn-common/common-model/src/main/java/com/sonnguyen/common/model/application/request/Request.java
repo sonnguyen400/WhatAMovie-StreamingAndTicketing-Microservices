@@ -1,6 +1,6 @@
 package com.sonnguyen.common.model.application.request;
 
-import com.sonnguyen.common.model.infrastructure.constant.LocaleCode;
+import com.sonnguyen.common.model.infrastructure.support.enums.LocaleCode;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 

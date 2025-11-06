@@ -1,6 +1,6 @@
 package com.sonnguyen.common.model.infrastructure.exception;
 
-import com.sonnguyen.common.model.infrastructure.constant.HttpStatus;
+import com.sonnguyen.common.model.infrastructure.support.constant.HttpStatus;
 
 public interface Error {
     public static String UNKNOWN_ERROR = "Unknown error";

@@ -1,8 +1,8 @@
 package com.sonnguyen.sncatalogue.infrastructure.persistence.entity;
 
 import com.sonnguyen.common.data.persistence.entity.AuditingEntity;
-import com.sonnguyen.common.model.infrastructure.constant.DomainType;
-import com.sonnguyen.common.model.infrastructure.constant.LocaleCode;
+import com.sonnguyen.common.model.infrastructure.support.enums.DomainType;
+import com.sonnguyen.common.model.infrastructure.support.enums.LocaleCode;
 import com.sonnguyen.common.util.Validator;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

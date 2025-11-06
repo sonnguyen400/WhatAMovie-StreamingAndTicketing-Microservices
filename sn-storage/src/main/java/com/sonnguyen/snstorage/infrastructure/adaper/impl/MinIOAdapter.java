@@ -1,7 +1,6 @@
 package com.sonnguyen.snstorage.infrastructure.adaper.impl;
 
-import com.sonnguyen.common.model.infrastructure.constant.Mimetype;
-import com.sonnguyen.snstorage.infrastructure.configuration.MinIOConfiguration;
+import com.sonnguyen.common.model.infrastructure.support.enums.Mimetype;
 import io.minio.BucketExistsArgs;
 import io.minio.GetObjectArgs;
 import io.minio.GetObjectResponse;

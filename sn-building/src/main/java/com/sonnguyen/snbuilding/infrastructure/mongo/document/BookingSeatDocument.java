@@ -1,14 +1,9 @@
 package com.sonnguyen.snbuilding.infrastructure.mongo.document;
 
 import com.sonnguyen.common.data.mongo.document.AuditingDocument;
-import com.sonnguyen.common.data.persistence.entity.AuditingEntity;
 import com.sonnguyen.snbuilding.infrastructure.support.enums.BookingSeatStatus;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.Index;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;

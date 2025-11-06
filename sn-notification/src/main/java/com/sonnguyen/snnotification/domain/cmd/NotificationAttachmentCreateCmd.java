@@ -1,7 +1,7 @@
 package com.sonnguyen.snnotification.domain.cmd;
 
 import com.sonnguyen.common.model.application.response.storage.FileDTO;
-import com.sonnguyen.common.model.infrastructure.constant.Mimetype;
+import com.sonnguyen.common.model.infrastructure.support.enums.Mimetype;
 import lombok.Getter;
 import lombok.Setter;
 

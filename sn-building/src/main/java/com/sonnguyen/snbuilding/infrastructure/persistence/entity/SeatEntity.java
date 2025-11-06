@@ -11,7 +11,6 @@ import jakarta.persistence.Transient;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.Instant;
 import java.util.UUID;
 
 @Getter
@@ -43,17 +42,5 @@ public class SeatEntity extends AuditingEntity {
 
     @Column(name = "y_position")
     private Integer yPosition;
-
-    @Column(name = "created_by")
-    private String createdBy;
-
-    @Column(name = "last_modified_by")
-    private String lastModifiedBy;
-
-    @Column(name = "created_at")
-    private Instant createdAt;
-
-    @Column(name = "last_modified_at")
-    private Instant lastModifiedAt;
 
 }

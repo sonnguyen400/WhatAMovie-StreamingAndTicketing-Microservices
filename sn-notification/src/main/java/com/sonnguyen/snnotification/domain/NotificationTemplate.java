@@ -1,7 +1,7 @@
 package com.sonnguyen.snnotification.domain;
 
 import com.sonnguyen.common.model.domain.AuditingDomain;
-import com.sonnguyen.common.model.infrastructure.constant.NotificationContentType;
+import com.sonnguyen.common.model.infrastructure.support.enums.NotificationContentType;
 import com.sonnguyen.snnotification.infrastructure.constants.NotificationTemplateStatus;
 import com.sonnguyen.snnotification.infrastructure.mongo.document.NotificationAttachmentDocument;
 import lombok.AllArgsConstructor;

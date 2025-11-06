@@ -1,7 +1,7 @@
 package com.sonnguyen.snnotification.infrastructure.mongo.document;
 
 import com.sonnguyen.common.data.mongo.document.AuditingDocument;
-import com.sonnguyen.common.model.infrastructure.constant.NotificationRecipientType;
+import com.sonnguyen.common.model.infrastructure.support.enums.NotificationRecipientType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import org.springframework.data.mongodb.core.mapping.Document;

@@ -1,10 +1,10 @@
 package com.sonnguyen.common.data.persistence.entity;
 
 import com.sonnguyen.common.model.domain.TimePolicy;
-import com.sonnguyen.common.model.infrastructure.constant.DomainType;
-import com.sonnguyen.common.model.infrastructure.constant.LocaleCode;
-import com.sonnguyen.common.model.infrastructure.constant.PrivilegeScope;
-import com.sonnguyen.common.model.infrastructure.constant.ResourceScope;
+import com.sonnguyen.common.model.infrastructure.support.enums.DomainType;
+import com.sonnguyen.common.model.infrastructure.support.enums.LocaleCode;
+import com.sonnguyen.common.model.infrastructure.support.enums.PrivilegeScope;
+import com.sonnguyen.common.model.infrastructure.support.enums.ResourceScope;
 import com.sonnguyen.common.util.Validator;
 import jakarta.persistence.Column;
 import jakarta.persistence.EnumType;
@@ -27,7 +27,6 @@ public abstract class AccessPrivilegeEntity extends AuditingEntity {
     @Column(name = "resource_type", nullable = false, length = Validator.Length.ENUM_MAX_LENGTH)
     @Enumerated(EnumType.STRING)
     private DomainType resourceType;
-
 
     @Column(name = "locale", length = Validator.Length.ENUM_MAX_LENGTH)
     @Enumerated(EnumType.STRING)

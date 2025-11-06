@@ -2,8 +2,8 @@ package com.sonnguyen.snnotification.domain;
 
 import com.sonnguyen.common.model.application.response.iam.UserDTO;
 import com.sonnguyen.common.model.domain.AuditingDomain;
-import com.sonnguyen.common.model.infrastructure.constant.NotificationChanel;
-import com.sonnguyen.common.model.infrastructure.constant.NotificationRecipientType;
+import com.sonnguyen.common.model.infrastructure.support.enums.NotificationChanel;
+import com.sonnguyen.common.model.infrastructure.support.enums.NotificationRecipientType;
 import com.sonnguyen.common.util.IdUtils;
 import com.sonnguyen.snnotification.domain.cmd.NotificationDeliveryCreateCmd;
 import lombok.AllArgsConstructor;

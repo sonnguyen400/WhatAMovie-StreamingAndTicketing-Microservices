@@ -16,11 +16,13 @@ public class UserAuthentication implements Authentication {
     private UUID originId;
     private String originToten;
     private boolean authenticated;
+    private UUID tenantId;
 
     public UserAuthentication(UserAuthority userAuthority, String originToten) {
         this.principal = userAuthority;
         this.originId = userAuthority.getUserId();
         this.originToten = originToten;
+        this.tenantId = userAuthority.getTenantId();
         this.setAuthenticated(true);
     }
 
@@ -80,6 +82,14 @@ public class UserAuthentication implements Authentication {
 
     public void setOriginToten(String originToten) {
         this.originToten = originToten;
+    }
+
+    public UUID getTenantId() {
+        return tenantId;
+    }
+
+    public void setTenantId(UUID tenantId) {
+        this.tenantId = tenantId;
     }
 
     @Override

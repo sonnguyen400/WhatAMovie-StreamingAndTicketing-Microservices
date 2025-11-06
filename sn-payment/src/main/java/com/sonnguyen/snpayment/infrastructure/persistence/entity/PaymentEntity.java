@@ -1,7 +1,7 @@
 package com.sonnguyen.snpayment.infrastructure.persistence.entity;
 
 import com.sonnguyen.common.data.persistence.entity.AuditingEntity;
-import com.sonnguyen.common.model.infrastructure.constant.DomainType;
+import com.sonnguyen.common.model.infrastructure.support.enums.DomainType;
 import com.sonnguyen.common.util.Validator;
 import com.sonnguyen.snpayment.infrastructure.constant.PaymentStatus;
 import jakarta.persistence.Column;

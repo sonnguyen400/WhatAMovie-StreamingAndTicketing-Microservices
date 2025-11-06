@@ -2,7 +2,7 @@ package com.sonnguyen.common.client;
 
 import com.sonnguyen.common.model.application.request.TrustedClientAuthRequest;
 import com.sonnguyen.common.model.application.response.TrustedClientAuthResponse;
-import com.sonnguyen.common.model.infrastructure.constant.CachingValueConstant;
+import com.sonnguyen.common.model.infrastructure.support.constant.CachingValueConstant;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;

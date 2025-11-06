@@ -7,6 +7,7 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 import java.time.Instant;
+import java.util.List;
 import java.util.UUID;
 
 @Data
@@ -15,7 +16,6 @@ public class PaymentCreateCommand {
     private String externalOrderId;
     private UUID customerId;
     private String currency;
-    private BigDecimal amount;
     private PaymentStatus status;
     private String description;
     private String metadata;
@@ -24,4 +24,5 @@ public class PaymentCreateCommand {
     private UUID merchantAccountId;
     private String idempotencyKey;
     private Instant expiredAt;
+    private List<PaymentDetailCreateCmd> details;
 }

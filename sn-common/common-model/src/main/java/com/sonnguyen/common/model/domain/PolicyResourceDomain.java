@@ -1,14 +1,13 @@
 package com.sonnguyen.common.model.domain;
 
 import com.sonnguyen.common.model.domain.command.AccessPrivilegeEvaluateCmd;
-import com.sonnguyen.common.model.infrastructure.constant.ResourceScope;
+import com.sonnguyen.common.model.infrastructure.support.enums.ResourceScope;
 import com.sonnguyen.common.util.CollectionUtils;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Objects;
 import java.util.Set;

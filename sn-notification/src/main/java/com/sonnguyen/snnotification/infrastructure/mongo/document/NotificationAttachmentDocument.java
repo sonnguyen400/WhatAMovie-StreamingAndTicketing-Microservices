@@ -1,7 +1,7 @@
 package com.sonnguyen.snnotification.infrastructure.mongo.document;
 
 import com.sonnguyen.common.data.mongo.document.AuditingDocument;
-import com.sonnguyen.common.model.infrastructure.constant.Mimetype;
+import com.sonnguyen.common.model.infrastructure.support.enums.Mimetype;
 import jakarta.persistence.Enumerated;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;

@@ -1,6 +1,6 @@
 package com.sonnguyen.common.model.application.response;
 
-import com.sonnguyen.common.model.infrastructure.constant.HttpStatus;
+import com.sonnguyen.common.model.infrastructure.support.constant.HttpStatus;
 import com.sonnguyen.common.model.infrastructure.exception.Error;
 import com.sonnguyen.common.model.infrastructure.exception.ResponseException;
 import com.sonnguyen.common.util.StrUtils;

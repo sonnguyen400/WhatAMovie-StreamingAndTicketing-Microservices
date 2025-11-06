@@ -1,8 +1,8 @@
 package com.sonnguyen.snnotification.domain;
 
 import com.sonnguyen.common.model.domain.AuditingDomain;
-import com.sonnguyen.common.model.infrastructure.constant.NotificationChanel;
-import com.sonnguyen.common.model.infrastructure.constant.NotificationDeliveryStatus;
+import com.sonnguyen.common.model.infrastructure.support.enums.NotificationChanel;
+import com.sonnguyen.common.model.infrastructure.support.enums.NotificationDeliveryStatus;
 import com.sonnguyen.snnotification.domain.cmd.NotificationDeliveryCreateCmd;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

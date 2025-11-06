@@ -5,7 +5,7 @@ import com.nimbusds.jose.jwk.RSAKey;
 import com.sonnguyen.common.model.application.request.TrustedClientAuthRequest;
 import com.sonnguyen.common.model.application.response.TrustedClientAuthResponse;
 import com.sonnguyen.common.model.application.security.ClientAuthority;
-import com.sonnguyen.common.model.infrastructure.constant.DefaultClaim;
+import com.sonnguyen.common.model.infrastructure.support.constant.DefaultClaim;
 import com.sonnguyen.common.model.infrastructure.exception.ResponseException;
 import com.sonnguyen.common.web.configuration.SecretKeyProvider;
 import com.sonnguyen.common.web.security.UserPasswordEncoder;

@@ -1,6 +1,6 @@
 package com.sonnguyen.sniam.infrastructure.error;
 
-import com.sonnguyen.common.model.infrastructure.constant.HttpStatus;
+import com.sonnguyen.common.model.infrastructure.support.constant.HttpStatus;
 import com.sonnguyen.common.model.infrastructure.exception.Error;
 
 public enum NotFoundError implements Error {

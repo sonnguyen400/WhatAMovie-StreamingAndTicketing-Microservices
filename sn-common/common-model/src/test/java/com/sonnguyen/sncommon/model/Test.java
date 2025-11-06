@@ -1,13 +1,5 @@
 package com.sonnguyen.sncommon.model;
 
-import com.sonnguyen.common.model.domain.AccessPrivilegeDomain;
-import com.sonnguyen.common.model.domain.command.AccessPrivilegeCreateCmd;
-import com.sonnguyen.common.model.infrastructure.constant.PrivilegeScope;
-
-import java.time.Instant;
-import java.time.ZoneId;
-import java.util.List;
-
 public class Test {
     public static void main(String[] args) {
 //        AccessPrivilegeCreateCmd privilegeCreateCmd = AccessPrivilegeCreateCmd.builder()

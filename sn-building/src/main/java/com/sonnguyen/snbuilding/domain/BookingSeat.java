@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 import java.util.UUID;
 
 /**
- * DTO for {@link com.sonnguyen.snbuilding.infrastructure.mongo.document.BookingSeatDocument}
+ * Domain for {@link com.sonnguyen.snbuilding.infrastructure.mongo.document.BookingSeatDocument}
  */
 public class BookingSeat {
     private UUID id;

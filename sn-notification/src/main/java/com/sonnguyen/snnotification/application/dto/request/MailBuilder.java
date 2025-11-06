@@ -1,6 +1,6 @@
 package com.sonnguyen.snnotification.application.dto.request;
 
-import com.sonnguyen.common.model.infrastructure.constant.Mimetype;
+import com.sonnguyen.common.model.infrastructure.support.enums.Mimetype;
 import lombok.Builder;
 import lombok.Data;
 import org.springframework.web.multipart.MultipartFile;

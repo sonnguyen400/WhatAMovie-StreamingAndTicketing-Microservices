@@ -2,11 +2,10 @@ package com.sonnguyen.common.model.domain;
 
 import com.sonnguyen.common.model.domain.command.AccessPrivilegeCreateCmd;
 import com.sonnguyen.common.model.domain.command.AccessPrivilegeEvaluateCmd;
-import com.sonnguyen.common.model.infrastructure.constant.DomainType;
-import com.sonnguyen.common.model.infrastructure.constant.LocaleCode;
-import com.sonnguyen.common.model.infrastructure.constant.PrivilegeAction;
-import com.sonnguyen.common.model.infrastructure.constant.PrivilegeScope;
-import com.sonnguyen.common.model.infrastructure.constant.ResourceScope;
+import com.sonnguyen.common.model.infrastructure.support.enums.DomainType;
+import com.sonnguyen.common.model.infrastructure.support.enums.LocaleCode;
+import com.sonnguyen.common.model.infrastructure.support.enums.PrivilegeScope;
+import com.sonnguyen.common.model.infrastructure.support.enums.ResourceScope;
 import com.sonnguyen.common.util.CollectionUtils;
 import com.sonnguyen.common.util.DataUtils;
 import lombok.Data;

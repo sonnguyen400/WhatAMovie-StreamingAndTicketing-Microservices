@@ -15,6 +15,7 @@ public class UserAuthority {
     private Boolean verified;
     private Boolean enabled;
     private Boolean isClient;
+    private UUID tenantId;
 
     public List<String> getAuthorities() {
         return authorities;
@@ -78,6 +79,14 @@ public class UserAuthority {
 
     public void setUserId(UUID userId) {
         this.userId = userId;
+    }
+
+    public UUID getTenantId() {
+        return tenantId;
+    }
+
+    public void setTenantId(UUID tenantId) {
+        this.tenantId = tenantId;
     }
 
     @Override

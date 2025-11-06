@@ -1,8 +1,8 @@
 package com.sonnguyen.sncatalogue.domain;
 
 import com.sonnguyen.common.model.domain.AuditingDomain;
-import com.sonnguyen.common.model.infrastructure.constant.DomainType;
-import com.sonnguyen.common.model.infrastructure.constant.LocaleCode;
+import com.sonnguyen.common.model.infrastructure.support.enums.DomainType;
+import com.sonnguyen.common.model.infrastructure.support.enums.LocaleCode;
 import com.sonnguyen.common.util.DataUtils;
 import com.sonnguyen.common.util.IdUtils;
 import com.sonnguyen.sncatalogue.domain.command.MessageLocaleCreateOrUpdateCmd;

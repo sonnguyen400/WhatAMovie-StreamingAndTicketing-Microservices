@@ -53,4 +53,10 @@ public class SecurityUtils {
     public static void setAuthentication(UserAuthentication userAuthentication) {
         SecurityContextHolder.getContext().setAuthentication(userAuthentication);
     }
+
+    public static UUID getTenantId() {
+        return getUserAuthority()
+                .map(UserAuthority::getTenantId)
+                .orElse(null);
+    }
 }

@@ -1,9 +1,11 @@
 package com.sonnguyen.snpayment.domain;
 
 import com.sonnguyen.common.model.domain.AuditingDomain;
-import com.sonnguyen.common.model.infrastructure.constant.DomainType;
+import com.sonnguyen.common.model.infrastructure.support.enums.DomainType;
+import com.sonnguyen.common.util.CollectionUtils;
 import com.sonnguyen.snpayment.domain.command.IdempotencyCreateCmd;
 import com.sonnguyen.snpayment.domain.command.PaymentCreateCommand;
+import com.sonnguyen.snpayment.domain.command.PaymentDetailCreateCmd;
 import com.sonnguyen.snpayment.domain.command.TransactionCreateCommand;
 import com.sonnguyen.snpayment.infrastructure.constant.PaymentGatewayType;
 import com.sonnguyen.snpayment.infrastructure.constant.PaymentStatus;
@@ -49,18 +51,30 @@ public class Payment extends AuditingDomain {
     private MerchantAccount merchantAccount;
     private IdempotencyKey idempotencyKey;
     private String idempotencyKeyStr;
+    private List<PaymentDetail> paymentDetails;
 
     public Payment(PaymentCreateCommand cmd, MerchantAccount merchantAccount) {
         this.externalOrderId = cmd.getExternalOrderId();
         this.currency = cmd.getCurrency();
-        this.amount = cmd.getAmount();
         this.description = cmd.getDescription();
         this.metadata = cmd.getMetadata();
         this.deleted = false;
         this.customerId = cmd.getCustomerId();
+        this.processDetails(cmd.getDetails());
         this.createTransaction(cmd.getTransactionStatus(), merchantAccount);
         this.initStatus(merchantAccount);
         this.createIdempotencyKey(cmd.getIdempotencyKey(), cmd.getExpiredAt());
+    }
+
+    private void processDetails(List<PaymentDetailCreateCmd> details) {
+        if(CollectionUtils.isEmpty(details)) {
+            this.amount = BigDecimal.ZERO;
+            return;
+        }
+        this.amount = details.stream()
+                .map(PaymentDetailCreateCmd::getAmount)
+                .reduce(BigDecimal.ZERO, BigDecimal::add);
+        this.paymentDetails = details.stream().map(it->new PaymentDetail(this, it)).toList();
     }
 
     public void createTransaction(TransactionStatus status, MerchantAccount merchantAccount) {

@@ -1,6 +1,6 @@
 package com.sonnguyen.sncatalogue.application.dto.request;
 
-import com.sonnguyen.common.model.infrastructure.constant.LocaleCode;
+import com.sonnguyen.common.model.infrastructure.support.enums.LocaleCode;
 import lombok.Getter;
 import lombok.Setter;
 

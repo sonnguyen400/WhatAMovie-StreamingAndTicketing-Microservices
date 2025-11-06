@@ -3,7 +3,7 @@ package com.sonnguyen.sniam.application.service.impl;
 import com.nimbusds.jose.JOSEException;
 import com.nimbusds.jose.JWSAlgorithm;
 import com.sonnguyen.common.model.application.security.UserAuthority;
-import com.sonnguyen.common.model.infrastructure.constant.DefaultClaim;
+import com.sonnguyen.common.model.infrastructure.support.constant.DefaultClaim;
 import com.sonnguyen.common.model.infrastructure.exception.ResponseException;
 import com.sonnguyen.common.util.StrUtils;
 import com.sonnguyen.common.web.security.UserAuthentication;

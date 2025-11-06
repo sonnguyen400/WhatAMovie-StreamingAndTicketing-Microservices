@@ -1,6 +1,6 @@
 package com.sonnguyen.snnotification.application.job;
 
-import com.sonnguyen.common.model.infrastructure.constant.NotificationChanel;
+import com.sonnguyen.common.model.infrastructure.support.enums.NotificationChanel;
 import com.sonnguyen.common.scheduler.cofiguration.ScheduleJob;
 import com.sonnguyen.snnotification.infrastructure.constants.JobParamConstants;
 import lombok.AccessLevel;

@@ -1,7 +1,7 @@
 package com.sonnguyen.sniam.domain;
 
 import com.sonnguyen.common.model.domain.AuditingDomain;
-import com.sonnguyen.common.model.infrastructure.constant.ResourceScope;
+import com.sonnguyen.common.model.infrastructure.support.enums.ResourceScope;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.experimental.SuperBuilder;

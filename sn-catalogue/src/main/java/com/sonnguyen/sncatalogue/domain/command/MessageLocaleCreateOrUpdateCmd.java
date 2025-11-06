@@ -1,7 +1,7 @@
 package com.sonnguyen.sncatalogue.domain.command;
 
-import com.sonnguyen.common.model.infrastructure.constant.DomainType;
-import com.sonnguyen.common.model.infrastructure.constant.LocaleCode;
+import com.sonnguyen.common.model.infrastructure.support.enums.DomainType;
+import com.sonnguyen.common.model.infrastructure.support.enums.LocaleCode;
 import lombok.Builder;
 import lombok.Data;
 

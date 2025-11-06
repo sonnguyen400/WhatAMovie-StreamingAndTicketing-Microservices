@@ -1,7 +1,7 @@
 package com.sonnguyen.sncatalogue.domain;
 
 import com.sonnguyen.common.model.domain.AuditingDomain;
-import com.sonnguyen.common.model.infrastructure.constant.LocaleCode;
+import com.sonnguyen.common.model.infrastructure.support.enums.LocaleCode;
 import com.sonnguyen.sncatalogue.infrastructure.constant.ContentStatus;
 import com.sonnguyen.sncatalogue.infrastructure.constant.ContentType;
 import com.sonnguyen.sncatalogue.infrastructure.constant.DistributionChannel;

@@ -1,6 +1,6 @@
 package com.sonnguyen.snnotification.domain.query;
 
-import com.sonnguyen.common.model.infrastructure.constant.NotificationChanel;
+import com.sonnguyen.common.model.infrastructure.support.enums.NotificationChanel;
 import lombok.Builder;
 import lombok.Data;
 

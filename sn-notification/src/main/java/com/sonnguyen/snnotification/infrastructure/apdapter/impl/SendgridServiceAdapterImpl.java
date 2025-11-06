@@ -9,7 +9,7 @@ import com.sendgrid.helpers.mail.objects.Attachments;
 import com.sendgrid.helpers.mail.objects.Content;
 import com.sendgrid.helpers.mail.objects.Email;
 import com.sendgrid.helpers.mail.objects.Personalization;
-import com.sonnguyen.common.model.infrastructure.constant.HttpStatus;
+import com.sonnguyen.common.model.infrastructure.support.constant.HttpStatus;
 import com.sonnguyen.common.util.CollectionUtils;
 import com.sonnguyen.snnotification.application.dto.request.MailBuilder;
 import com.sonnguyen.snnotification.application.dto.response.MailRequestResult;

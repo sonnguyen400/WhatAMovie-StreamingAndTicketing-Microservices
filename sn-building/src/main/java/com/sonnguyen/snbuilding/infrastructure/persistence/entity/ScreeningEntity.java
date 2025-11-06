@@ -8,11 +8,9 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.Instant;
 import java.time.LocalTime;
 import java.util.UUID;
 
@@ -43,17 +41,5 @@ public class ScreeningEntity extends AuditingEntity {
     @Column(name = "status")
     @Enumerated(EnumType.STRING)
     private ScreeningStatus status;
-
-    @Column(name = "created_by")
-    private String createdBy;
-
-    @Column(name = "last_modified_by")
-    private String lastModifiedBy;
-
-    @Column(name = "created_at")
-    private Instant createdAt;
-
-    @Column(name = "last_modified_at")
-    private Instant lastModifiedAt;
 
 }

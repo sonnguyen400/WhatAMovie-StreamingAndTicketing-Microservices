@@ -6,11 +6,9 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.persistence.Transient;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.Instant;
 import java.util.UUID;
 
 @Getter
@@ -49,16 +47,7 @@ public class TheaterEntity extends AuditingEntity {
     @Column(name = "tenant")
     private String tenant;
 
-    @Column(name = "created_by")
-    private String createdBy;
-
-    @Column(name = "last_modified_by")
-    private String lastModifiedBy;
-
-    @Column(name = "created_at")
-    private Instant createdAt;
-
-    @Column(name = "last_modified_at")
-    private Instant lastModifiedAt;
+    @Column(name = "provider_id")
+    private UUID providerId;
 
 }

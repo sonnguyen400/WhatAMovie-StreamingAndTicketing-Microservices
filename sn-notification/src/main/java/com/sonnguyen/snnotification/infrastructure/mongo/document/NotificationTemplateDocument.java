@@ -1,7 +1,7 @@
 package com.sonnguyen.snnotification.infrastructure.mongo.document;
 
 import com.sonnguyen.common.data.mongo.document.AuditingDocument;
-import com.sonnguyen.common.model.infrastructure.constant.NotificationContentType;
+import com.sonnguyen.common.model.infrastructure.support.enums.NotificationContentType;
 import com.sonnguyen.snnotification.infrastructure.constants.NotificationTemplateStatus;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;

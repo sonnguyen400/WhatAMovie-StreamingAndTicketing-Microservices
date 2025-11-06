@@ -1,7 +1,7 @@
 package com.sonnguyen.snstorage.domain;
 
 import com.sonnguyen.common.model.domain.AuditingDomain;
-import com.sonnguyen.common.model.infrastructure.constant.Mimetype;
+import com.sonnguyen.common.model.infrastructure.support.enums.Mimetype;
 import lombok.Getter;
 
 import java.util.UUID;

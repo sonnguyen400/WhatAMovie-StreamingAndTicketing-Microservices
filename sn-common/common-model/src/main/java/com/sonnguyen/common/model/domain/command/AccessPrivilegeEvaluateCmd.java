@@ -1,8 +1,8 @@
 package com.sonnguyen.common.model.domain.command;
 
-import com.sonnguyen.common.model.infrastructure.constant.DomainType;
-import com.sonnguyen.common.model.infrastructure.constant.LocaleCode;
-import com.sonnguyen.common.model.infrastructure.constant.PrivilegeScope;
+import com.sonnguyen.common.model.infrastructure.support.enums.DomainType;
+import com.sonnguyen.common.model.infrastructure.support.enums.LocaleCode;
+import com.sonnguyen.common.model.infrastructure.support.enums.PrivilegeScope;
 import lombok.Builder;
 import lombok.Data;
 
