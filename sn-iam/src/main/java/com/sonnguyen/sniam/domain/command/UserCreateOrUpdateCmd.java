@@ -1,6 +1,6 @@
 package com.sonnguyen.sniam.domain.command;
 
-import com.sonnguyen.sniam.infrastructure.constant.Gender;
+import com.sonnguyen.sniam.infrastructure.support.enums.Gender;
 import lombok.Data;
 
 import java.time.LocalDate;

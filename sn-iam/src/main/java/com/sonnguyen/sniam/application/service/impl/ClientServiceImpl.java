@@ -16,7 +16,7 @@ import com.sonnguyen.sniam.domain.command.ClientLoginCmd;
 import com.sonnguyen.sniam.domain.repository.ClientRepository;
 import com.sonnguyen.sniam.infrastructure.configuration.ApplicationConfiguration;
 import com.sonnguyen.sniam.infrastructure.configuration.JWTProvider;
-import com.sonnguyen.sniam.infrastructure.error.NotFoundError;
+import com.sonnguyen.sniam.infrastructure.support.error.NotFoundError;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;

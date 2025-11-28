@@ -2,7 +2,7 @@ package com.sonnguyen.sniam.infrastructure.persistence.entity;
 
 import com.sonnguyen.common.data.persistence.entity.AuditingEntity;
 import com.sonnguyen.common.util.Validator;
-import com.sonnguyen.sniam.infrastructure.constant.Gender;
+import com.sonnguyen.sniam.infrastructure.support.enums.Gender;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

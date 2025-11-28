@@ -6,7 +6,7 @@ import com.sonnguyen.common.util.IdUtils;
 import com.sonnguyen.common.web.security.UserPasswordEncoder;
 import com.sonnguyen.sniam.domain.command.ClientCreateOrUpdateCmd;
 import com.sonnguyen.sniam.domain.command.ClientLoginCmd;
-import com.sonnguyen.sniam.infrastructure.error.BadRequestError;
+import com.sonnguyen.sniam.infrastructure.support.error.BadRequestError;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.experimental.SuperBuilder;
@@ -15,8 +15,8 @@ import java.util.Objects;
 import java.util.UUID;
 
 @Getter
-@SuperBuilder(toBuilder = true)
 @AllArgsConstructor
+@SuperBuilder(toBuilder = true)
 public class Client extends AuditingDomain {
     private UUID id;
     private String name;

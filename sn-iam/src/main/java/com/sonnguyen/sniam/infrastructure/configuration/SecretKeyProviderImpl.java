@@ -3,7 +3,7 @@ package com.sonnguyen.sniam.infrastructure.configuration;
 import com.nimbusds.jose.jwk.RSAKey;
 import com.sonnguyen.common.model.infrastructure.exception.ResponseException;
 import com.sonnguyen.common.web.configuration.SecretKeyProvider;
-import com.sonnguyen.sniam.infrastructure.error.BadRequestError;
+import com.sonnguyen.sniam.infrastructure.support.error.BadRequestError;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Component;

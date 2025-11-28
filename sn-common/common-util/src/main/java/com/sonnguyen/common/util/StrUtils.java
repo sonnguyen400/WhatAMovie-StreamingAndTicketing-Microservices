@@ -64,4 +64,12 @@ public class StrUtils {
         // Giá trị cuối cùng ở góc dưới bên phải của ma trận là khoảng cách Levenshtein
         return dp[s1.length()][s2.length()];
     }
+
+    public static String concat(String ...strs) {
+        StringBuilder builder = new StringBuilder();
+        for(String str: strs){
+            builder.append(str);
+        }
+        return builder.toString();
+    }
 }

@@ -21,6 +21,7 @@ spring:
       org.quartz.jobStore.isClustered: true
       org.quartz.jobStore.clusterCheckinInterval: 20000
 
+
   devtools:
     restart:
       enabled: false
@@ -35,3 +36,7 @@ adapter:
     access-name: minioadmin
     access-secret: minioadmin
     bucket-name: 6ffba0a5-e6df-45c1-8b95-93c1fa22c61a
+  cloudinary:
+    key: ${CLOUDINARY_KEY:key}
+    secret: ${CLOUDINARY_SECRET:secret}
+    url: CLOUDINARY_URL=cloudinary://${adapter.cloudinary.key}:${adapter.cloudinary.secret}@dvdjh1ezr

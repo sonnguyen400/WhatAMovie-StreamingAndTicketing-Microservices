@@ -19,7 +19,7 @@ import com.sonnguyen.sniam.domain.repository.UserRepository;
 import com.sonnguyen.sniam.infrastructure.configuration.ApplicationConfiguration;
 import com.sonnguyen.sniam.infrastructure.configuration.AuthenticationService;
 import com.sonnguyen.sniam.infrastructure.configuration.JWTProvider;
-import com.sonnguyen.sniam.infrastructure.error.BadRequestError;
+import com.sonnguyen.sniam.infrastructure.support.error.BadRequestError;
 import com.sonnguyen.sniam.infrastructure.persistence.repository.UserEntityRepository;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;

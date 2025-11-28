@@ -1,9 +1,12 @@
 package com.sonnguyen.snstorage;
 
+import com.sonnguyen.snstorage.infrastructure.configuration.StorageProperties;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 
 @SpringBootApplication
+@EnableConfigurationProperties
 public class SnStorageApplication {
 
     public static void main(String[] args) {

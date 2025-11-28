@@ -1,6 +1,10 @@
 package com.sonnguyen.snstorage.infrastructure.adaper.impl;
 
 import com.sonnguyen.common.model.infrastructure.support.enums.Mimetype;
+import com.sonnguyen.common.util.IdUtils;
+import com.sonnguyen.snstorage.infrastructure.adaper.StorageAdapter;
+import com.sonnguyen.snstorage.infrastructure.configuration.FileUploadResult;
+import com.sonnguyen.snstorage.infrastructure.configuration.StorageProperties;
 import io.minio.BucketExistsArgs;
 import io.minio.GetObjectArgs;
 import io.minio.GetObjectResponse;
@@ -28,11 +32,14 @@ import java.security.NoSuchAlgorithmException;
 @Component
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 @RequiredArgsConstructor
-public class MinIOAdapter {
+public class MinIOAdapter implements StorageAdapter {
     MinioClient minioClient;
+    StorageProperties storageProperties;
 
-    public void uploadFile(String bucketName, String objectName, byte[] data, Mimetype mimetype) {
+    @Override
+    public FileUploadResult uploadFile(String bucketName, String objectName, byte[] data, Mimetype mimetype) {
         try (InputStream inputStream = new ByteArrayInputStream(data)) {
+            String id = IdUtils.nextStrId();
             boolean found = this.minioClient.bucketExists(BucketExistsArgs.builder().bucket(bucketName).build());
             if (!found) {
                 this.minioClient.makeBucket(MakeBucketArgs.builder().bucket(bucketName).build());
@@ -43,11 +50,16 @@ public class MinIOAdapter {
                             .contentType(mimetype.getValue())
                             .build());
 
+            return FileUploadResult.builder()
+                    .externalId(id)
+                    .url(objectWriteResponse.object())
+                    .build();
         } catch (Exception e) {
             throw new RuntimeException("Error occurred: " + e.getMessage());
         }
     }
 
+    @Override
     public byte[] getFile(String bucketName, String objectName){
         try{
             GetObjectResponse response = this.minioClient.getObject(GetObjectArgs.builder()

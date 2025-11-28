@@ -1,7 +1,7 @@
 package com.sonnguyen.sniam.application.dto.request;
 
 import com.sonnguyen.common.model.application.request.Request;
-import com.sonnguyen.sniam.infrastructure.constant.Gender;
+import com.sonnguyen.sniam.infrastructure.support.enums.Gender;
 import lombok.Getter;
 import lombok.Setter;
 

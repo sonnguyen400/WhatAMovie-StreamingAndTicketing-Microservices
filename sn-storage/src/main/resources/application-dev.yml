@@ -4,3 +4,5 @@ spring:
       enabled: false
   config:
     import: optional:configserver:http://localhost:8081
+storage:
+  adapter
