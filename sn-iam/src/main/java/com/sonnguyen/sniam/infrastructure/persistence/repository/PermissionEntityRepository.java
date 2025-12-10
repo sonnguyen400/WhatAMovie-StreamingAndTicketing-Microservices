@@ -1,6 +1,7 @@
 package com.sonnguyen.sniam.infrastructure.persistence.repository;
 
 import com.sonnguyen.sniam.infrastructure.persistence.entity.PermissionEntity;
+import io.micrometer.common.lang.NonNullApi;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -12,4 +13,7 @@ import java.util.UUID;
 public interface PermissionEntityRepository extends JpaRepository<PermissionEntity, UUID> {
     @Query("FROM PermissionEntity P WHERE P.id in :ids")
     List<PermissionEntity> findByIds(List<UUID> ids);
+
+    @Query("FROM PermissionEntity P WHERE P.deleted = false")
+    List<PermissionEntity> findAll();
 }

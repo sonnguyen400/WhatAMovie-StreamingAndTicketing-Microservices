@@ -9,8 +9,8 @@ import java.util.List;
 import java.util.Optional;
 
 public abstract class AbstractDomainRepository<D, E, ID> implements DomainRepository<D, ID> {
-    private final JpaRepository<E, ID> jpaRepository;
-    private final EntityMapper<D, E> mapper;
+    protected final JpaRepository<E, ID> jpaRepository;
+    protected final EntityMapper<D, E> mapper;
 
     public AbstractDomainRepository(JpaRepository<E, ID> jpaRepository, EntityMapper<D, E> mapper) {
         this.jpaRepository = jpaRepository;

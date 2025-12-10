@@ -33,4 +33,14 @@ public abstract class AuditingEntity {
     @LastModifiedDate
     @Column(name = "last_modified_at")
     private Instant lastModifiedAt;
+
+    public AuditingEntity() {
+    }
+
+    public AuditingEntity(String createdBy, String lastModifiedBy, Instant createdAt, Instant lastModifiedAt) {
+        this.createdBy = createdBy;
+        this.lastModifiedBy = lastModifiedBy;
+        this.createdAt = createdAt;
+        this.lastModifiedAt = lastModifiedAt;
+    }
 }

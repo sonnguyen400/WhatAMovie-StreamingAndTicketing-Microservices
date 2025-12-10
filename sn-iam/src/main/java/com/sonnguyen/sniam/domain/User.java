@@ -6,7 +6,9 @@ import com.sonnguyen.common.model.infrastructure.exception.ResponseException;
 import com.sonnguyen.common.util.CollectionUtils;
 import com.sonnguyen.common.util.IdUtils;
 import com.sonnguyen.common.web.security.UserPasswordEncoder;
+import com.sonnguyen.sniam.domain.command.CustomerCreateOrUpdateCmd;
 import com.sonnguyen.sniam.domain.command.UserCreateOrUpdateCmd;
+import com.sonnguyen.sniam.infrastructure.support.enums.CustomerType;
 import com.sonnguyen.sniam.infrastructure.support.enums.Gender;
 import com.sonnguyen.sniam.infrastructure.support.error.BadRequestError;
 import com.sonnguyen.sniam.infrastructure.support.error.NotFoundError;
@@ -42,7 +44,9 @@ public class User extends AuditingDomain {
     private Boolean verified;
     private Boolean enabled;
     private Boolean deleted;
+    private Boolean root;
     private List<UserRole> roles;
+    private Customer assignedCustomer;
 
     public User(UserCreateOrUpdateCmd cmd, List<Role> roles, UserPasswordEncoder passwordEncoder) {
         this.id = IdUtils.nextId();
@@ -54,11 +58,24 @@ public class User extends AuditingDomain {
         this.dateOfBirth = cmd.getDateOfBirth();
         this.gender = cmd.getGender();
         this.phoneNumber = cmd.getPhoneNumber();
-        this.locked = false;
-        this.verified = false;
-        this.enabled = true;
+        this.locked = cmd.getLocked();
+        this.verified = cmd.getVerified();
+        this.enabled = cmd.getEnabled();
         this.deleted = false;
         this.updateRoles(roles);
+        this.initCustomer();
+    }
+
+    private void initCustomer() {
+        CustomerCreateOrUpdateCmd cmd = CustomerCreateOrUpdateCmd.builder()
+                .firstName(this.firstName)
+                .lastName(this.lastName)
+                .email(this.email)
+                .phoneNumber(this.phoneNumber)
+                .dateOfBirth(this.dateOfBirth)
+                .type(CustomerType.REGISTERED)
+                .build();
+        this.assignedCustomer = new Customer(cmd);
     }
 
     public User(UserCreateOrUpdateCmd cmd, List<Role> roles) {
@@ -67,9 +84,7 @@ public class User extends AuditingDomain {
         this.lastName = cmd.getLastName();
         this.gender = cmd.getGender();
 
-
     }
-
     public void updateRoles(List<Role> newRoles) {
         if (Objects.isNull(this.roles)) {
             this.roles = new ArrayList<>();

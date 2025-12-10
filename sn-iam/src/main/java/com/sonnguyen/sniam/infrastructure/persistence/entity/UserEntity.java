@@ -55,6 +55,9 @@ public class UserEntity extends AuditingEntity {
     @Column(name = "enabled")
     private Boolean enabled;
 
+    @Column(name = "root")
+    private Boolean root;
+
     @Column(name = "deleted")
     private Boolean deleted;
 
