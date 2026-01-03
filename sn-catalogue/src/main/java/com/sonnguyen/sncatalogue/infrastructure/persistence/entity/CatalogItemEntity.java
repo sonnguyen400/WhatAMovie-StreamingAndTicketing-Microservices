@@ -56,6 +56,9 @@ public class CatalogItemEntity extends PolicyResourceEntity {
     @Column(name = "parent_id")
     private UUID parentId;
 
+    @Column(name = "deleted")
+    private Boolean deleted;
+
     @Version
     private Integer version;
 }

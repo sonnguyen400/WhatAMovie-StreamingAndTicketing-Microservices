@@ -1,0 +1,10 @@
+com/sonnguyen/common/data/clickhouse/repository/ClickHouseRepository.class
+com/sonnguyen/common/data/clickhouse/annotation/ClickHouseQuery.class
+com/sonnguyen/common/data/clickhouse/jdbc/ClickHouseEntityMetadataFactory.class
+com/sonnguyen/common/data/clickhouse/annotation/ClickHouseField.class
+com/sonnguyen/common/data/clickhouse/annotation/ClickHouseEntity.class
+com/sonnguyen/common/data/clickhouse/annotation/EnableClickHouseRepositories.class
+com/sonnguyen/common/data/clickhouse/annotation/ClickHouseId.class
+com/sonnguyen/common/data/clickhouse/repository/impl/AbstractClickHouseRepository.class
+com/sonnguyen/common/data/clickhouse/jdbc/ClickHouseMetadataRegistry.class
+com/sonnguyen/common/data/clickhouse/support/util/ClickHouseAnnotationUtil.class

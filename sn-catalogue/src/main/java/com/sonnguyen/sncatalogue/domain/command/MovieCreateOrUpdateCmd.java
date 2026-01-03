@@ -1,23 +1,17 @@
 package com.sonnguyen.sncatalogue.domain.command;
 
-import com.sonnguyen.sncatalogue.infrastructure.constant.ContentStatus;
-import com.sonnguyen.sncatalogue.infrastructure.constant.ContentType;
-import com.sonnguyen.sncatalogue.infrastructure.constant.DistributionChannel;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+import lombok.experimental.SuperBuilder;
 
 import java.time.Duration;
-import java.util.List;
 import java.util.UUID;
 
-@Getter
-@Setter
+@Data
+@SuperBuilder
 public class MovieCreateOrUpdateCmd extends CatalogItemCreateOrUpdateCmd{
     private Integer releaseYear;
     private Duration duration;
-    private UUID parentId;
-
-    private List<CatalogMessageLocaleCreateCmd> messageLocales;
-    private List<CatalogPartnerCreateOrUpdateCmd> partners;
-    private List<UUID> tagIds;
+    private UUID posterFileId;
+    private UUID backdropId;
+    private UUID trainerId;
 }

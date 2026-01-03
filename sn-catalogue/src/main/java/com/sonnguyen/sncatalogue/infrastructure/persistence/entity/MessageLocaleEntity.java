@@ -40,4 +40,7 @@ public class MessageLocaleEntity extends AuditingEntity {
     @Column(name = "properties")
     @JdbcTypeCode(SqlTypes.JSON)
     private Map<String, String> properties;
+
+    @Column(name = "deleted")
+    private Boolean deleted;
 }

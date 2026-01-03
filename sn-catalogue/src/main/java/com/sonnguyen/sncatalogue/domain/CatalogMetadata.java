@@ -10,8 +10,7 @@ import java.util.UUID;
 @Builder
 public class CatalogMetadata {
     Integer releaseYear;
-    Duration duration; // minutes, null for series
-    String synopsis;
+    Duration duration;
     UUID posterFileId;
     UUID backdropId;
     UUID trainerId;

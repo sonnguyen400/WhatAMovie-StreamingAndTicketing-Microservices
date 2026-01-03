@@ -1,16 +1,26 @@
 package com.sonnguyen.sncatalogue.application.dto.request;
 
-import com.sonnguyen.common.model.application.request.Request;
-import lombok.Getter;
-import lombok.Setter;
+import com.sonnguyen.common.model.application.request.InternationalizationRequest;
+import lombok.Data;
+import lombok.experimental.SuperBuilder;
 
-import java.util.Locale;
+import java.util.List;
 import java.util.Map;
 
-@Getter
-@Setter
-public class TagCreateOrUpdateRequest extends Request {
+@Data
+@SuperBuilder
+public class TagCreateOrUpdateRequest extends InternationalizationRequest {
     private String title;
+    private List<MessageLocale> messageLocales;
 
-    private Map<Locale, String> messageLocales;
+    @Data
+    @SuperBuilder
+    public static class MessageLocale extends AbstractMessageLocale {
+        private String title;
+
+        @Override
+        public Map<String, String> getMessages() {
+            return Map.of("title", title);
+        }
+    }
 }

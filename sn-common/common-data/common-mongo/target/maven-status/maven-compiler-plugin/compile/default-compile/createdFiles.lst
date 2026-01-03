@@ -1,0 +1,6 @@
+com/sonnguyen/common/data/mongo/configuration/MongoDataConfiguration.class
+com/sonnguyen/common/data/mongo/configuration/MongoEventListener.class
+com/sonnguyen/common/data/mongo/domain/repository/AbstractDomainRepository.class
+com/sonnguyen/common/data/mongo/document/AuditingDocument.class
+com/sonnguyen/common/data/mongo/document/TenancyDocument.class
+com/sonnguyen/common/data/mongo/mapper/DocumentMapper.class

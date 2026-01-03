@@ -1,12 +1,11 @@
 package com.sonnguyen.sncatalogue.domain.command;
 
-import com.sonnguyen.common.model.infrastructure.support.enums.LocaleCode;
+import com.sonnguyen.common.model.domain.command.InternationalizationCmd;
 import lombok.Data;
-
-import java.util.Map;
+import lombok.experimental.SuperBuilder;
 
 @Data
-public class TagCommandCreateOrUpdateCmd {
+@SuperBuilder
+public class TagCommandCreateOrUpdateCmd extends InternationalizationCmd {
     private String title;
-    private Map<LocaleCode, String> messageLocales;
 }

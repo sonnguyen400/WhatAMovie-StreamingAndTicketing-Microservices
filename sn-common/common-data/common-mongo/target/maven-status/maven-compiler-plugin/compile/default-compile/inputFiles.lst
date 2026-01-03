@@ -1,0 +1,6 @@
+/media/sonnguyen/01DBA5F1D1EF8BC0/WhataMovie/WhatAMovie-StreamingAndTicketing-Microservices/sn-common/common-data/common-mongo/src/main/java/com/sonnguyen/common/data/mongo/configuration/MongoDataConfiguration.java
+/media/sonnguyen/01DBA5F1D1EF8BC0/WhataMovie/WhatAMovie-StreamingAndTicketing-Microservices/sn-common/common-data/common-mongo/src/main/java/com/sonnguyen/common/data/mongo/configuration/MongoEventListener.java
+/media/sonnguyen/01DBA5F1D1EF8BC0/WhataMovie/WhatAMovie-StreamingAndTicketing-Microservices/sn-common/common-data/common-mongo/src/main/java/com/sonnguyen/common/data/mongo/document/AuditingDocument.java
+/media/sonnguyen/01DBA5F1D1EF8BC0/WhataMovie/WhatAMovie-StreamingAndTicketing-Microservices/sn-common/common-data/common-mongo/src/main/java/com/sonnguyen/common/data/mongo/document/TenancyDocument.java
+/media/sonnguyen/01DBA5F1D1EF8BC0/WhataMovie/WhatAMovie-StreamingAndTicketing-Microservices/sn-common/common-data/common-mongo/src/main/java/com/sonnguyen/common/data/mongo/domain/repository/AbstractDomainRepository.java
+/media/sonnguyen/01DBA5F1D1EF8BC0/WhataMovie/WhatAMovie-StreamingAndTicketing-Microservices/sn-common/common-data/common-mongo/src/main/java/com/sonnguyen/common/data/mongo/mapper/DocumentMapper.java

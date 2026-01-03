@@ -1,0 +1,9 @@
+com/sonnguyen/common/data/persistence/configuration/PersistenceDataConfiguration.class
+com/sonnguyen/common/data/persistence/mapper/EntityMapper.class
+com/sonnguyen/common/data/persistence/configuration/TenantFilterIntegrator.class
+com/sonnguyen/common/data/persistence/entity/AccessPrivilegeEntity.class
+com/sonnguyen/common/data/persistence/entity/AuditingEntity.class
+com/sonnguyen/common/data/persistence/entity/PolicyResourceEntity.class
+com/sonnguyen/common/data/persistence/configuration/AuditEntityListener.class
+com/sonnguyen/common/data/persistence/domain/repository/AbstractDomainRepository.class
+com/sonnguyen/common/data/persistence/entity/TenancyEntity.class

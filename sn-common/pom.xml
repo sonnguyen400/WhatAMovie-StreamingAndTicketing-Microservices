@@ -16,6 +16,7 @@
         <module>common-client</module>
         <module>common-data/common-persistence</module>
         <module>common-scheduler</module>
+        <module>common-geo</module>
     </modules>
 
     <properties>

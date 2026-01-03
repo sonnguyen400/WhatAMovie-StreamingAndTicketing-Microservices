@@ -8,4 +8,8 @@ public class DataUtils {
     public static Void empty() {
         return null;
     }
+
+    public static <T> T applyFirst(T first, T second) {
+        return first;
+    }
 }

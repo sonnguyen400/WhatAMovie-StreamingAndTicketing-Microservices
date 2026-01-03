@@ -23,4 +23,7 @@ public class ContentTagEntity extends AuditingEntity {
 
     @Column(name = "tag_id", nullable = false)
     private UUID tagId;
+
+    @Column(name = "deleted")
+    private Boolean deleted;
 }

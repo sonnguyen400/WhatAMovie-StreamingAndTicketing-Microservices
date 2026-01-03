@@ -65,11 +65,15 @@ public class StrUtils {
         return dp[s1.length()][s2.length()];
     }
 
-    public static String concat(String ...strs) {
+    public static String concat(String... strs) {
         StringBuilder builder = new StringBuilder();
-        for(String str: strs){
+        for (String str : strs) {
             builder.append(str);
         }
         return builder.toString();
+    }
+
+    public static String isBlankOr(String slug, String slug1) {
+        return isBlank(slug) ? slug1 : slug;
     }
 }

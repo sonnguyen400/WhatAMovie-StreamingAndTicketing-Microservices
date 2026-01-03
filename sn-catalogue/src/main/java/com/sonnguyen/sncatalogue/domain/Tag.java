@@ -1,42 +1,27 @@
 package com.sonnguyen.sncatalogue.domain;
 
-import com.sonnguyen.common.model.domain.AuditingDomain;
+import com.sonnguyen.common.model.domain.InternationalizationDomain;
+import com.sonnguyen.common.model.domain.MessageLocale;
 import com.sonnguyen.common.model.infrastructure.support.enums.DomainType;
 import com.sonnguyen.common.model.infrastructure.support.enums.LocaleCode;
 import com.sonnguyen.common.util.IdUtils;
-import com.sonnguyen.sncatalogue.domain.command.MessageLocaleCreateOrUpdateCmd;
 import com.sonnguyen.sncatalogue.domain.command.TagCommandCreateOrUpdateCmd;
 import lombok.experimental.SuperBuilder;
 
 import java.util.List;
-import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
 
 @SuperBuilder
-public class Tag extends AuditingDomain {
+public class Tag extends InternationalizationDomain {
     private UUID id;
     private String title;
     private List<MessageLocale> messageLocales;
 
-    public Tag(TagCommandCreateOrUpdateCmd cmd){
+    public Tag(TagCommandCreateOrUpdateCmd cmd) {
         this.id = IdUtils.nextId();
         this.title = cmd.getTitle();
-        this.updateMessageLocale(cmd.getMessageLocales());
-    }
-
-    private void updateMessageLocale(Map<LocaleCode, String> localeMessages) {
-        if(Objects.isNull(localeMessages) || localeMessages.isEmpty()) return;
-        List<MessageLocaleCreateOrUpdateCmd> messageLocaleCmds = localeMessages.entrySet().stream()
-                .map(it->MessageLocaleCreateOrUpdateCmd.builder()
-                        .domainType(DomainType.CATALOGUE_TAG)
-                        .domainId(this.id)
-                        .locale(it.getKey())
-                        .properties(Map.of("title", it.getValue()))
-                        .build())
-                .toList();
-        this.messageLocales = messageLocaleCmds.stream().map(MessageLocale::new).toList();
-
+        this.updateLocale(this.id, DomainType.TAG, cmd.getMessageLocales());
     }
 
     public void enrichMessageLocale(List<MessageLocale> messageLocales) {
@@ -50,5 +35,12 @@ public class Tag extends AuditingDomain {
                 .ifPresent(it -> {
                     this.title = it.getProperty("title", this.title);
                 });
+    }
+
+    @Override
+    public void buildMessageLocalesByCode(LocaleCode localeCode) {
+        this.getLocaleMessageByCode(localeCode).ifPresent(it -> {
+            this.title = it.getProperty("title", this.title);
+        });
     }
 }

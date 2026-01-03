@@ -60,7 +60,6 @@ public class ClickHouseEntityMetadataFactory implements EntityMetadataFactory<Cl
                 field,
                 columnName,
                 columnType,
-                annotation.primaryKey(),
                 annotation.nullable(),
                 annotation.defaultValue(),
                 annotation.includeInQuery()
@@ -83,7 +82,6 @@ public class ClickHouseEntityMetadataFactory implements EntityMetadataFactory<Cl
 
     public FieldMetadata findPrimaryKeyField(List<FieldMetadata> fields) {
         return fields.stream()
-                .filter(FieldMetadata::isPrimaryKey)
                 .findFirst()
                 .orElse(null);
     }
