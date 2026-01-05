@@ -1,4 +1,4 @@
-package com.sonnguyen.sncatalogue.domain;
+package com.sonnguyen.snultility.domain;
 
 
 import com.sonnguyen.common.model.domain.AuditingDomain;
@@ -13,14 +13,14 @@ import java.util.UUID;
 @SuperBuilder
 public class ContentTag extends AuditingDomain {
     private UUID id;
-    private UUID contentId;
+    private UUID domainId;
     private UUID tagId;
     private DomainType domainType;
     private Boolean deleted;
 
-    public ContentTag(UUID contentId, UUID tagId, DomainType domainType) {
+    public ContentTag(UUID tagId, UUID domainId,DomainType domainType) {
         this.id = IdUtils.nextId();
-        this.contentId = contentId;
+        this.domainId = domainId;
         this.tagId = tagId;
         this.domainType = domainType;
     }

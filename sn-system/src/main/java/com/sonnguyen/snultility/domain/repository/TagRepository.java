@@ -1,7 +1,7 @@
-package com.sonnguyen.sncatalogue.domain.repository;
+package com.sonnguyen.snultility.domain.repository;
 
 import com.sonnguyen.common.data.core.DomainRepository;
-import com.sonnguyen.sncatalogue.domain.Tag;
+import com.sonnguyen.snultility.domain.Tag;
 
 import java.util.UUID;
 

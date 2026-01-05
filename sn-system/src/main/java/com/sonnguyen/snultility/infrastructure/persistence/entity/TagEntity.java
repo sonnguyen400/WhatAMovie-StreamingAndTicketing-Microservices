@@ -1,4 +1,4 @@
-package com.sonnguyen.sncatalogue.infrastructure.persistence.entity;
+package com.sonnguyen.snultility.infrastructure.persistence.entity;
 
 import com.sonnguyen.common.data.persistence.entity.AuditingEntity;
 import jakarta.persistence.Entity;

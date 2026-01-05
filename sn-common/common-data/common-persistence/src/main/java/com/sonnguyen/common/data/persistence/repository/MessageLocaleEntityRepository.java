@@ -1,6 +1,6 @@
-package com.sonnguyen.sncatalogue.infrastructure.persistence.repository;
+package com.sonnguyen.common.data.persistence.repository;
 
-import com.sonnguyen.sncatalogue.infrastructure.persistence.entity.MessageLocaleEntity;
+import com.sonnguyen.common.data.persistence.entity.MessageLocaleEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

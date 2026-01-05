@@ -1,8 +1,9 @@
-package com.sonnguyen.sncatalogue.infrastructure.mapper;
+package com.sonnguyen.snultility.infrastructure.mapper;
+
 
 import com.sonnguyen.common.data.persistence.mapper.EntityMapper;
-import com.sonnguyen.sncatalogue.domain.ContentTag;
-import com.sonnguyen.sncatalogue.infrastructure.persistence.entity.ContentTagEntity;
+import com.sonnguyen.snultility.domain.ContentTag;
+import com.sonnguyen.snultility.infrastructure.persistence.entity.ContentTagEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;
 

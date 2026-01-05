@@ -1,11 +1,11 @@
-package com.sonnguyen.sncatalogue.infrastructure.domainrepository;
+package com.sonnguyen.snultility.infrastructure.domainrepository;
 
 import com.sonnguyen.common.data.persistence.domain.repository.AbstractDomainRepository;
-import com.sonnguyen.sncatalogue.domain.Tag;
-import com.sonnguyen.sncatalogue.domain.repository.TagRepository;
-import com.sonnguyen.sncatalogue.infrastructure.mapper.TagEntityMapper;
-import com.sonnguyen.sncatalogue.infrastructure.persistence.entity.TagEntity;
-import com.sonnguyen.sncatalogue.infrastructure.persistence.repository.TagEntityRepository;
+import com.sonnguyen.snultility.domain.Tag;
+import com.sonnguyen.snultility.domain.repository.TagRepository;
+import com.sonnguyen.snultility.infrastructure.mapper.TagEntityMapper;
+import com.sonnguyen.snultility.infrastructure.persistence.entity.TagEntity;
+import com.sonnguyen.snultility.infrastructure.persistence.repository.TagEntityRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.UUID;

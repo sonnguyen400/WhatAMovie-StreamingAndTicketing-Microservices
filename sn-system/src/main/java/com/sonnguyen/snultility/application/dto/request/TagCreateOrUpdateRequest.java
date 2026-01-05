@@ -1,4 +1,4 @@
-package com.sonnguyen.sncatalogue.application.dto.request;
+package com.sonnguyen.snultility.application.dto.request;
 
 import com.sonnguyen.common.model.application.request.InternationalizationRequest;
 import lombok.Data;

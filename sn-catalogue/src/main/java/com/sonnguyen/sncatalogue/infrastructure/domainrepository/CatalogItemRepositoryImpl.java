@@ -3,17 +3,13 @@ package com.sonnguyen.sncatalogue.infrastructure.domainrepository;
 import com.sonnguyen.common.data.persistence.domain.repository.AbstractDomainRepository;
 import com.sonnguyen.common.model.domain.MessageLocale;
 import com.sonnguyen.sncatalogue.domain.CatalogItem;
-import com.sonnguyen.sncatalogue.domain.ContentTag;
 import com.sonnguyen.sncatalogue.domain.repository.CatalogItemRepository;
 import com.sonnguyen.sncatalogue.infrastructure.mapper.CatalogItemEntityMapper;
-import com.sonnguyen.sncatalogue.infrastructure.mapper.ContentTagEntityMapper;
-import com.sonnguyen.sncatalogue.infrastructure.mapper.MessageLocaleEntityMapper;
+import com.sonnguyen.common.data.persistence.mapper.MessageLocaleEntityMapper;
 import com.sonnguyen.sncatalogue.infrastructure.persistence.entity.CatalogItemEntity;
-import com.sonnguyen.sncatalogue.infrastructure.persistence.entity.ContentTagEntity;
-import com.sonnguyen.sncatalogue.infrastructure.persistence.entity.MessageLocaleEntity;
+import com.sonnguyen.common.data.persistence.entity.MessageLocaleEntity;
 import com.sonnguyen.sncatalogue.infrastructure.persistence.repository.CatalogItemEntityRepository;
-import com.sonnguyen.sncatalogue.infrastructure.persistence.repository.ContentTagEntityRepository;
-import com.sonnguyen.sncatalogue.infrastructure.persistence.repository.MessageLocaleEntityRepository;
+import com.sonnguyen.common.data.persistence.repository.MessageLocaleEntityRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Repository;
 
@@ -32,20 +28,16 @@ public class CatalogItemRepositoryImpl extends AbstractDomainRepository<CatalogI
     private final CatalogItemEntityMapper catalogItemEntityMapper;
     private final MessageLocaleEntityRepository messageLocaleEntityRepository;
     private final MessageLocaleEntityMapper messageLocaleEntityMapper;
-    private final ContentTagEntityRepository contentTagEntityRepository;
-    private final ContentTagEntityMapper contentTagEntityMapper;
 
     public CatalogItemRepositoryImpl(CatalogItemEntityRepository catalogItemEntityRepository,
                                      CatalogItemEntityMapper catalogItemEntityMapper,
                                      MessageLocaleEntityRepository messageLocaleEntityRepository,
-                                     MessageLocaleEntityMapper messageLocaleEntityMapper, ContentTagEntityRepository contentTagEntityRepository, ContentTagEntityMapper contentTagEntityMapper) {
+                                     MessageLocaleEntityMapper messageLocaleEntityMapper) {
         super(catalogItemEntityRepository, catalogItemEntityMapper);
         this.catalogItemEntityRepository = catalogItemEntityRepository;
         this.catalogItemEntityMapper = catalogItemEntityMapper;
         this.messageLocaleEntityRepository = messageLocaleEntityRepository;
         this.messageLocaleEntityMapper = messageLocaleEntityMapper;
-        this.contentTagEntityRepository = contentTagEntityRepository;
-        this.contentTagEntityMapper = contentTagEntityMapper;
     }
 
     @Override
@@ -55,10 +47,6 @@ public class CatalogItemRepositoryImpl extends AbstractDomainRepository<CatalogI
                 .filter(it -> Objects.nonNull(it.getMessageLocales()))
                 .flatMap(it -> it.getMessageLocales().stream())
                 .toList();
-        List<ContentTag> tags = domains.stream()
-                .filter(it -> Objects.nonNull(it.getTags()))
-                .flatMap(it -> it.getTags().stream())
-                .toList();
         ArrayList<CatalogItem> catalogItems = domains.stream()
                 .filter(it -> Objects.nonNull(it.getCatalogItems()))
                 .flatMap(it -> it.getCatalogItems().stream())
@@ -67,10 +55,8 @@ public class CatalogItemRepositoryImpl extends AbstractDomainRepository<CatalogI
 
 
         List<CatalogItemEntity> catalogItemEntities = this.catalogItemEntityMapper.toEntity(catalogItems);
-        List<ContentTagEntity> contentTagEntities = this.contentTagEntityMapper.toEntity(tags);
         List<MessageLocaleEntity> messageLocaleEntities = this.messageLocaleEntityMapper.toEntity(messageLocales);
         this.catalogItemEntityRepository.saveAll(catalogItemEntities);
-        this.contentTagEntityRepository.saveAll(contentTagEntities);
         this.messageLocaleEntityRepository.saveAll(messageLocaleEntities);
         return domains;
     }

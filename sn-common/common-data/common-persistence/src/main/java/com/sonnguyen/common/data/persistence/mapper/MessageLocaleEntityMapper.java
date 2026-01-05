@@ -1,8 +1,8 @@
-package com.sonnguyen.sncatalogue.infrastructure.mapper;
+package com.sonnguyen.common.data.persistence.mapper;
 
 import com.sonnguyen.common.data.persistence.mapper.EntityMapper;
 import com.sonnguyen.common.model.domain.MessageLocale;
-import com.sonnguyen.sncatalogue.infrastructure.persistence.entity.MessageLocaleEntity;
+import com.sonnguyen.common.data.persistence.entity.MessageLocaleEntity;
 import org.mapstruct.Mapper;
 import org.mapstruct.MappingConstants;
 

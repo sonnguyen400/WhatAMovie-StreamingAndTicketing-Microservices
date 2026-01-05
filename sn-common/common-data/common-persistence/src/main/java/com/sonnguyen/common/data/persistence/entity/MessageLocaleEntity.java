@@ -1,4 +1,4 @@
-package com.sonnguyen.sncatalogue.infrastructure.persistence.entity;
+package com.sonnguyen.common.data.persistence.entity;
 
 import com.sonnguyen.common.data.persistence.entity.AuditingEntity;
 import com.sonnguyen.common.model.infrastructure.support.enums.DomainType;
