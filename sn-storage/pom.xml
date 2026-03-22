@@ -60,13 +60,13 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-<!--        CDN Service-->
+        <!--        CDN Service-->
         <dependency>
             <groupId>io.minio</groupId>
             <artifactId>minio</artifactId>
             <version>8.5.7</version>
         </dependency>
-<!--        Common-->
+        <!--        Common-->
         <dependency>
             <groupId>com.sonnguyen.common</groupId>
             <artifactId>common-web</artifactId>
@@ -87,6 +87,13 @@
             <artifactId>common-util</artifactId>
             <version>${sncommon.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.sonnguyen.common</groupId>
+            <artifactId>common-persistence</artifactId>
+            <version>${sncommon.version}</version>
+        </dependency>
+        <!--        Storage-->
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -117,6 +124,46 @@
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct-processor</artifactId>
             <version>1.6.3</version>
+        </dependency>
+
+        <!--        Sound Processing-->
+        <!-- Source: https://mvnrepository.com/artifact/org.jaudiotagger/jaudiotagger -->
+        <dependency>
+            <groupId>org.jaudiotagger</groupId>
+            <artifactId>jaudiotagger</artifactId>
+            <version>2.0.1</version>
+        </dependency>
+
+        <!--        Video Processing-->
+        <dependency>
+            <groupId>net.bramp.ffmpeg</groupId>
+            <artifactId>ffmpeg</artifactId>
+            <version>0.6.2</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.github.kokorin.jaffree</groupId>
+            <artifactId>jaffree</artifactId>
+            <version>2023.09.10</version>
+        </dependency>
+
+        <!--        Image Processing-->
+        <dependency>
+            <groupId>com.drewnoakes</groupId>
+            <artifactId>metadata-extractor</artifactId>
+            <version>2.19.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.imgscalr</groupId>
+            <artifactId>imgscalr-lib</artifactId>
+            <version>4.2</version>
+        </dependency>
+
+        <!-- Source: https://mvnrepository.com/artifact/org.apache.tika/tika-core -->
+        <dependency>
+            <groupId>org.apache.tika</groupId>
+            <artifactId>tika-core</artifactId>
+            <version>3.2.3</version>
         </dependency>
     </dependencies>
     <dependencyManagement>

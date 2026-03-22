@@ -1,11 +1,12 @@
 package com.sonnguyen.sncatalogue.domain;
 
+import com.sonnguyen.common.model.domain.AuditingDomain;
 import com.sonnguyen.common.model.domain.Deletable;
 import com.sonnguyen.common.model.domain.InternationalizationDomain;
 import com.sonnguyen.common.model.domain.MessageLocale;
 import com.sonnguyen.common.model.infrastructure.support.enums.DomainType;
-import com.sonnguyen.common.model.infrastructure.support.enums.LocaleCode;
 import com.sonnguyen.common.util.IdUtils;
+import com.sonnguyen.common.whatamoviemodel.domain.ContentTag;
 import com.sonnguyen.sncatalogue.domain.command.CatalogItemCreateOrUpdateCmd;
 import com.sonnguyen.sncatalogue.infrastructure.constant.ContentStatus;
 import com.sonnguyen.sncatalogue.infrastructure.constant.ContentType;
@@ -20,7 +21,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Getter
-public class CatalogItem extends InternationalizationDomain implements Deletable {
+public class CatalogItem extends AuditingDomain implements Deletable, InternationalizationDomain {
     private UUID id;
     private String title;
     private String description;
@@ -36,9 +37,19 @@ public class CatalogItem extends InternationalizationDomain implements Deletable
     private List<CatalogItem> catalogItems;
     private List<CatalogItemPerson> persons;
     private List<ContentTag> tags;
+    private List<MessageLocale> messageLocales;
 
     public CatalogItem(CatalogItemCreateOrUpdateCmd cmd, List<CatalogItem> newChildCatalogItems) {
         this.id = IdUtils.nextId();
+        this.title = cmd.getTitle();
+        this.slug = cmd.getSlug();
+        this.contentType = cmd.getContentType();
+        this.status = cmd.getStatus();
+        this.updateTagId(cmd.getTagIds());
+        this.updateLocale(this.id, DomainType.CATALOGUE_ITEM, cmd.getMessageLocales());
+        this.updateCatalogItems(newChildCatalogItems);
+    }
+    public void update(CatalogItemCreateOrUpdateCmd cmd, List<CatalogItem> newChildCatalogItems) {
         this.title = cmd.getTitle();
         this.slug = cmd.getSlug();
         this.contentType = cmd.getContentType();
@@ -76,32 +87,19 @@ public class CatalogItem extends InternationalizationDomain implements Deletable
     }
 
     private void updateTagId(List<UUID> tagIds) {
-        if (Objects.isNull(this.tags)) {
-            this.tags = new ArrayList<>();
-        }
-        Set<UUID> existedTagIds = this.tags.stream().map(ContentTag::getTagId).collect(Collectors.toSet());
-        tags.forEach(it -> {
-            it.delete();
-            if (tagIds.contains(it.getTagId())) {
-                it.unDelete();
-            }
-        });
         tagIds.forEach(it -> {
-            if (!existedTagIds.contains(it)) {
-                ContentTag contentTag = new ContentTag(this.id, it, DomainType.CATALOGUE_ITEM);
-                this.tags.add(contentTag);
-            }
+            ContentTag contentTag = new ContentTag(this.id, it, DomainType.CATALOGUE_ITEM);
+            this.tags.add(contentTag);
         });
     }
 
     @Override
-    public void buildMessageLocalesByCode(LocaleCode localeCode) {
-        this.getLocaleMessageByCode(localeCode).ifPresent(it -> {
-            this.title = it.getProperty("title", this.title);
-            this.description = it.getProperty("description", this.description);
-        });
+    public void localize(MessageLocale messageLocale) {
+        this.title = messageLocale.getProperty("title", this.title);
+        this.description = messageLocale.getProperty("description", this.description);
     }
 
+    @Override
     public void enrichMessageLocales(List<MessageLocale> messageLocales) {
         this.messageLocales = messageLocales;
     }
@@ -109,6 +107,7 @@ public class CatalogItem extends InternationalizationDomain implements Deletable
     @Override
     public void delete() {
         this.deleted = true;
+        this.tags = new ArrayList<>();
     }
 
     @Override

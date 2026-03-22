@@ -4,6 +4,7 @@ package com.sonnguyen.common.util;
 import org.springframework.data.util.StreamUtils;
 
 import java.util.Collection;
+import java.util.Iterator;
 import java.util.stream.Collectors;
 
 public class CollectionUtils {
@@ -26,6 +27,19 @@ public class CollectionUtils {
             if (item != null) return false;
         }
         return true;
+    }
+
+    public static Boolean isNotBlank(Collection<?> collection) {
+        if(collection == null || !collection.iterator().hasNext()) return false;
+        boolean isNotBlank = false;
+        Iterator<?> iterator = collection.iterator();
+        while (iterator.hasNext()){
+            if(iterator.next() != null){
+                isNotBlank = true;
+                break;
+            }
+        }
+        return isNotBlank;
     }
 
     public static <E> Collection<E> toCollection(Iterable<E> elements) {

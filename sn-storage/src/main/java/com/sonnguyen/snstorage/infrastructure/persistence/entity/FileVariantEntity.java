@@ -1,24 +1,31 @@
 package com.sonnguyen.snstorage.infrastructure.persistence.entity;
 
+import java.math.BigInteger;
+import java.util.List;
+import java.util.UUID;
+
+import org.checkerframework.checker.units.qual.C;
+
 import com.sonnguyen.common.data.persistence.entity.AuditingEntity;
+import com.sonnguyen.common.model.infrastructure.support.enums.Mimetype;
+import com.sonnguyen.snstorage.domain.FileMetaData;
+import com.sonnguyen.snstorage.infrastructure.support.enums.StorageProvider;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Version;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.math.BigInteger;
-import java.time.Instant;
-import java.util.UUID;
 
 @Getter
 @Setter
 @Entity
 @Table(name = "file_variant_entity")
 public class FileVariantEntity extends AuditingEntity {
+
     @Id
-    @Column(name = "id", nullable = false)
     private UUID id;
 
     @Column(name = "file_id")
@@ -30,18 +37,26 @@ public class FileVariantEntity extends AuditingEntity {
     @Column(name = "is_thumbnail")
     private Boolean isThumbnail;
 
-    @Column(name = "resolution")
-    private String resolution;
-
     @Column(name = "size_bytes")
     private BigInteger sizeBytes;
 
-    @Column(name = "name")
-    private String name;
+    @Column(name = "mimetype")
+    private Mimetype mimetype;
 
-    @Column(name = "extension")
-    private String extension;
+    @Column(name = "access_counter")
+    private Integer accessCounter;
+
+    @Column(name = "metadata")
+    private FileMetaData metaData;
+
+    @Column(name = "external_url")
+    private String externalUrl;
 
     @Column(name = "external_id")
     private String externalId;
+
+    @Version
+    @Column(name = "version")
+    private Integer version;
+
 }

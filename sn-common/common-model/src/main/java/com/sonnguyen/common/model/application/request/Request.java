@@ -10,4 +10,12 @@ import java.io.Serializable;
 @NoArgsConstructor
 public abstract class Request implements Serializable {
     private LocaleCode localeCode;
+
+    public LocaleCode getLocaleCode() {
+        return localeCode;
+    }
+
+    public void setLocaleCode(LocaleCode localeCode) {
+        this.localeCode = localeCode;
+    }
 }

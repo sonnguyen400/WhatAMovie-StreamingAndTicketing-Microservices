@@ -11,7 +11,7 @@ import java.util.UUID;
 
 @Data
 @Entity
-@Table(name = "client")
+@Table(name = "api_client")
 public class ClientEntity extends AuditingEntity {
     @Id
     private UUID id;

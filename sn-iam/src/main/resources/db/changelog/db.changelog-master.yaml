@@ -1,3 +1,4 @@
 databaseChangeLog:
-  - include:
-      file: db/changelog/20250929-changelog.xml
+  - includeAll:
+      path: db/changelog/releases
+      errorIfMissingOrEmpty: false

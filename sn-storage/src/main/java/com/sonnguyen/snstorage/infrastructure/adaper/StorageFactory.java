@@ -1,18 +1,20 @@
 package com.sonnguyen.snstorage.infrastructure.adaper;
 
+import java.util.Objects;
+
+import org.springframework.cloud.context.config.annotation.RefreshScope;
+import org.springframework.stereotype.Component;
+
 import com.sonnguyen.common.client.BadRequestError;
 import com.sonnguyen.common.model.infrastructure.exception.ResponseException;
 import com.sonnguyen.snstorage.infrastructure.adaper.impl.CloudinaryAdapter;
 import com.sonnguyen.snstorage.infrastructure.adaper.impl.MinIOAdapter;
 import com.sonnguyen.snstorage.infrastructure.configuration.StorageProperties;
 import com.sonnguyen.snstorage.infrastructure.support.enums.StorageProvider;
+
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
-import org.springframework.cloud.context.config.annotation.RefreshScope;
-import org.springframework.stereotype.Component;
-
-import java.util.Objects;
 
 @Component
 @RefreshScope

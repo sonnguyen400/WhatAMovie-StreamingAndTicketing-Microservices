@@ -18,7 +18,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @Entity
-@Table(name = "customer_group_entity")
+@Table(name = "customer_group")
 public class CustomerGroupEntity extends AuditingEntity {
     @Id
     @Column(name = "id", nullable = false)

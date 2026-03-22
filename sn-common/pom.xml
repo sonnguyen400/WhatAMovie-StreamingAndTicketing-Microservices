@@ -17,6 +17,8 @@
         <module>common-data/common-persistence</module>
         <module>common-scheduler</module>
         <module>common-geo</module>
+        <module>common-snwhatamovie-client</module>
+        <module>common-snwhatamovie-model</module>
     </modules>
 
     <properties>

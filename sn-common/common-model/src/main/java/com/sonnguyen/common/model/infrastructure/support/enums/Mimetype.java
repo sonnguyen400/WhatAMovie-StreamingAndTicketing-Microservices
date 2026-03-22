@@ -30,7 +30,6 @@ public enum Mimetype {
 
     private final String value;
 
-
     Mimetype(String value) {
         this.value = value;
     }

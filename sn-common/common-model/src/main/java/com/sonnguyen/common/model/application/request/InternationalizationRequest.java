@@ -1,16 +1,24 @@
 package com.sonnguyen.common.model.application.request;
 
 import com.sonnguyen.common.model.infrastructure.support.enums.LocaleCode;
+
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.experimental.SuperBuilder;
 
 import java.util.List;
 import java.util.Map;
 
 @Data
-public abstract class InternationalizationRequest {
+@SuperBuilder
+@NoArgsConstructor
+public abstract class InternationalizationRequest extends Request{
 
     @Data
+    @AllArgsConstructor
+    @NoArgsConstructor
     public static abstract class AbstractMessageLocale {
         private LocaleCode localeCode;
 

@@ -7,6 +7,7 @@ import com.sonnguyen.sniam.domain.command.CustomerCreateOrUpdateCmd;
 import com.sonnguyen.sniam.infrastructure.support.enums.CustomerType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDate;
@@ -18,6 +19,7 @@ import java.util.UUID;
 @Getter
 @AllArgsConstructor
 @SuperBuilder(toBuilder = true)
+@NoArgsConstructor
 public class Customer extends AuditingDomain {
     private UUID id;
     private UUID groupId;

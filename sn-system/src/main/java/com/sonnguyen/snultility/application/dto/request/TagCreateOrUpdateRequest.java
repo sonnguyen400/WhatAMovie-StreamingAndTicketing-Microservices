@@ -1,7 +1,10 @@
 package com.sonnguyen.snultility.application.dto.request;
 
 import com.sonnguyen.common.model.application.request.InternationalizationRequest;
+
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 import java.util.List;
@@ -14,7 +17,8 @@ public class TagCreateOrUpdateRequest extends InternationalizationRequest {
     private List<MessageLocale> messageLocales;
 
     @Data
-    @SuperBuilder
+    @AllArgsConstructor
+    @NoArgsConstructor
     public static class MessageLocale extends AbstractMessageLocale {
         private String title;
 

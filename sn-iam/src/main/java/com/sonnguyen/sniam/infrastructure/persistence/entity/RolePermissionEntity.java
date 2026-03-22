@@ -18,7 +18,6 @@ import java.util.UUID;
 @Entity
 @Table(name = "role_permission")
 @EqualsAndHashCode(callSuper = true)
-@MappedSuperclass
 public class RolePermissionEntity extends AuditingEntity {
     @Id
     private UUID id;

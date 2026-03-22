@@ -32,6 +32,8 @@ public class SecurityConfig {
                             .requestMatchers("/api/v1/authentication/reset-password/**").permitAll()
                             .requestMatchers("/api/v1/.well-known/jwks.json/**").permitAll()
                             .requestMatchers("/v3/api-docs**").permitAll()
+                            .requestMatchers("/api-docs**").permitAll()
+                            .requestMatchers("/swagger-ui/**").permitAll()
                             .anyRequest().authenticated()
                     ;
                 }).addFilterBefore((Filter) this.authenticationTokenFilter, (Class<? extends Filter>) UsernamePasswordAuthenticationFilter.class)

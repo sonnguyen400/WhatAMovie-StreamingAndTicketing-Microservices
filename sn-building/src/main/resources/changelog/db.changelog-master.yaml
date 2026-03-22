@@ -2,4 +2,4 @@ databaseChangeLog:
   - includeAll:
       path:
   - include:
-#      file: db/changelog/20250929-changelog.xml
+      file: changelog/20260321-address-tables.sql

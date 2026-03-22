@@ -31,7 +31,6 @@ public class CatalogItemCreateUpdateRequest extends InternationalizationRequest 
     private List<UUID> childIds;
 
     @Data
-    @SuperBuilder
     public static class MessageLocale extends AbstractMessageLocale {
         private String title;
         private String description;

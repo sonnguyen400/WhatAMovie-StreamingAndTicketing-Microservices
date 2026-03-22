@@ -1,9 +1,11 @@
 package com.sonnguyen.snstorage.infrastructure.configuration;
 
-import com.sonnguyen.snstorage.infrastructure.support.enums.StorageProvider;
-import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
+
+import com.sonnguyen.snstorage.infrastructure.support.enums.StorageProvider;
+
+import lombok.Data;
 
 @Data
 @Component

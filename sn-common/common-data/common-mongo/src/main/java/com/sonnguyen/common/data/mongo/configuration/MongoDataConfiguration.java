@@ -14,9 +14,10 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
         ),
         excludeFilters = @ComponentScan.Filter(
                 type = FilterType.REGEX,
-                pattern = ".*\\.entity\\..*"
+                pattern = ".*\\.persistence\\..*"
         )
 )
 @ConditionalOnClass(name = "jakarta.persistence.EntityManager")
+@ComponentScan(basePackages = "com.sonnguyen.common.data.mongo")
 public class MongoDataConfiguration {
 }

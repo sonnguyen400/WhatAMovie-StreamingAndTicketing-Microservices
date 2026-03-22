@@ -5,15 +5,16 @@ import com.sonnguyen.common.model.infrastructure.exception.Error;
 import com.sonnguyen.common.model.infrastructure.exception.ResponseException;
 import com.sonnguyen.common.util.StrUtils;
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.experimental.SuperBuilder;
+
 
 import java.io.Serializable;
 
 @Getter
 @Setter
-@Builder
+@SuperBuilder(toBuilder = true)
 @AllArgsConstructor
 public class Response<T> implements Serializable {
     protected T data;

@@ -83,6 +83,16 @@
 			<artifactId>common-util</artifactId>
 			<version>${sncommon.version}</version>
 		</dependency>
+		<dependency>
+			<groupId>com.sonnguyen.common</groupId>
+			<artifactId>common-snwhatamovie-client</artifactId>
+			<version>${sncommon.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sonnguyen.common</groupId>
+			<artifactId>common-snwhatamovie-model</artifactId>
+			<version>${sncommon.version}</version>
+		</dependency>
 		<!--        Map struct-->
 		<dependency>
 			<groupId>org.mapstruct</groupId>

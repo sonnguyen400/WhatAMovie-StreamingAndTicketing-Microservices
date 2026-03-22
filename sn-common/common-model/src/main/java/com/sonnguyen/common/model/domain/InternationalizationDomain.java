@@ -18,19 +18,17 @@ import java.util.UUID;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-@SuperBuilder(toBuilder = true)
-@NoArgsConstructor
-@Getter
-public abstract class InternationalizationDomain extends AuditingDomain {
-    protected List<MessageLocale> messageLocales;
 
-    protected void updateLocale(UUID domainId, DomainType domainType, List<MessageLocaleCmd> messageLocaleCmds) {
-        if (Objects.isNull(this.messageLocales)) {
-            this.messageLocales = new ArrayList<>();
+public interface InternationalizationDomain{
+
+    default void updateLocale(UUID domainId, DomainType domainType, List<MessageLocaleCmd> messageLocaleCmds) {
+        final List<MessageLocale> messageLocales = new ArrayList<>();
+        if (Objects.nonNull(this.getMessageLocales())) {
+            messageLocales.addAll(this.getMessageLocales());
         }
-        Set<LocaleCode> existedLocaleCodes = this.messageLocales.stream().map(MessageLocale::getLocale).collect(Collectors.toSet());
+        Set<LocaleCode> existedLocaleCodes = messageLocales.stream().map(MessageLocale::getLocale).collect(Collectors.toSet());
         Map<LocaleCode, MessageLocaleCmd> messageLocaleCmdMap = messageLocaleCmds.stream().collect(Collectors.toMap(MessageLocaleCmd::getLocaleCode, Function.identity(), DataUtils::applyFirst));
-        this.messageLocales.forEach(it -> {
+        messageLocales.forEach(it -> {
             it.delete();
             MessageLocaleCmd messageLocaleCmd = messageLocaleCmdMap.getOrDefault(it.getLocale(), null);
             if (Objects.nonNull(messageLocaleCmd)) {
@@ -42,16 +40,17 @@ public abstract class InternationalizationDomain extends AuditingDomain {
             if (!existedLocaleCodes.contains(key)) {
                 value.setDomainId(domainId);
                 value.setDomainType(domainType);
-                this.messageLocales.add(new MessageLocale(value));
+                messageLocales.add(new MessageLocale(value));
             }
         });
+        this.enrichMessageLocales(messageLocales);
     }
 
-    protected Optional<MessageLocale> getLocaleMessageByCode(LocaleCode localeCode) {
-        return this.messageLocales.stream()
-                .filter(it -> Objects.equals(it.getLocale(), localeCode) && Boolean.FALSE.equals(it.getDeleted()))
-                .findFirst();
-    }
+    void localize(MessageLocale messageLocale);
 
-    public abstract void buildMessageLocalesByCode(LocaleCode localeCode);
+    UUID getId();
+
+    List<MessageLocale> getMessageLocales();
+
+    void enrichMessageLocales(List<MessageLocale> messageLocales);
 }

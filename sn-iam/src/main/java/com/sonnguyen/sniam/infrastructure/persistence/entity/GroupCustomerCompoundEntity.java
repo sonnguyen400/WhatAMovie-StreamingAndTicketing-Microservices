@@ -14,7 +14,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @Entity
-@Table(name = "group_customer_compound_entity")
+@Table(name = "group_customer_compound")
 public class GroupCustomerCompoundEntity extends AuditingEntity {
     @Id
     @Column(name = "id", nullable = false)

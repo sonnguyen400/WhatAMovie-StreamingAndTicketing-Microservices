@@ -14,6 +14,7 @@ import com.sonnguyen.sniam.infrastructure.support.error.BadRequestError;
 import com.sonnguyen.sniam.infrastructure.support.error.NotFoundError;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDate;
@@ -29,6 +30,7 @@ import java.util.stream.Collectors;
 @Getter
 @SuperBuilder(toBuilder = true)
 @AllArgsConstructor
+@NoArgsConstructor
 public class User extends AuditingDomain {
     public List<UserTrace> traces;
     private UUID id;

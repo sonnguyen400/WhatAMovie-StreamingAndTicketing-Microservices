@@ -76,4 +76,8 @@ public class StrUtils {
     public static String isBlankOr(String slug, String slug1) {
         return isBlank(slug) ? slug1 : slug;
     }
+
+    public static String sqlLike(String keyword) {
+        return "%" + keyword + "%";
+    }
 }

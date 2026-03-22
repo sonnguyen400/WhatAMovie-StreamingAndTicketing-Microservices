@@ -1,7 +1,9 @@
 package com.sonnguyen.snultility.infrastructure.persistence.repository.custom.impl;
 
 import com.sonnguyen.common.util.CollectionUtils;
+import com.sonnguyen.common.util.StrUtils;
 import com.sonnguyen.snultility.application.dto.request.FindAllTagByKeyRequest;
+import com.sonnguyen.snultility.domain.query.TagSearchQuery;
 import com.sonnguyen.snultility.infrastructure.persistence.entity.TagEntity;
 import com.sonnguyen.snultility.infrastructure.persistence.repository.custom.CustomTagEntityRepository;
 import jakarta.persistence.EntityManager;
@@ -37,5 +39,31 @@ public class CustomTagEntityRepositoryImpl implements CustomTagEntityRepository 
         var query = entityManager.createQuery(jpql.toString(), TagEntity.class);
         values.forEach(query::setParameter);
         return query.getResultList();
+    }
+
+    @Override
+    public List<TagEntity> search(TagSearchQuery tagSearchQuery) {
+        StringBuilder jpql = new StringBuilder("SELECT t FROM TagEntity t WHERE t.deleted = false");
+        Map<String, Object> values = new HashMap<>();
+        if (StrUtils.isNotBlank(tagSearchQuery.getKeyword())) {
+            jpql.append(" AND (t.name LIKE :keyword OR t.value LIKE :keyword) ");
+            values.put("keyword", StrUtils.sqlLike(tagSearchQuery.getKeyword()));
+        }
+        var query = entityManager.createQuery(jpql.toString(), TagEntity.class);
+        values.forEach(query::setParameter);
+        return query.getResultList();
+    }
+
+    @Override
+    public Long count(TagSearchQuery tagSearchQuery) {
+        StringBuilder jpql = new StringBuilder("COUNT id FROM TagEntity t WHERE t.deleted = false");
+        Map<String, Object> values = new HashMap<>();
+        if (StrUtils.isNotBlank(tagSearchQuery.getKeyword())) {
+            jpql.append(" AND (t.name LIKE :keyword OR t.value LIKE :keyword) ");
+            values.put("keyword", StrUtils.sqlLike(tagSearchQuery.getKeyword()));
+        }
+        var query = entityManager.createQuery(jpql.toString(), Long.class);
+        values.forEach(query::setParameter);
+        return query.getSingleResult();
     }
 }

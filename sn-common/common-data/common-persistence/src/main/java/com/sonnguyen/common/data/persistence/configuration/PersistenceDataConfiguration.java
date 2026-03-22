@@ -8,9 +8,10 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @Configuration
 @EnableJpaRepositories(
+        basePackages = "com.sonnguyen.common.data.persistence.entityrepository",
         includeFilters = @ComponentScan.Filter(
                 type = FilterType.REGEX,
-                pattern = ".*\\.entity\\..*"
+                pattern = ".*\\.persistence\\..*"
         ),
         excludeFilters = @ComponentScan.Filter(
                 type = FilterType.REGEX,
@@ -18,5 +19,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
         )
 )
 @ConditionalOnClass(name = "org.springframework.data.mongodb.core.MongoTemplate")
+@ComponentScan(basePackages = "com.sonnguyen.common.data.persistence")
 public class PersistenceDataConfiguration {
 }
