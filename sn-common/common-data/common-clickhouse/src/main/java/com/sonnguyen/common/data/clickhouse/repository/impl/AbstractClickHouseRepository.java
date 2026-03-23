@@ -27,9 +27,9 @@ public abstract class AbstractClickHouseRepository<T, ID> implements ClickHouseR
     protected final String tableName;
 
     @SuppressWarnings("unchecked")
-    public AbstractClickHouseRepository(JdbcTemplate jdbcTemplate, 
-                                      NamedParameterJdbcTemplate namedParameterJdbcTemplate,
-                                      String tableName) {
+    public AbstractClickHouseRepository(JdbcTemplate jdbcTemplate,
+                                        NamedParameterJdbcTemplate namedParameterJdbcTemplate,
+                                        String tableName) {
         this.jdbcTemplate = jdbcTemplate;
         this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
         this.entityClass = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass())
@@ -41,15 +41,15 @@ public abstract class AbstractClickHouseRepository<T, ID> implements ClickHouseR
     public <S extends T> S save(S entity) {
         String sql = generateInsertSQL(entity);
         SqlParameterSource params = new BeanPropertySqlParameterSource(entity);
-        
+
         KeyHolder keyHolder = new GeneratedKeyHolder();
         namedParameterJdbcTemplate.update(sql, params, keyHolder);
-        
+
         // Set generated ID if available
         if (keyHolder.getKeys() != null && keyHolder.getKeys().containsKey("id")) {
             setIdValue(entity, (ID) keyHolder.getKeys().get("id"));
         }
-        
+
         return entity;
     }
 
@@ -89,12 +89,12 @@ public abstract class AbstractClickHouseRepository<T, ID> implements ClickHouseR
     public List<T> findAllById(Iterable<ID> ids) {
         List<ID> idList = new ArrayList<>();
         ids.forEach(idList::add);
-        
-        String sql = String.format("SELECT * FROM %s WHERE id IN (%s)", 
-            tableName, 
-            idList.stream().map(id -> "?").collect(Collectors.joining(","))
+
+        String sql = String.format("SELECT * FROM %s WHERE id IN (%s)",
+                tableName,
+                idList.stream().map(id -> "?").collect(Collectors.joining(","))
         );
-        
+
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(entityClass), idList.toArray());
     }
 
@@ -122,12 +122,12 @@ public abstract class AbstractClickHouseRepository<T, ID> implements ClickHouseR
     public void deleteAllById(Iterable<ID> ids) {
         List<ID> idList = new ArrayList<>();
         ids.forEach(idList::add);
-        
-        String sql = String.format("DELETE FROM %s WHERE id IN (%s)", 
-            tableName, 
-            idList.stream().map(id -> "?").collect(Collectors.joining(","))
+
+        String sql = String.format("DELETE FROM %s WHERE id IN (%s)",
+                tableName,
+                idList.stream().map(id -> "?").collect(Collectors.joining(","))
         );
-        
+
         jdbcTemplate.update(sql, idList.toArray());
     }
 
@@ -160,33 +160,33 @@ public abstract class AbstractClickHouseRepository<T, ID> implements ClickHouseR
     @Override
     public <S extends T> void batchInsert(List<S> entities) {
         if (entities.isEmpty()) return;
-        
+
         String sql = generateInsertSQL(entities.get(0));
         List<SqlParameterSource> params = entities.stream()
                 .map(BeanPropertySqlParameterSource::new)
                 .collect(Collectors.toList());
-        
+
         namedParameterJdbcTemplate.batchUpdate(sql, params.toArray(new SqlParameterSource[0]));
     }
 
     @Override
     public List<T> findAll(Pageable pageable) {
-        String sql = String.format("SELECT * FROM %s ORDER BY %s LIMIT ? OFFSET ?", 
-            tableName, 
-            getOrderByClause(pageable.getSort())
+        String sql = String.format("SELECT * FROM %s ORDER BY %s LIMIT ? OFFSET ?",
+                tableName,
+                getOrderByClause(pageable.getSort())
         );
-        
-        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(entityClass), 
-            pageable.getPageSize(), pageable.getOffset());
+
+        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(entityClass),
+                pageable.getPageSize(), pageable.getOffset());
     }
 
     @Override
     public List<T> findAll(Sort sort) {
-        String sql = String.format("SELECT * FROM %s ORDER BY %s", 
-            tableName, 
-            getOrderByClause(sort)
+        String sql = String.format("SELECT * FROM %s ORDER BY %s",
+                tableName,
+                getOrderByClause(sort)
         );
-        
+
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(entityClass));
     }
 
@@ -195,18 +195,18 @@ public abstract class AbstractClickHouseRepository<T, ID> implements ClickHouseR
         Field[] fields = entityClass.getDeclaredFields();
         List<String> columnNames = new ArrayList<>();
         List<String> paramNames = new ArrayList<>();
-        
+
         for (Field field : fields) {
             field.setAccessible(true);
             String columnName = camelToSnake(field.getName());
             columnNames.add(columnName);
             paramNames.add(":" + field.getName());
         }
-        
-        return String.format("INSERT INTO %s (%s) VALUES (%s)", 
-            tableName, 
-            String.join(", ", columnNames),
-            String.join(", ", paramNames)
+
+        return String.format("INSERT INTO %s (%s) VALUES (%s)",
+                tableName,
+                String.join(", ", columnNames),
+                String.join(", ", paramNames)
         );
     }
 
@@ -214,7 +214,7 @@ public abstract class AbstractClickHouseRepository<T, ID> implements ClickHouseR
         if (sort == null || !sort.iterator().hasNext()) {
             return "id";
         }
-        
+
         return sort.stream()
                 .map(order -> camelToSnake(order.getProperty()) + " " + order.getDirection())
                 .collect(Collectors.joining(", "));

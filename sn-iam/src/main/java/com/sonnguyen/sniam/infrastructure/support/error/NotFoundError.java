@@ -1,7 +1,7 @@
 package com.sonnguyen.sniam.infrastructure.support.error;
 
-import com.sonnguyen.common.model.infrastructure.support.constant.HttpStatus;
 import com.sonnguyen.common.model.infrastructure.exception.Error;
+import com.sonnguyen.common.model.infrastructure.support.constant.HttpStatus;
 
 public enum NotFoundError implements Error {
     USER_NOT_FOUND("4000004", "User not found"),

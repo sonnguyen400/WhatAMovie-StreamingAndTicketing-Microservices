@@ -11,6 +11,6 @@ import java.util.UUID;
 @NoArgsConstructor
 @SuperBuilder(toBuilder = true)
 @EqualsAndHashCode(callSuper = true)
-public abstract class TenancyDomain extends AuditingDomain{
+public abstract class TenancyDomain extends AuditingDomain {
     private UUID tenantId;
 }

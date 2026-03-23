@@ -27,12 +27,12 @@ public class RoleControllerImpl implements RoleController {
     }
 
     @Override
-    public Collection<Role> findAll(){
+    public Collection<Role> findAll() {
         return this.roleQueryService.findAll();
     }
 
     @Override
-    public RoleDetailResponse updateById(UUID id, RoleCreateOrUpdateRequest request){
+    public RoleDetailResponse updateById(UUID id, RoleCreateOrUpdateRequest request) {
         return this.roleCommandService.updateById(id, request);
     }
 }

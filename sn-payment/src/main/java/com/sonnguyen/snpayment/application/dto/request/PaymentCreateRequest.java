@@ -3,12 +3,10 @@ package com.sonnguyen.snpayment.application.dto.request;
 import com.sonnguyen.common.model.application.request.Request;
 import com.sonnguyen.snpayment.infrastructure.constant.PaymentStatus;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 
-import java.math.BigDecimal;
 import java.time.Instant;
 import java.util.List;
 import java.util.UUID;

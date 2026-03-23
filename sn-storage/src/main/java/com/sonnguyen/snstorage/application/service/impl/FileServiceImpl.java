@@ -13,7 +13,6 @@ import com.sonnguyen.snstorage.domain.File;
 import com.sonnguyen.snstorage.domain.cmd.ImageUploadCmd;
 import com.sonnguyen.snstorage.infrastructure.adaper.StorageAdapter;
 import com.sonnguyen.snstorage.infrastructure.adaper.StorageFactory;
-import com.sonnguyen.snstorage.infrastructure.configuration.FileUploadResult;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;

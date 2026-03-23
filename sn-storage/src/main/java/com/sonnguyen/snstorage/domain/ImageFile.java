@@ -21,7 +21,7 @@ import java.util.Objects;
 
 @Getter
 @SuperBuilder(toBuilder = true)
-public class ImageFile extends File{
+public class ImageFile extends File {
 
     public ImageFile() {
         super();
@@ -39,12 +39,12 @@ public class ImageFile extends File{
         ImageMetadata defaultMetadata = (ImageMetadata) defaultVariant.getMetaData();
         fileVariants.add(defaultVariant);
 
-        if(!formats.isEmpty() || !resolutions.isEmpty()){
-            if(formats.isEmpty()) formats.add(defaultMetadata.getFormat());
-            if(resolutions.isEmpty()) resolutions.add(defaultMetadata.getResolution());
+        if (!formats.isEmpty() || !resolutions.isEmpty()) {
+            if (formats.isEmpty()) formats.add(defaultMetadata.getFormat());
+            if (resolutions.isEmpty()) resolutions.add(defaultMetadata.getResolution());
 
-            for(ImageFormat imageFormat: formats){
-                for(VisualDefinition visualDefinition: resolutions){
+            for (ImageFormat imageFormat : formats) {
+                for (VisualDefinition visualDefinition : resolutions) {
                     ImageMetadata imageMetadata = ImageMetadata.builder()
                             .colorMode(defaultMetadata.getColorMode())
                             .format(imageFormat)
@@ -60,9 +60,9 @@ public class ImageFile extends File{
                     fileVariants.add(fileVariant);
                 }
             }
-        } else if (cmd.getAutoReduceDefinition() && Objects.nonNull(defaultMetadata.getResolution())){
+        } else if (cmd.getAutoReduceDefinition() && Objects.nonNull(defaultMetadata.getResolution())) {
             List<VisualDefinition> lowerResolutions = VisualDefinition.getLowerResolutions(defaultMetadata.getResolution());
-            for(VisualDefinition resolution: lowerResolutions){
+            for (VisualDefinition resolution : lowerResolutions) {
                 ImageMetadata imageMetadata = ImageMetadata.builder()
                         .colorMode(defaultMetadata.getColorMode())
                         .format(defaultMetadata.getFormat())
@@ -91,7 +91,7 @@ public class ImageFile extends File{
         String extension = FileUtils.getExtension(fileData.getOriginalFilename());
         imageMetadata.setFormat(ImageFormat.fromExtension(extension));
 
-        try(InputStream inputStream = fileData.getInputStream()) {
+        try (InputStream inputStream = fileData.getInputStream()) {
             BufferedImage bimg = ImageIO.read(inputStream);
             VisualDefinition visualDefinition = VisualDefinition.closest(bimg.getWidth(), bimg.getHeight());
             imageMetadata.setResolution(visualDefinition);

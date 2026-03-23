@@ -1,4 +1,0 @@
-com/sonnguyen/common/data/core/DomainRepository.class
-com/sonnguyen/common/data/core/jdbc/EntityMetadataFactory.class
-com/sonnguyen/common/data/core/jdbc/EntityMetadata.class
-com/sonnguyen/common/data/core/jdbc/FieldMetadata.class

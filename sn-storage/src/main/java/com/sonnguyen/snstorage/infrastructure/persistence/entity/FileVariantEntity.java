@@ -1,16 +1,8 @@
 package com.sonnguyen.snstorage.infrastructure.persistence.entity;
 
-import java.math.BigInteger;
-import java.util.List;
-import java.util.UUID;
-
-import org.checkerframework.checker.units.qual.C;
-
 import com.sonnguyen.common.data.persistence.entity.AuditingEntity;
 import com.sonnguyen.common.model.infrastructure.support.enums.Mimetype;
 import com.sonnguyen.snstorage.domain.FileMetaData;
-import com.sonnguyen.snstorage.infrastructure.support.enums.StorageProvider;
-
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -18,6 +10,9 @@ import jakarta.persistence.Table;
 import jakarta.persistence.Version;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.math.BigInteger;
+import java.util.UUID;
 
 @Getter
 @Setter

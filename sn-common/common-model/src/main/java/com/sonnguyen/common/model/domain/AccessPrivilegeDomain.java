@@ -65,9 +65,9 @@ public abstract class AccessPrivilegeDomain extends AuditingDomain {
             return cmd.getDomainIds().contains(this.accessDomainId);
         }
         if (Objects.nonNull(this.locale) && PrivilegeScope.LOCALE.equals(this.scope)) {
-            return  Objects.equals(cmd.getLocaleCode(), this.locale);
+            return Objects.equals(cmd.getLocaleCode(), this.locale);
         }
-        if(Objects.nonNull(this.ageLimit) && PrivilegeScope.AGE_LIMIT.equals(this.scope)){
+        if (Objects.nonNull(this.ageLimit) && PrivilegeScope.AGE_LIMIT.equals(this.scope)) {
             return Objects.equals(cmd.getAge(), this.ageLimit);
         }
         return isValid;

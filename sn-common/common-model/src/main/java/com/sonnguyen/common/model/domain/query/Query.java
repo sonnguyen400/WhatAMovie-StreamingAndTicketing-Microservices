@@ -2,7 +2,6 @@ package com.sonnguyen.common.model.domain.query;
 
 
 import com.sonnguyen.common.model.infrastructure.support.enums.LocaleCode;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;

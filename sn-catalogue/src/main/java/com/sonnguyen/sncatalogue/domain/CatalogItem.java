@@ -49,6 +49,7 @@ public class CatalogItem extends AuditingDomain implements Deletable, Internatio
         this.updateLocale(this.id, DomainType.CATALOGUE_ITEM, cmd.getMessageLocales());
         this.updateCatalogItems(newChildCatalogItems);
     }
+
     public void update(CatalogItemCreateOrUpdateCmd cmd, List<CatalogItem> newChildCatalogItems) {
         this.title = cmd.getTitle();
         this.slug = cmd.getSlug();

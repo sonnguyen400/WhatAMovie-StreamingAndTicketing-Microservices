@@ -20,7 +20,7 @@ import java.util.Objects;
 
 @Getter
 @SuperBuilder(toBuilder = true)
-public class VideoFile extends File{
+public class VideoFile extends File {
 
     public VideoFile() {
         super();
@@ -38,12 +38,12 @@ public class VideoFile extends File{
         ImageMetadata defaultMetadata = (ImageMetadata) defaultVariant.getMetaData();
         fileVariants.add(defaultVariant);
 
-        if(!formats.isEmpty() || !resolutions.isEmpty()){
-            if(formats.isEmpty()) formats.add(defaultMetadata.getFormat());
-            if(resolutions.isEmpty()) resolutions.add(defaultMetadata.getResolution());
+        if (!formats.isEmpty() || !resolutions.isEmpty()) {
+            if (formats.isEmpty()) formats.add(defaultMetadata.getFormat());
+            if (resolutions.isEmpty()) resolutions.add(defaultMetadata.getResolution());
 
-            for(ImageFormat imageFormat: formats){
-                for(VisualDefinition visualDefinition: resolutions){
+            for (ImageFormat imageFormat : formats) {
+                for (VisualDefinition visualDefinition : resolutions) {
                     ImageMetadata imageMetadata = ImageMetadata.builder()
                             .colorMode(defaultMetadata.getColorMode())
                             .format(imageFormat)
@@ -59,9 +59,9 @@ public class VideoFile extends File{
                     fileVariants.add(fileVariant);
                 }
             }
-        } else if (cmd.getAutoReduceDefinition() && Objects.nonNull(defaultMetadata.getResolution())){
+        } else if (cmd.getAutoReduceDefinition() && Objects.nonNull(defaultMetadata.getResolution())) {
             List<VisualDefinition> lowerResolutions = VisualDefinition.getLowerResolutions(defaultMetadata.getResolution());
-            for(VisualDefinition resolution: lowerResolutions){
+            for (VisualDefinition resolution : lowerResolutions) {
                 ImageMetadata imageMetadata = ImageMetadata.builder()
                         .colorMode(defaultMetadata.getColorMode())
                         .format(defaultMetadata.getFormat())
@@ -90,7 +90,7 @@ public class VideoFile extends File{
         String extension = FileUtils.getExtension(fileData.getOriginalFilename());
         imageMetadata.setFormat(ImageFormat.fromExtension(extension));
 
-        try(InputStream inputStream = fileData.getInputStream()) {
+        try (InputStream inputStream = fileData.getInputStream()) {
             FFprobe fFprobe = new FFprobe();
         } catch (Exception e) {
             throw new RuntimeException("Failed to read image metadata", e);

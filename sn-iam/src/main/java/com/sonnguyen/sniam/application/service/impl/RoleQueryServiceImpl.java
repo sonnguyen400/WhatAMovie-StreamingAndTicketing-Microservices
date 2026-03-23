@@ -11,7 +11,6 @@ import lombok.experimental.FieldDefaults;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
-import java.util.List;
 import java.util.UUID;
 
 @Service
@@ -22,7 +21,7 @@ public class RoleQueryServiceImpl implements RoleQueryService {
     PermissionRepository permissionRepository;
 
     @Override
-    public RoleDetailResponse findById(UUID id){
+    public RoleDetailResponse findById(UUID id) {
         Role role = this.roleRepository.getById(id);
         Collection<Permission> permissions = this.permissionRepository.findAll();
         return new RoleDetailResponse(role, role.getPermissions(), permissions.stream().toList());

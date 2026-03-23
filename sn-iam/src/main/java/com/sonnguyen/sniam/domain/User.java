@@ -68,6 +68,14 @@ public class User extends AuditingDomain {
         this.initCustomer();
     }
 
+    public User(UserCreateOrUpdateCmd cmd, List<Role> roles) {
+        this.username = cmd.getUsername();
+        this.firstName = cmd.getFirstName();
+        this.lastName = cmd.getLastName();
+        this.gender = cmd.getGender();
+
+    }
+
     private void initCustomer() {
         CustomerCreateOrUpdateCmd cmd = CustomerCreateOrUpdateCmd.builder()
                 .firstName(this.firstName)
@@ -80,13 +88,6 @@ public class User extends AuditingDomain {
         this.assignedCustomer = new Customer(cmd);
     }
 
-    public User(UserCreateOrUpdateCmd cmd, List<Role> roles) {
-        this.username = cmd.getUsername();
-        this.firstName = cmd.getFirstName();
-        this.lastName = cmd.getLastName();
-        this.gender = cmd.getGender();
-
-    }
     public void updateRoles(List<Role> newRoles) {
         if (Objects.isNull(this.roles)) {
             this.roles = new ArrayList<>();

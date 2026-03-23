@@ -1,8 +1,8 @@
 package com.sonnguyen.snnotification.application.service.impl;
 
 import com.sonnguyen.common.model.application.request.notification.NotificationCreateRequest;
-import com.sonnguyen.common.model.infrastructure.support.enums.NotificationChanel;
 import com.sonnguyen.common.model.infrastructure.exception.ResponseException;
+import com.sonnguyen.common.model.infrastructure.support.enums.NotificationChanel;
 import com.sonnguyen.common.scheduler.Job;
 import com.sonnguyen.common.scheduler.Scheduler;
 import com.sonnguyen.common.util.IdUtils;

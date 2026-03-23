@@ -20,7 +20,7 @@ public class TenantFilterIntegrator implements LoadEventListener, PreLoadEventLi
     private void applyTenantFilter(Session session) {
         UUID tenantId = null;
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if(authentication instanceof UserAuthority){
+        if (authentication instanceof UserAuthority) {
             tenantId = ((UserAuthority) authentication).getTenantId();
         }
 

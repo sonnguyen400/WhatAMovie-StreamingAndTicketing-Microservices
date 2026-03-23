@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Field;
 
 @Setter
 @Getter
-public abstract class TenancyDocument extends AuditingDocument{
+public abstract class TenancyDocument extends AuditingDocument {
     @Field("tenant_id")
     private String tenantId;
 }

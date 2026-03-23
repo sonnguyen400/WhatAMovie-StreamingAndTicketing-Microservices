@@ -1,7 +1,6 @@
 package com.sonnguyen.snultility.application.dto.request;
 
 import com.sonnguyen.common.model.application.request.InternationalizationRequest;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

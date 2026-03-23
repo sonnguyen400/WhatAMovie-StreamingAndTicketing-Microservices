@@ -7,8 +7,7 @@ public enum BadRequestError implements Error {
     STORAGE_SERVICE_NOT_AVAILABLE("4000001", "Storage Service not available"),
     NOTIFICATION_SERVICE_NOT_AVAILABLE("4000001", "Notification Service not available"),
     INVALID_AUTHENTICATION("4000001", "Invalid authentication value"),
-    DEFAULT_STORAGE_NOT_CONFIGURED("4000002","Default storage has yet configured")
-    ;
+    DEFAULT_STORAGE_NOT_CONFIGURED("4000002", "Default storage has yet configured");
 
     private String code;
     private String message;

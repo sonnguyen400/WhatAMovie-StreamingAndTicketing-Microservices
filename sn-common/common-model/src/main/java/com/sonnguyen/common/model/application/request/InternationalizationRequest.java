@@ -1,9 +1,7 @@
 package com.sonnguyen.common.model.application.request;
 
 import com.sonnguyen.common.model.infrastructure.support.enums.LocaleCode;
-
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
@@ -14,7 +12,9 @@ import java.util.Map;
 @Data
 @SuperBuilder
 @NoArgsConstructor
-public abstract class InternationalizationRequest extends Request{
+public abstract class InternationalizationRequest extends Request {
+
+    public abstract List<? extends AbstractMessageLocale> getMessageLocales();
 
     @Data
     @AllArgsConstructor
@@ -24,7 +24,4 @@ public abstract class InternationalizationRequest extends Request{
 
         public abstract Map<String, String> getMessages();
     }
-
-
-    public abstract List<? extends AbstractMessageLocale> getMessageLocales();
 }

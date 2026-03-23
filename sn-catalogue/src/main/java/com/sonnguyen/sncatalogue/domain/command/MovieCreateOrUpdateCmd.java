@@ -8,7 +8,7 @@ import java.util.UUID;
 
 @Data
 @SuperBuilder
-public class MovieCreateOrUpdateCmd extends CatalogItemCreateOrUpdateCmd{
+public class MovieCreateOrUpdateCmd extends CatalogItemCreateOrUpdateCmd {
     private Integer releaseYear;
     private Duration duration;
     private UUID posterFileId;

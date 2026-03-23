@@ -1,7 +1,0 @@
-/media/sonnguyen/01DBA5F1D1EF8BC0/WhataMovie/WhatAMovie-StreamingAndTicketing-Microservices/sn-common/common-client/src/main/java/com/sonnguyen/common/client/BadRequestError.java
-/media/sonnguyen/01DBA5F1D1EF8BC0/WhataMovie/WhatAMovie-StreamingAndTicketing-Microservices/sn-common/common-client/src/main/java/com/sonnguyen/common/client/ClientConfiguration.java
-/media/sonnguyen/01DBA5F1D1EF8BC0/WhataMovie/WhatAMovie-StreamingAndTicketing-Microservices/sn-common/common-client/src/main/java/com/sonnguyen/common/client/ClientTokenProvider.java
-/media/sonnguyen/01DBA5F1D1EF8BC0/WhataMovie/WhatAMovie-StreamingAndTicketing-Microservices/sn-common/common-client/src/main/java/com/sonnguyen/common/client/FeignClientConfig.java
-/media/sonnguyen/01DBA5F1D1EF8BC0/WhataMovie/WhatAMovie-StreamingAndTicketing-Microservices/sn-common/common-client/src/main/java/com/sonnguyen/common/client/IAMClient.java
-/media/sonnguyen/01DBA5F1D1EF8BC0/WhataMovie/WhatAMovie-StreamingAndTicketing-Microservices/sn-common/common-client/src/main/java/com/sonnguyen/common/client/SystemClientProps.java
-/media/sonnguyen/01DBA5F1D1EF8BC0/WhataMovie/WhatAMovie-StreamingAndTicketing-Microservices/sn-common/common-client/src/main/java/com/sonnguyen/common/client/impl/IAMClientFallbackFactory.java

@@ -1,7 +1,6 @@
 package com.sonnguyen.sncatalogue.infrastructure.persistence.repository.custom.impl;
 
 import com.sonnguyen.common.util.StrUtils;
-import com.sonnguyen.sncatalogue.domain.CatalogItem;
 import com.sonnguyen.sncatalogue.domain.query.CatalogItemSearchQuery;
 import com.sonnguyen.sncatalogue.infrastructure.persistence.entity.CatalogItemEntity;
 import com.sonnguyen.sncatalogue.infrastructure.persistence.entity.PersonEntity;
@@ -12,7 +11,6 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.stream.Collectors;

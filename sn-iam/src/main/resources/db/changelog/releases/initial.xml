@@ -1,0 +1,183 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+    <changeSet author="sonnguyen (generated)" id="1774114776972-1">
+        <createTable tableName="api_client">
+            <column name="id" type="uuid">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="api_clientPK"/>
+            </column>
+            <column name="created_at" type="timestamp"/>
+            <column name="created_by" type="VARCHAR(255)"/>
+            <column name="last_modified_at" type="timestamp"/>
+            <column name="last_modified_by" type="VARCHAR(255)"/>
+            <column name="client_id" type="VARCHAR(255)"/>
+            <column name="client_secret" type="VARCHAR(255)"/>
+            <column name="deleted" type="BOOLEAN"/>
+            <column name="enabled" type="BOOLEAN"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="provider" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sonnguyen (generated)" id="1774114776972-2">
+        <createTable tableName="customer_entity">
+            <column name="id" type="uuid">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="customer_entityPK"/>
+            </column>
+            <column name="created_at" type="timestamp"/>
+            <column name="created_by" type="VARCHAR(255)"/>
+            <column name="last_modified_at" type="timestamp"/>
+            <column name="last_modified_by" type="VARCHAR(255)"/>
+            <column name="customer_address_id" type="char(36)"/>
+            <column name="date_of_birth" type="date"/>
+            <column name="email" type="VARCHAR(255)"/>
+            <column name="first_name" type="VARCHAR(255)"/>
+            <column name="full_name" type="VARCHAR(255)"/>
+            <column name="group_id" type="char(36)"/>
+            <column name="last_name" type="VARCHAR(255)"/>
+            <column name="phone_number" type="VARCHAR(255)"/>
+            <column name="type" type="VARCHAR(255)"/>
+            <column name="user_id" type="char(36)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sonnguyen (generated)" id="1774114776972-3">
+        <createTable tableName="customer_group">
+            <column name="id" type="uuid">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="customer_groupPK"/>
+            </column>
+            <column name="created_at" type="timestamp"/>
+            <column name="created_by" type="VARCHAR(255)"/>
+            <column name="last_modified_at" type="timestamp"/>
+            <column name="last_modified_by" type="VARCHAR(255)"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="representative_customer_id" type="char(36)"/>
+            <column name="rules" type="VARCHAR(255)"/>
+            <column name="type" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sonnguyen (generated)" id="1774114776972-4">
+        <createTable tableName="group_customer_compound">
+            <column name="id" type="uuid">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="group_customer_compoundPK"/>
+            </column>
+            <column name="created_at" type="timestamp"/>
+            <column name="created_by" type="VARCHAR(255)"/>
+            <column name="last_modified_at" type="timestamp"/>
+            <column name="last_modified_by" type="VARCHAR(255)"/>
+            <column name="customer_id" type="char(36)"/>
+            <column name="group_id" type="char(36)"/>
+            <column name="is_admin" type="BOOLEAN"/>
+            <column name="is_corporation" type="BOOLEAN"/>
+            <column name="rules" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sonnguyen (generated)" id="1774114776972-5">
+        <createTable tableName="permission">
+            <column name="id" type="uuid">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="permissionPK"/>
+            </column>
+            <column name="created_at" type="timestamp"/>
+            <column name="created_by" type="VARCHAR(255)"/>
+            <column name="last_modified_at" type="timestamp"/>
+            <column name="last_modified_by" type="VARCHAR(255)"/>
+            <column name="code" type="VARCHAR(50)"/>
+            <column name="deleted" type="BOOLEAN"/>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="scope" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sonnguyen (generated)" id="1774114776972-6">
+        <createTable tableName="role">
+            <column name="id" type="uuid">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="rolePK"/>
+            </column>
+            <column name="created_at" type="timestamp"/>
+            <column name="created_by" type="VARCHAR(255)"/>
+            <column name="last_modified_at" type="timestamp"/>
+            <column name="last_modified_by" type="VARCHAR(255)"/>
+            <column name="code" type="VARCHAR(50)"/>
+            <column name="deleted" type="BOOLEAN"/>
+            <column name="description" type="VARCHAR(1000)"/>
+            <column name="name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sonnguyen (generated)" id="1774114776972-7">
+        <createTable tableName="user_detail">
+            <column name="id" type="uuid">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="user_detailPK"/>
+            </column>
+            <column name="created_at" type="timestamp"/>
+            <column name="created_by" type="VARCHAR(255)"/>
+            <column name="last_modified_at" type="timestamp"/>
+            <column name="last_modified_by" type="VARCHAR(255)"/>
+            <column name="date_of_birth" type="date"/>
+            <column name="deleted" type="BOOLEAN"/>
+            <column name="email" type="VARCHAR(320)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="enabled" type="BOOLEAN"/>
+            <column name="first_name" type="VARCHAR(50)"/>
+            <column name="gender" type="SMALLINT"/>
+            <column name="last_name" type="VARCHAR(50)"/>
+            <column name="locked" type="BOOLEAN"/>
+            <column name="password" type="VARCHAR(500)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="phone_number" type="VARCHAR(15)"/>
+            <column name="root" type="BOOLEAN"/>
+            <column name="username" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="verified" type="BOOLEAN"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="sonnguyen (generated)" id="1774114776972-8">
+        <createTable tableName="user_role">
+            <column name="id" type="uuid">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="user_rolePK"/>
+            </column>
+            <column name="created_at" type="timestamp"/>
+            <column name="created_by" type="VARCHAR(255)"/>
+            <column name="last_modified_at" type="timestamp"/>
+            <column name="last_modified_by" type="VARCHAR(255)"/>
+            <column name="deleted" type="BOOLEAN"/>
+            <column name="role_id" type="char(36)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_id" type="char(36)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="sonnguyen (generated)" id="1774114776972-9">
+        <addUniqueConstraint columnNames="email" constraintName="UC_USER_DETAILEMAIL_COL" tableName="user_detail"/>
+    </changeSet>
+    <changeSet author="sonnguyen (generated)" id="1774114776972-10">
+        <addUniqueConstraint columnNames="id" constraintName="UC_USER_DETAILID_COL" tableName="user_detail"/>
+    </changeSet>
+    <changeSet author="sonnguyen (generated)" id="1774114776972-11">
+        <addUniqueConstraint columnNames="username" constraintName="UC_USER_DETAILUSERNAME_COL"
+                             tableName="user_detail"/>
+    </changeSet>
+    <changeSet author="sonnguyen (generated)" id="1774111320728-12">
+        <sql>
+            INSERT INTO role (id, created_at, created_by, last_modified_at, last_modified_by, code, deleted,
+                              description, name)
+            VALUES ('6989ceb8-07e1-4c12-9c44-b2ef3a6b8400', CURRENT_TIMESTAMP, 'system', CURRENT_TIMESTAMP, 'system',
+                    'ADMIN', false, 'Administrator Role', 'Administrator');
+
+            INSERT INTO user_detail (id, created_at, created_by, last_modified_at, last_modified_by, date_of_birth,
+                                     deleted, email, enabled, first_name, gender, last_name, locked, password,
+                                     phone_number, root, username, verified)
+            VALUES ('85c7c132-8409-41d9-930b-54d9c72e2cfc', CURRENT_TIMESTAMP, 'system', CURRENT_TIMESTAMP, 'system',
+                    '1990-01-01', false, 'admin@sn.com', true, 'Admin', 1, 'User', false,
+                    '$argon2id$v=19$m=16384,t=2,p=1$csR2sUwu3bmFYDrDQKRtjQ$v50v7RGXeKhBp9vaswJOIIBF68QGknLRyws5MYC82bc',
+                    '', true, 'admin', true);
+
+            INSERT INTO user_role (id, created_at, created_by, last_modified_at, last_modified_by, deleted, role_id,
+                                   user_id)
+            VALUES ('e72e1ab3-e18f-4ed3-bcfa-1d9326f6341d', CURRENT_TIMESTAMP, 'system', CURRENT_TIMESTAMP, 'system',
+                    false, '6989ceb8-07e1-4c12-9c44-b2ef3a6b8400', '85c7c132-8409-41d9-930b-54d9c72e2cfc');
+        </sql>
+    </changeSet>
+</databaseChangeLog>

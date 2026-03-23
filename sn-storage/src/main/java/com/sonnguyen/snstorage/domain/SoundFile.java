@@ -8,9 +8,7 @@ import com.sonnguyen.snstorage.infrastructure.support.constant.ImageColorMode;
 import com.sonnguyen.snstorage.infrastructure.support.constant.ImageFormat;
 import com.sonnguyen.snstorage.infrastructure.support.constant.VisualDefinition;
 import com.sonnguyen.snstorage.infrastructure.support.enums.StorageProvider;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -21,7 +19,7 @@ import java.util.Objects;
 
 @Getter
 @SuperBuilder(toBuilder = true)
-public class SoundFile extends File{
+public class SoundFile extends File {
 
     public SoundFile() {
         super();
@@ -40,9 +38,9 @@ public class SoundFile extends File{
 
         FileVariantCmd defaultVariant = this.extractDefaultVariantFromFile(fileData);
 
-        for(ImageColorMode imageColorMode: colorModes){
-            for(ImageFormat imageFormat: formats){
-                for(VisualDefinition visualDefinition: resolutions){
+        for (ImageColorMode imageColorMode : colorModes) {
+            for (ImageFormat imageFormat : formats) {
+                for (VisualDefinition visualDefinition : resolutions) {
                     ImageMetadata imageMetadata = ImageMetadata.builder()
                             .colorMode(imageColorMode)
                             .format(imageFormat)

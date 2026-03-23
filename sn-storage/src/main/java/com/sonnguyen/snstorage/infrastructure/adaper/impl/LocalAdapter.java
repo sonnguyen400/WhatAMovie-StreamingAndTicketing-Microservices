@@ -31,7 +31,7 @@ public class LocalAdapter implements StorageAdapter {
         try {
             LocalDate now = LocalDate.now();
             String datePath = now.format(DateTimeFormatter.ofPattern("yyyy/MM/dd"));
-            
+
             Path bucketPath = Paths.get(DEFAULT_UPLOAD_DIR, bucketName, datePath);
             if (!Files.exists(bucketPath)) {
                 Files.createDirectories(bucketPath);
@@ -41,10 +41,10 @@ public class LocalAdapter implements StorageAdapter {
             if (originalFileName != null && originalFileName.lastIndexOf('.') > 0) {
                 extension = originalFileName.substring(originalFileName.lastIndexOf('.'));
             }
-            
+
             String storedFileName = UUID.randomUUID().toString() + extension;
             Path filePath = bucketPath.resolve(storedFileName);
-            
+
             Files.write(filePath, data);
 
             String relativePath = bucketName + "/" + datePath + "/" + storedFileName;

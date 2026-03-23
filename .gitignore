@@ -1,3 +1,35 @@
 *idea
 *jpb
+*/target/
+!**/target/
+*/.project
+*/.classpath
+*/.settings
+*/.factorypath
+*/.mvn/wrapper/maven-wrapper.
+
+
+# Maven
 target/
+**/target/
+
+# IntelliJ
+.idea/
+*.iml
+
+# VSCode
+.vscode/
+
+# Python
+__pycache__/
+*.pyc
+
+# Agent / AI tools
+.agent/
+
+# Logs
+*.log
+
+.agent
+
+docs

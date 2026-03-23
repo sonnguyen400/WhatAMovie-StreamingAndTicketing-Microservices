@@ -4,9 +4,7 @@ import com.sonnguyen.common.model.application.response.PagingResponse;
 import com.sonnguyen.common.model.application.response.Response;
 import com.sonnguyen.sncatalogue.application.dto.request.CatalogItemCreateUpdateRequest;
 import com.sonnguyen.sncatalogue.application.dto.request.CatalogItemSearchRequest;
-import com.sonnguyen.sncatalogue.application.dto.response.CatalogItemDetailResponse;
 import com.sonnguyen.sncatalogue.domain.CatalogItem;
-
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

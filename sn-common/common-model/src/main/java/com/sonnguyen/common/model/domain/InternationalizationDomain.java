@@ -4,22 +4,18 @@ import com.sonnguyen.common.model.domain.command.MessageLocaleCmd;
 import com.sonnguyen.common.model.infrastructure.support.enums.DomainType;
 import com.sonnguyen.common.model.infrastructure.support.enums.LocaleCode;
 import com.sonnguyen.common.util.DataUtils;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.experimental.SuperBuilder;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
 
-public interface InternationalizationDomain{
+public interface InternationalizationDomain {
 
     default void updateLocale(UUID domainId, DomainType domainType, List<MessageLocaleCmd> messageLocaleCmds) {
         final List<MessageLocale> messageLocales = new ArrayList<>();

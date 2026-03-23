@@ -1,8 +1,0 @@
-com/sonnguyen/common/client/impl/IAMClientFallbackFactory$IAMFallbackHandler.class
-com/sonnguyen/common/client/impl/IAMClientFallbackFactory.class
-com/sonnguyen/common/client/BadRequestError.class
-com/sonnguyen/common/client/ClientTokenProvider.class
-com/sonnguyen/common/client/IAMClient.class
-com/sonnguyen/common/client/ClientConfiguration.class
-com/sonnguyen/common/client/SystemClientProps.class
-com/sonnguyen/common/client/FeignClientConfig.class

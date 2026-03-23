@@ -1,8 +1,8 @@
 package com.sonnguyen.common.web.configuration.impl;
 
 import com.sonnguyen.common.model.application.response.Response;
-import com.sonnguyen.common.model.infrastructure.support.constant.HttpStatus;
 import com.sonnguyen.common.model.infrastructure.exception.ResponseException;
+import com.sonnguyen.common.model.infrastructure.support.constant.HttpStatus;
 import lombok.AccessLevel;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;

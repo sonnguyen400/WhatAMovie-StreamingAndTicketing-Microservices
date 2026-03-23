@@ -33,42 +33,42 @@ import java.security.NoSuchAlgorithmException;
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 @RequiredArgsConstructor
 public class MinIOAdapter implements StorageAdapter {
-	MinioClient minioClient;
-	StorageProperties storageProperties;
+    MinioClient minioClient;
+    StorageProperties storageProperties;
 
-	@Override
-	public FileUploadResult uploadFile(String path, String originalFileName, byte[] data, Mimetype mimetype) {
-		try (InputStream inputStream = new ByteArrayInputStream(data)) {
-			String id = IdUtils.nextStrId();
-			boolean found = this.minioClient.bucketExists(BucketExistsArgs.builder().bucket(path).build());
-			if (!found) {
-				this.minioClient.makeBucket(MakeBucketArgs.builder().bucket(path).build());
-			}
-			ObjectWriteResponse objectWriteResponse = this.minioClient
-					.putObject(PutObjectArgs.builder().bucket(path).object(originalFileName)
-							.stream(inputStream, inputStream.available(), -1).contentType(mimetype.getValue()).build());
+    @Override
+    public FileUploadResult uploadFile(String path, String originalFileName, byte[] data, Mimetype mimetype) {
+        try (InputStream inputStream = new ByteArrayInputStream(data)) {
+            String id = IdUtils.nextStrId();
+            boolean found = this.minioClient.bucketExists(BucketExistsArgs.builder().bucket(path).build());
+            if (!found) {
+                this.minioClient.makeBucket(MakeBucketArgs.builder().bucket(path).build());
+            }
+            ObjectWriteResponse objectWriteResponse = this.minioClient
+                    .putObject(PutObjectArgs.builder().bucket(path).object(originalFileName)
+                            .stream(inputStream, inputStream.available(), -1).contentType(mimetype.getValue()).build());
 
-			return FileUploadResult.builder().externalId(id).url(objectWriteResponse.object()).build();
-		} catch (Exception e) {
-			throw new RuntimeException("Error occurred: " + e.getMessage());
-		}
-	}
+            return FileUploadResult.builder().externalId(id).url(objectWriteResponse.object()).build();
+        } catch (Exception e) {
+            throw new RuntimeException("Error occurred: " + e.getMessage());
+        }
+    }
 
-	@Override
-	public byte[] getFile(String bucketName, String objectName) {
-		try {
-			GetObjectResponse response = this.minioClient
-					.getObject(GetObjectArgs.builder().bucket(bucketName).object(objectName).build());
-			return response.readAllBytes();
-		} catch (InsufficientDataException | ErrorResponseException | IOException | NoSuchAlgorithmException
-				| InvalidKeyException | InvalidResponseException | IllegalArgumentException
-				| io.minio.errors.ServerException | XmlParserException | InternalException e) {
-			throw new RuntimeException(e);
-		}
-	}
+    @Override
+    public byte[] getFile(String bucketName, String objectName) {
+        try {
+            GetObjectResponse response = this.minioClient
+                    .getObject(GetObjectArgs.builder().bucket(bucketName).object(objectName).build());
+            return response.readAllBytes();
+        } catch (InsufficientDataException | ErrorResponseException | IOException | NoSuchAlgorithmException
+                 | InvalidKeyException | InvalidResponseException | IllegalArgumentException
+                 | io.minio.errors.ServerException | XmlParserException | InternalException e) {
+            throw new RuntimeException(e);
+        }
+    }
 
-	@Override
-	public StorageProvider getProvider() {
-		return StorageProvider.MINIO;
-	}
+    @Override
+    public StorageProvider getProvider() {
+        return StorageProvider.MINIO;
+    }
 }

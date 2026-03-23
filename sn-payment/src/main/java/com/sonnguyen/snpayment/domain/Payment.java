@@ -67,14 +67,14 @@ public class Payment extends AuditingDomain {
     }
 
     private void processDetails(List<PaymentDetailCreateCmd> details) {
-        if(CollectionUtils.isEmpty(details)) {
+        if (CollectionUtils.isEmpty(details)) {
             this.amount = BigDecimal.ZERO;
             return;
         }
         this.amount = details.stream()
                 .map(PaymentDetailCreateCmd::getAmount)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
-        this.paymentDetails = details.stream().map(it->new PaymentDetail(this, it)).toList();
+        this.paymentDetails = details.stream().map(it -> new PaymentDetail(this, it)).toList();
     }
 
     public void createTransaction(TransactionStatus status, MerchantAccount merchantAccount) {

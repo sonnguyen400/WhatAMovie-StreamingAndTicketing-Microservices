@@ -18,7 +18,7 @@ public class ContentTag extends AuditingDomain {
     private DomainType domainType;
     private Boolean deleted;
 
-    public ContentTag(UUID tagId, UUID domainId,DomainType domainType) {
+    public ContentTag(UUID tagId, UUID domainId, DomainType domainType) {
         this.id = IdUtils.nextId();
         this.domainId = domainId;
         this.tagId = tagId;

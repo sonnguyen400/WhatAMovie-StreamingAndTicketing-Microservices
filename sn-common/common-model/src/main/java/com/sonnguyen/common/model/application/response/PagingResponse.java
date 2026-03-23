@@ -7,7 +7,6 @@ import lombok.Setter;
 import lombok.experimental.SuperBuilder;
 
 import java.util.Collection;
-import java.util.List;
 
 @Setter
 @Getter
@@ -23,7 +22,7 @@ public class PagingResponse<T> extends Response<Collection<? extends T>> {
     }
 
     public static <T> PagingResponse<T> of(Collection<? extends T> data, Long total, Long pageSize, Long pageIndex) {
-        PagingResponse<T> pagingResponse =PagingResponse
+        PagingResponse<T> pagingResponse = PagingResponse
                 .<T>pagingBuilder()
                 .data(data)
                 .total(total)

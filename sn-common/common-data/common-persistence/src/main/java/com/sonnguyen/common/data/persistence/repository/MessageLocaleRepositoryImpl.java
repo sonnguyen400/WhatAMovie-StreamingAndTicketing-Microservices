@@ -36,7 +36,7 @@ public class MessageLocaleRepositoryImpl extends AbstractDomainRepository<Messag
         Map<UUID, List<MessageLocale>> messageLocales = this.mapper.toDomain(messageLocaleEntities)
                 .stream()
                 .collect(Collectors.groupingBy(MessageLocale::getDomainId));
-        for(T domain : domains) {
+        for (T domain : domains) {
             List<MessageLocale> locales = messageLocales.getOrDefault(domain.getId(), List.of());
             locales.forEach(domain::localize);
         }

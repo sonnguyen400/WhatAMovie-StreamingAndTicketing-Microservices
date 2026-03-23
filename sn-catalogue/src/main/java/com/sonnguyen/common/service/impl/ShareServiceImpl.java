@@ -24,14 +24,14 @@ public class ShareServiceImpl implements ShareService {
 
     @Override
     public List<ContentTag> assignTagsToDomain(List<ContentTag> contentTags) {
-        if(CollectionUtils.isEmpty(contentTags)) return List.of();
+        if (CollectionUtils.isEmpty(contentTags)) return List.of();
         TagAssignmentRequest request = TagAssignmentRequest.builder()
                 .domainId(contentTags.get(0).getDomainId())
                 .domainType(contentTags.get(0).getDomainType())
                 .tagIds(contentTags.stream().map(ContentTag::getTagId).toList())
                 .build();
         Response<List<ContentTag>> response = this.systemClient.assignTags(request);
-        if(response.isSuccess() && response.getData() != null) {
+        if (response.isSuccess() && response.getData() != null) {
             return response.getData();
         }
         return List.of();
@@ -39,9 +39,9 @@ public class ShareServiceImpl implements ShareService {
 
     @Override
     public Collection<Tag> getTagsByIds(List<UUID> tagIds) {
-        if(CollectionUtils.isEmpty(tagIds)) return List.of();
+        if (CollectionUtils.isEmpty(tagIds)) return List.of();
         Response<Collection<Tag>> response = this.systemClient.findAllTagsByIds(new FindByIdsRequest(tagIds));
-        if(response.isSuccess() && response.getData() != null) {
+        if (response.isSuccess() && response.getData() != null) {
             return response.getData();
         }
         return List.of();

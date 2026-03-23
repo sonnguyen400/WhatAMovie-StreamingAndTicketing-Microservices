@@ -1,14 +1,13 @@
 package com.sonnguyen.common.model.application.response;
 
-import com.sonnguyen.common.model.infrastructure.support.constant.HttpStatus;
 import com.sonnguyen.common.model.infrastructure.exception.Error;
 import com.sonnguyen.common.model.infrastructure.exception.ResponseException;
+import com.sonnguyen.common.model.infrastructure.support.constant.HttpStatus;
 import com.sonnguyen.common.util.StrUtils;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.experimental.SuperBuilder;
-
 
 import java.io.Serializable;
 

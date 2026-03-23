@@ -36,7 +36,7 @@ public class CatalogItemCommandServiceImpl implements CatalogItemCommandService 
     }
 
     @Override
-    public CatalogItem updateCatalogItem(UUID id, CatalogItemCreateUpdateRequest request){
+    public CatalogItem updateCatalogItem(UUID id, CatalogItemCreateUpdateRequest request) {
         CatalogItemCreateOrUpdateCmd cmd = this.catalogueCommandMapper.from(request);
         List<UUID> childCatalogItemIds = cmd.getChildIds();
         List<CatalogItem> catalogItems = this.catalogItemRepository

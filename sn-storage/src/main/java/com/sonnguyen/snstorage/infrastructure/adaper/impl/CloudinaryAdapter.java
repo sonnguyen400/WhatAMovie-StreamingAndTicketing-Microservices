@@ -44,7 +44,7 @@ public class CloudinaryAdapter implements StorageAdapter {
     @SneakyThrows
     @Override
     public byte[] getFile(String bucketName, String id) {
-        ApiResponse response = this.cloudinary.api().resource(bucketName+id, Map.of());
+        ApiResponse response = this.cloudinary.api().resource(bucketName + id, Map.of());
         return new byte[0];
     }
 

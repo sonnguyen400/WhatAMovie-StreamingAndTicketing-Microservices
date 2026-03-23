@@ -4,7 +4,6 @@ import com.sonnguyen.common.model.application.response.PagingResponse;
 import com.sonnguyen.common.model.application.response.Response;
 import com.sonnguyen.sncatalogue.application.dto.request.CatalogItemCreateUpdateRequest;
 import com.sonnguyen.sncatalogue.application.dto.request.CatalogItemSearchRequest;
-import com.sonnguyen.sncatalogue.application.dto.response.CatalogItemDetailResponse;
 import com.sonnguyen.sncatalogue.application.service.CatalogItemCommandService;
 import com.sonnguyen.sncatalogue.application.service.CatalogItemQueryService;
 import com.sonnguyen.sncatalogue.domain.CatalogItem;
@@ -34,7 +33,7 @@ public class CatalogueControllerImpl implements CatalogueController {
     }
 
     @Override
-    public Response<CatalogItem> updateCatalogItemById( UUID id, CatalogItemCreateUpdateRequest request) {
+    public Response<CatalogItem> updateCatalogItemById(UUID id, CatalogItemCreateUpdateRequest request) {
         return Response.of(catalogItemCommandService.updateCatalogItem(id, request));
     }
 

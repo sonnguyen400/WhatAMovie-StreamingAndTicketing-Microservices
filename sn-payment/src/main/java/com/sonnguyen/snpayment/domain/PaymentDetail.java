@@ -22,7 +22,7 @@ public class PaymentDetail extends AuditingDomain {
     private BigDecimal amount;
     private CurrencyUnit currencyUnit;
 
-    public PaymentDetail(Payment payment, PaymentDetailCreateCmd paymentDetailCreateCmd){
+    public PaymentDetail(Payment payment, PaymentDetailCreateCmd paymentDetailCreateCmd) {
         this.id = IdUtils.nextId();
         this.paymentId = payment.getId();
         this.description = paymentDetailCreateCmd.getDescription();

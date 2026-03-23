@@ -25,7 +25,7 @@ public class RoleCommandServiceImpl implements RoleCommandService {
     PermissionRepository permissionRepository;
 
     @Override
-    public RoleDetailResponse updateById(UUID id, RoleCreateOrUpdateRequest request){
+    public RoleDetailResponse updateById(UUID id, RoleCreateOrUpdateRequest request) {
         Role role = this.roleRepository.getById(id);
         RoleCreateOrUpdateCmd cmd = this.iamCommandMapper.from(request);
         Collection<Permission> allExistingPermissions = this.permissionRepository.findAll();

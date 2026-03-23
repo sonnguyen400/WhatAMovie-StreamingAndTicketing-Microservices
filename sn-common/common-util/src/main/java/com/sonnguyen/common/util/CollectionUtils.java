@@ -30,11 +30,11 @@ public class CollectionUtils {
     }
 
     public static Boolean isNotBlank(Collection<?> collection) {
-        if(collection == null || !collection.iterator().hasNext()) return false;
+        if (collection == null || !collection.iterator().hasNext()) return false;
         boolean isNotBlank = false;
         Iterator<?> iterator = collection.iterator();
-        while (iterator.hasNext()){
-            if(iterator.next() != null){
+        while (iterator.hasNext()) {
+            if (iterator.next() != null) {
                 isNotBlank = true;
                 break;
             }

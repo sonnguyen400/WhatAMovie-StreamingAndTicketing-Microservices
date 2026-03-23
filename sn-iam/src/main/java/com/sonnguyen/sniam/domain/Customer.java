@@ -33,7 +33,7 @@ public class Customer extends AuditingDomain {
     private CustomerType type;
     private LocalDate dateOfBirth;
 
-    public Customer(CustomerCreateOrUpdateCmd cmd){
+    public Customer(CustomerCreateOrUpdateCmd cmd) {
         this.id = IdUtils.nextId();
         this.fullName = cmd.getFullName();
         this.firstName = cmd.getFirstName();
@@ -44,7 +44,7 @@ public class Customer extends AuditingDomain {
         this.dateOfBirth = cmd.getDateOfBirth();
     }
 
-    public Customer(User user){
+    public Customer(User user) {
         this.id = IdUtils.nextId();
         this.lastName = user.getLastName();
         this.firstName = user.getFirstName();

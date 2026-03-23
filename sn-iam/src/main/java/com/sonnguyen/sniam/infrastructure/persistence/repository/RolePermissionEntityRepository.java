@@ -1,6 +1,5 @@
 package com.sonnguyen.sniam.infrastructure.persistence.repository;
 
-import com.sonnguyen.sniam.domain.RolePermission;
 import com.sonnguyen.sniam.infrastructure.persistence.entity.RolePermissionEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;

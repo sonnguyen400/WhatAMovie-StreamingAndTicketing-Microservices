@@ -2,7 +2,6 @@ package com.sonnguyen.snstorage.domain.cmd;
 
 import com.sonnguyen.common.model.infrastructure.support.enums.Mimetype;
 import com.sonnguyen.snstorage.domain.FileMetaData;
-import com.sonnguyen.snstorage.infrastructure.support.enums.StorageProvider;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

@@ -1,15 +1,12 @@
 package com.sonnguyen.sncatalogue.infrastructure.persistence.entity;
 
 import com.sonnguyen.common.data.persistence.entity.AuditingEntity;
-import com.sonnguyen.sncatalogue.domain.Person;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.JdbcTypeCode;
-import org.hibernate.type.SqlTypes;
 
 import java.time.LocalDate;
 import java.util.UUID;

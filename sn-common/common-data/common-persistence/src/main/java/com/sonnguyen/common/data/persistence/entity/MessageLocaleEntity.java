@@ -1,6 +1,5 @@
 package com.sonnguyen.common.data.persistence.entity;
 
-import com.sonnguyen.common.data.persistence.entity.AuditingEntity;
 import com.sonnguyen.common.model.infrastructure.support.enums.DomainType;
 import com.sonnguyen.common.model.infrastructure.support.enums.LocaleCode;
 import com.sonnguyen.common.util.Validator;

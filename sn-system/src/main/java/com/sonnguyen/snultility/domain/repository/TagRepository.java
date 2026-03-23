@@ -5,7 +5,6 @@ import com.sonnguyen.snultility.application.dto.request.FindAllTagByKeyRequest;
 import com.sonnguyen.snultility.domain.Tag;
 import com.sonnguyen.snultility.domain.query.TagSearchQuery;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
 
